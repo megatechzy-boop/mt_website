@@ -1,0 +1,4 @@
+storage/*.jsonl
+storage/qa/
+vendor/
+.env

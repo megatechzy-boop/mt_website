@@ -1,0 +1,104 @@
+Mega Techzy AI Development Guide
+
+Project overview
+Mega Techzy is a premium digital marketing and website development company serving Pune, PCMC, Solapur and future Maharashtra/India markets. The website must generate qualified leads, rank for local and service keywords, load quickly and feel trustworthy.
+
+Business goals
+Every page should answer:
+1. Why should a customer trust Mega Techzy?
+2. Why should Google rank Mega Techzy above competitors?
+
+Primary services
+Website Development, SEO, Google Ads, Meta Ads, LinkedIn Ads, Email Marketing and Zoho Automation, WhatsApp Marketing, Analytics, Branding, Social Media, Content Marketing, Video Marketing, Ecommerce Marketing and Lead Generation.
+
+Primary local SEO targets
+Digital Marketing Company in Pune, Website Development Company in Pune, SEO Company in Pune, Digital Marketing Company in PCMC, Website Development Company in Solapur, Google Ads Agency Pune, Lead Generation Company Pune and Branding Agency Pune.
+
+Folder structure
+/index.php
+/about.php
+/contact.php
+/services/
+/locations/
+/portfolio/
+/blog/
+/industries/
+/case-studies/
+/assets/css/
+/assets/js/
+/assets/images/
+/includes/
+/api/
+/robots.txt
+/sitemap.xml
+/.htaccess
+/README.md
+/llm.txt
+
+Architecture
+Use PHP 8+, HTML5, CSS3 and vanilla JavaScript only. Do not use React, Vue, Angular, Bootstrap, jQuery, Tailwind CSS or heavy UI libraries. Keep shared content in includes/data.php. Use reusable templates for service and location pages. Use includes/lead-form.php for every enquiry form. All form submissions go to /api/contact.php.
+
+Design system
+Style should be modern, minimal, professional, corporate, clean, premium, technology-focused and fast. Use white space, restrained shadows, 8px rounded corners and clear hierarchy. Avoid flashy effects and decorative clutter.
+
+Colors
+Primary Blue #0F62FE
+Secondary Blue #2563EB
+Dark #111827
+Light Background #F8FAFC
+White #FFFFFF
+Accent #14B8A6
+Success #22C55E
+Warning #F59E0B
+Error #EF4444
+
+Typography
+Headings use Poppins with Inter, Arial, sans-serif fallback. Body uses Inter with Arial, sans-serif fallback. Do not use viewport-based font scaling. Keep letter spacing at 0.
+
+Component standards
+Use semantic sections, clear buttons, accessible forms, focus states, concise copy and internal links. Cards are for repeated items, modals and framed tools only. Do not nest cards inside cards. Keep UI text inside its container on mobile and desktop.
+
+Lead form architecture
+Fields: Name, Phone, Email, Company Name, Service Interested In and Message. Include CSRF token and honeypot. Validate and sanitize on the server. Rate-limit submissions. Use PHPMailer when installed and configured. Keep local JSONL fallback only for development or safety; production should configure SMTP or MySQL.
+
+SEO rules
+Every page needs a unique title, meta description, canonical URL, Open Graph, Twitter card metadata and relevant schema. Use Organization and LocalBusiness schema globally. Use Service schema on service pages. Use Breadcrumb schema for navigable pages. Use FAQ schema wherever FAQs are present. Keep headings semantic and keyword-aware without stuffing.
+
+Internal linking strategy
+Homepage links to priority services, locations, portfolio, blog and contact. Service pages link to related services. Location pages link to high-impact services. Blog posts link toward contact and relevant services where useful. Keep links descriptive.
+
+Schema implementation guide
+Global schema is generated in includes/header.php from includes/config.php. Add page-specific schema through $pageSchemas before including the header. Use faq_schema() and breadcrumb_schema() helpers.
+
+Image optimization rules
+Use meaningful alt text for inline images. Keep hero and marketing assets compressed before production. Prefer WebP for final deployment when available. Lazy-load non-critical images. Preload only the critical hero image.
+
+Accessibility checklist
+Use keyboard-accessible navigation, visible focus states, skip link, labels on all form controls, semantic headings, readable color contrast and ARIA only where necessary. Details/summary is acceptable for FAQs.
+
+Security rules
+Never trust client-side validation. Escape output with e(). Validate and sanitize input server-side. Use CSRF protection, honeypot spam field, rate limiting, secure headers and prepared SQL statements if a database is added. Do not commit secrets.
+
+Performance goals
+Target Lighthouse Performance 95+, SEO 100, Accessibility 95+ and Best Practices 100. Keep CSS and JS lightweight. Defer JavaScript. Avoid unused assets. Avoid heavy external dependencies.
+
+Naming conventions
+Use lowercase kebab-case for public page filenames and slugs. Use clear PHP variable names. Keep service slugs stable because URLs and internal links depend on them.
+
+Future development guidelines
+Add new services by extending $services in includes/data.php, then create a tiny wrapper file in /services/. Add new locations by extending $locations and creating a wrapper file in /locations/. Update sitemap.xml whenever public URLs change. Replace placeholder portfolio/case study text with verified business outcomes before launch.
+
+Do's
+Build for trust, speed, ranking and conversion.
+Keep code maintainable and reusable.
+Use factual local SEO copy.
+Use analytics and conversion tracking in production.
+Keep content unique on service and location pages.
+
+Don'ts
+Do not add heavy frameworks.
+Do not duplicate form logic.
+Do not stuff keywords unnaturally.
+Do not expose secrets.
+Do not publish unverifiable client claims.
+
