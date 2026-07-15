@@ -13,7 +13,7 @@ $pageSchemas = [breadcrumb_schema([
 include __DIR__ . '/includes/header.php';
 include __DIR__ . '/includes/navbar.php';
 ?>
-<main id="main">
+<main id="main" class="agency-inner">
     <section class="page-hero">
         <div class="container page-hero-grid">
             <div>
@@ -42,4 +42,3 @@ include __DIR__ . '/includes/navbar.php';
     </section>
 </main>
 <?php include __DIR__ . '/includes/footer.php'; ?>
-

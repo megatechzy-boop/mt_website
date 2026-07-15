@@ -84,6 +84,8 @@ function build_global_schema(): array
             'name' => SITE_NAME,
             'url' => SITE_URL,
             'email' => CONTACT_EMAIL,
+            'foundingDate' => '2019',
+            'description' => 'Digital marketing and website development company providing SEO, paid ads, automation, analytics and lead generation services.',
             'areaServed' => ['Pune', 'PCMC', 'Solapur', 'Maharashtra', 'India'],
             'sameAs' => [],
         ],

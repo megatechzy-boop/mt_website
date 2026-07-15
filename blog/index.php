@@ -13,7 +13,7 @@ $pageSchemas = [breadcrumb_schema([
 include dirname(__DIR__) . '/includes/header.php';
 include dirname(__DIR__) . '/includes/navbar.php';
 ?>
-<main id="main">
+<main id="main" class="agency-inner">
     <section class="page-hero">
         <div class="container narrow">
             <p class="eyebrow">Blog</p>
@@ -22,16 +22,21 @@ include dirname(__DIR__) . '/includes/navbar.php';
         </div>
     </section>
     <section class="section">
-        <div class="container card-grid">
-            <?php foreach ($blogPosts as $post): ?>
-                <article class="blog-card">
-                    <h2><a href="/blog/<?= e($post['slug']); ?>.php"><?= e($post['title']); ?></a></h2>
-                    <p><?= e($post['excerpt']); ?></p>
-                    <a class="link-arrow" href="/blog/<?= e($post['slug']); ?>.php">Read guide <?= icon_svg('arrow'); ?></a>
-                </article>
-            <?php endforeach; ?>
-        </div>
+        <?php if ($blogPosts): ?>
+            <div class="container card-grid">
+                <?php foreach ($blogPosts as $post): ?>
+                    <article class="blog-card">
+                        <h2><a href="/blog/<?= e($post['slug']); ?>.php"><?= e($post['title']); ?></a></h2>
+                        <p><?= e($post['excerpt']); ?></p>
+                        <a class="link-arrow" href="/blog/<?= e($post['slug']); ?>.php">Read guide <?= icon_svg('arrow'); ?></a>
+                    </article>
+                <?php endforeach; ?>
+            </div>
+        <?php else: ?>
+            <div class="container narrow">
+                <p>Approved insights will be published here.</p>
+            </div>
+        <?php endif; ?>
     </section>
 </main>
 <?php include dirname(__DIR__) . '/includes/footer.php'; ?>
-

@@ -27,7 +27,6 @@ $schemas = array_merge(build_global_schema(), $pageSchemas ?? []);
     <meta name="twitter:description" content="<?= e($description); ?>">
     <meta name="twitter:image" content="<?= e($ogImage); ?>">
     <link rel="icon" type="image/svg+xml" href="<?= e(asset_url('icons/favicon.svg')); ?>">
-    <link rel="preload" as="image" href="<?= e(asset_url('images/mega-techzy-digital-growth-hero.png')); ?>">
     <link rel="stylesheet" href="<?= e(asset_url('css/styles.css')); ?>">
     <?php foreach ($schemas as $schema): ?>
         <script type="application/ld+json"><?= json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?></script>

@@ -33,7 +33,7 @@ $pageSchemas = [
 include dirname(__DIR__) . '/includes/header.php';
 include dirname(__DIR__) . '/includes/navbar.php';
 ?>
-<main id="main">
+<main id="main" class="agency-inner">
     <section class="page-hero">
         <div class="container page-hero-grid">
             <div>
@@ -49,6 +49,7 @@ include dirname(__DIR__) . '/includes/navbar.php';
                 <span class="card-icon"><?= icon_svg($service['icon']); ?></span>
                 <h2>Why it works</h2>
                 <p><?= e($service['proof']); ?></p>
+                <p><strong>Established in 2019.</strong> Mega Techzy has served 100+ clients and delivered 50+ projects.</p>
             </aside>
         </div>
     </section>
@@ -121,4 +122,3 @@ include dirname(__DIR__) . '/includes/navbar.php';
     </section>
 </main>
 <?php include dirname(__DIR__) . '/includes/footer.php'; ?>
-

@@ -4,7 +4,7 @@ require __DIR__ . '/includes/data.php';
 
 $pageMeta = [
     'title' => 'Mega Techzy - Digital Marketing Company in Pune, PCMC and Solapur',
-    'description' => 'Mega Techzy is a premium digital marketing and website development company helping businesses grow with SEO, Google Ads, Meta Ads, branding and lead generation.',
+    'description' => 'Mega Techzy is a digital marketing and website development company established in 2019, serving businesses in Pune, PCMC, Solapur and across India with SEO, Google Ads, websites and automation.',
     'path' => '',
 ];
 $pageSchemas = [
@@ -12,203 +12,206 @@ $pageSchemas = [
     breadcrumb_schema([
         ['name' => 'Home', 'path' => ''],
     ]),
+    [
+        '@context' => 'https://schema.org',
+        '@type' => 'WebPage',
+        'name' => 'Mega Techzy - Digital Marketing Company in Pune, PCMC and Solapur',
+        'description' => 'Digital marketing, website development, SEO, paid ads and automation services from Mega Techzy.',
+        'url' => site_url(),
+        'about' => ['Digital marketing', 'Website development', 'SEO', 'Lead generation'],
+    ],
+];
+$industryShowcase = [
+    ['name' => 'Manufacturing', 'image' => 'industry-manufacturing.webp', 'copy' => 'Industrial visibility and lead systems.'],
+    ['name' => 'Real Estate', 'image' => 'industry-real-estate.webp', 'copy' => 'Launch campaigns made to move enquiries.'],
+    ['name' => 'Healthcare', 'image' => 'industry-healthcare.webp', 'copy' => 'Trust-led digital experiences for care.'],
+    ['name' => 'Education', 'image' => 'industry-education.webp', 'copy' => 'Demand generation for learning brands.'],
+    ['name' => 'Retail and Ecommerce', 'image' => 'industry-commerce.webp', 'copy' => 'Campaigns built for attention and action.'],
 ];
 include __DIR__ . '/includes/header.php';
 include __DIR__ . '/includes/navbar.php';
 ?>
-<main id="main">
-    <section class="hero">
-        <div class="container hero-inner">
-            <div class="hero-copy">
-                <p class="eyebrow eyebrow-light">Digital growth studio for ambitious brands</p>
-                <h1>Make your brand<br><span>impossible to ignore.</span></h1>
-                <p class="hero-lede">Mega Techzy combines standout websites, sharp SEO, high-intent advertising and automation into one growth system that actually feels premium.</p>
-                <div class="hero-actions">
-                    <a class="btn btn-primary" href="/contact.php">Get Free Strategy Call <?= icon_svg('arrow'); ?></a>
-                    <a class="btn btn-secondary" href="/services/">Explore Services</a>
+<main id="main" class="agency-home">
+    <section class="agency-hero">
+        <div class="container agency-hero-grid">
+            <div class="agency-hero-copy" data-reveal>
+                <p class="agency-kicker"><span></span> Digital marketing and web studio</p>
+                <h1>We make<br>brands <em>matter.</em></h1>
+                <p class="agency-lede">Mega Techzy is a digital marketing company in Pune serving PCMC, Solapur and businesses across India with websites, SEO, paid ads and automation.</p>
+                <div class="agency-hero-actions">
+                    <a class="agency-button agency-button-gold" href="/contact.php">Start a project <?= icon_svg('arrow'); ?></a>
+                    <a class="agency-text-link" href="#work">Explore our work <span>&darr;</span></a>
                 </div>
-                <dl class="hero-metrics" aria-label="Mega Techzy strengths">
-                    <div><dt>95+</dt><dd>Performance target</dd></div>
-                    <div><dt>14</dt><dd>Growth services</dd></div>
-                    <div><dt>3</dt><dd>Primary markets</dd></div>
-                </dl>
-                <p class="hero-location"><span></span> Pune, PCMC and Solapur</p>
+                <div class="agency-hero-footer">
+                    <span>Based in Maharashtra</span>
+                    <span>Working across India</span>
+                </div>
             </div>
-            <div class="hero-visual" aria-label="Mega Techzy premium growth dashboard">
-                <div class="hero-logo-card">
-                    <img src="/assets/images/mega-techzy-logo.png" alt="Mega Techzy logo" width="520" height="527">
-                </div>
-                <div class="dashboard-card dashboard-card-main">
-                    <span class="mini-label">SEO Growth</span>
+            <div class="agency-hero-art" aria-label="Digital growth showcase" data-reveal>
+                <div class="hero-orbit hero-orbit-one"></div>
+                <div class="hero-orbit hero-orbit-two"></div>
+                <div class="hero-growth-core">
+                    <span class="hero-core-eyebrow"><i></i> Growth signal</span>
                     <strong>+68%</strong>
-                    <div class="growth-line"><span></span><span></span><span></span><span></span><span></span></div>
+                    <span class="hero-core-copy">Organic visibility<br>built to compound</span>
+                    <div class="hero-core-trend" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
                 </div>
-                <div class="dashboard-card dashboard-card-secondary">
-                    <span class="mini-label">Lead Funnel</span>
-                    <div class="funnel-bars"><span></span><span></span><span></span></div>
-                </div>
-                <div class="dashboard-card dashboard-card-tertiary">
-                    <?= icon_svg('shield'); ?>
-                    <span>Trust-first websites</span>
+                <div class="hero-note hero-note-top"><strong>SEO</strong><span>Visibility</span></div>
+                <div class="hero-note hero-note-bottom"><strong>ADS</strong><span>Momentum</span></div>
+                <div class="hero-signal"><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+        </div>
+        <div class="agency-scroll-cue">Scroll to discover <span>&darr;</span></div>
+    </section>
+
+    <section class="agency-marquee" aria-label="Mega Techzy capabilities">
+        <div class="agency-marquee-track">
+            <span>Websites</span><b>*</b><span>SEO</span><b>*</b><span>Paid Media</span><b>*</b><span>Branding</span><b>*</b><span>Automation</span><b>*</b><span>Lead Generation</span><b>*</b>
+            <span>Websites</span><b>*</b><span>SEO</span><b>*</b><span>Paid Media</span><b>*</b><span>Branding</span><b>*</b>
+        </div>
+    </section>
+
+    <section class="agency-statement section">
+        <div class="container">
+            <p class="agency-kicker dark-kicker"><span></span> The Mega Techzy approach</p>
+            <div class="agency-statement-grid">
+                <h2>Strategy meets <em>creative energy</em> and turns into growth.</h2>
+                <div>
+                    <p>We build the digital moments that make people stop, trust and take action. From the first Google search to the final enquiry, every touchpoint is deliberate.</p>
+                    <a class="agency-text-link agency-text-link-dark" href="/about.php">Meet Mega Techzy <span>&rarr;</span></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="trust-strip" aria-label="Trusted by businesses">
-        <div class="container trust-row">
-            <span>Trusted by growth-focused teams in</span>
-            <strong>Pune</strong><strong>PCMC</strong><strong>Solapur</strong><strong>Maharashtra</strong>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="container split-heading">
+    <section class="agency-work section" id="work">
+        <div class="container agency-section-heading">
             <div>
-                <p class="eyebrow">Services</p>
-                <h2>Everything your digital growth engine needs</h2>
+                <p class="agency-kicker"><span></span> Selected work</p>
+                <h2>Designed to be<br><em>remembered.</em></h2>
             </div>
-            <a class="link-arrow" href="/services/">View all services <?= icon_svg('arrow'); ?></a>
+            <a class="agency-button agency-button-outline" href="/portfolio/">View all work <?= icon_svg('arrow'); ?></a>
         </div>
-        <div class="container card-grid service-grid">
-            <?php $serviceIndex = 1; foreach (array_slice($services, 0, 8) as $slug => $service): ?>
-                <article class="service-card">
-                    <span class="service-number">0<?= $serviceIndex++; ?></span>
-                    <span class="card-icon"><?= icon_svg($service['icon']); ?></span>
-                    <h3><a href="/services/<?= e($slug); ?>.php"><?= e($service['name']); ?></a></h3>
-                    <p><?= e($service['intro']); ?></p>
-                    <a class="service-link" href="/services/<?= e($slug); ?>.php">Explore service <?= icon_svg('arrow'); ?></a>
+        <div class="container work-grid">
+            <article class="work-tile work-tile-wide" data-reveal>
+                <img src="/assets/images/mega-techzy-digital-growth-hero.webp" alt="Digital growth dashboard and website design" loading="lazy" decoding="async" width="1712" height="960">
+                <div class="work-tile-overlay">
+                    <p>Digital Growth System</p>
+                    <h3>Websites that become the centre of your marketing.</h3>
+                    <span>Website development + analytics</span>
+                </div>
+            </article>
+            <article class="work-tile work-tile-brand" data-reveal>
+                <div class="work-brand-symbol">MT</div>
+                <div class="work-tile-overlay">
+                    <p>Brand Direction</p>
+                    <h3>Identity with a clear point of view.</h3>
+                    <span>Branding + creative strategy</span>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="agency-services section">
+        <div class="container agency-section-heading">
+            <div>
+                <p class="agency-kicker dark-kicker"><span></span> What we do</p>
+                <h2>Capabilities with<br><em>real pull.</em></h2>
+            </div>
+            <p class="agency-side-copy">Pick a focused service or connect every channel into one powerful growth engine.</p>
+        </div>
+        <div class="container agency-service-list">
+            <?php $serviceNumber = 1; foreach (array_slice($services, 0, 8) as $slug => $service): ?>
+                <a class="agency-service-row" href="/services/<?= e($slug); ?>.php" data-reveal>
+                    <span class="agency-service-no">0<?= $serviceNumber++; ?></span>
+                    <span class="agency-service-icon"><?= icon_svg($service['icon']); ?></span>
+                    <span class="agency-service-name"><?= e($service['name']); ?></span>
+                    <span class="agency-service-copy"><?= e($service['outcomes'][0]); ?></span>
+                    <span class="agency-service-arrow"><?= icon_svg('arrow'); ?></span>
+                </a>
+            <?php endforeach; ?>
+        </div>
+        <div class="container agency-services-foot"><a class="agency-text-link agency-text-link-dark" href="/services/">See all 14 services <span>&rarr;</span></a></div>
+    </section>
+
+    <section class="agency-industries section">
+        <div class="container agency-section-heading">
+            <div>
+                <p class="agency-kicker"><span></span> Industries</p>
+                <h2>Different markets.<br><em>One sharp system.</em></h2>
+            </div>
+            <p class="agency-side-copy light-copy">Every industry needs a different trust story, offer and conversion path. We shape the system around yours.</p>
+        </div>
+        <div class="container industry-showcase-grid">
+            <?php foreach ($industryShowcase as $index => $industry): ?>
+                <article class="industry-tile industry-tile-<?= $index + 1; ?>" data-reveal>
+                    <img src="/assets/images/<?= e($industry['image']); ?>" alt="<?= e($industry['name']); ?> marketing services" loading="lazy" decoding="async" width="1536" height="1024">
+                    <div class="industry-tile-overlay">
+                        <span>0<?= $index + 1; ?></span>
+                        <h3><?= e($industry['name']); ?></h3>
+                        <p><?= e($industry['copy']); ?></p>
+                    </div>
                 </article>
             <?php endforeach; ?>
         </div>
-    </section>
-
-    <section class="section soft-section">
-        <div class="container feature-layout">
-            <div>
-                <p class="eyebrow">Why Mega Techzy</p>
-                <h2>Built for trust, ranking and conversion</h2>
-                <p>Every page is planned to answer why customers should trust the business and why Google should rank it above competitors.</p>
-            </div>
-            <div class="feature-list">
-                <div><?= icon_svg('shield'); ?><span>Secure PHP forms with CSRF, honeypot and server-side validation.</span></div>
-                <div><?= icon_svg('search'); ?><span>SEO-first structure with metadata, schema, internal links and location intent.</span></div>
-                <div><?= icon_svg('chart'); ?><span>Analytics-ready conversion paths that make campaign decisions clearer.</span></div>
-            </div>
+        <div class="container industry-chip-row">
+            <span>Professional Services</span><span>Local Businesses</span><span>Retail</span><span>Lead-focused B2B</span>
         </div>
     </section>
 
-    <section class="section">
-        <div class="container split-heading">
+    <section class="agency-process section">
+        <div class="container agency-section-heading">
             <div>
-                <p class="eyebrow">Industries</p>
-                <h2>Marketing systems for practical business growth</h2>
+                <p class="agency-kicker dark-kicker"><span></span> How it moves</p>
+                <h2>From first spark<br>to <em>real momentum.</em></h2>
             </div>
         </div>
-        <div class="container pill-grid">
-            <?php foreach ($industries as $industry): ?>
-                <span><?= e($industry); ?></span>
-            <?php endforeach; ?>
-        </div>
-    </section>
-
-    <section class="section process-section">
-        <div class="container split-heading">
-            <div>
-                <p class="eyebrow">Process</p>
-                <h2>A clean growth workflow from audit to optimization</h2>
-            </div>
-        </div>
-        <div class="container process-grid">
-            <?php foreach (['Discover' => 'Audit goals, audience, competitors and current digital assets.', 'Build' => 'Create the website, campaigns, content and tracking foundations.', 'Launch' => 'Go live with QA, conversion checks and clear reporting.', 'Improve' => 'Use data to refine pages, keywords, ads, creatives and follow-up.'] as $step => $copy): ?>
-                <article>
-                    <span><?= e($step); ?></span>
+        <div class="container agency-process-grid">
+            <?php foreach (['Discover' => 'Find the opportunity hiding in your market.', 'Define' => 'Turn insight into a focused growth plan.', 'Create' => 'Build the website, campaigns and content.', 'Evolve' => 'Measure, learn and keep compounding.'] as $number => $copy): ?>
+                <article data-reveal>
+                    <span><?= str_pad((string) (array_search($number, array_keys(['Discover' => '', 'Define' => '', 'Create' => '', 'Evolve' => ''])) + 1), 2, '0', STR_PAD_LEFT); ?></span>
+                    <h3><?= e($number); ?></h3>
                     <p><?= e($copy); ?></p>
                 </article>
             <?php endforeach; ?>
         </div>
     </section>
 
-    <section class="section soft-section">
-        <div class="container split-heading">
+    <section class="agency-proof section">
+        <div class="container agency-proof-grid">
+            <div class="agency-proof-mark">M<span>T</span></div>
+            <blockquote>Clear strategy. Thoughtful creative. Measurable digital execution.<cite>The Mega Techzy approach</cite></blockquote>
+            <div class="agency-proof-stat"><strong>01</strong><span>Connected growth system, built around your business</span></div>
+        </div>
+    </section>
+
+    <section class="agency-insights section">
+        <div class="container agency-section-heading">
             <div>
-                <p class="eyebrow">Portfolio</p>
-                <h2>Featured growth work</h2>
+                <p class="agency-kicker dark-kicker"><span></span> Fresh thinking</p>
+                <h2>Ideas with<br><em>commercial value.</em></h2>
             </div>
-            <a class="link-arrow" href="/portfolio/">See portfolio <?= icon_svg('arrow'); ?></a>
+            <a class="agency-button agency-button-dark" href="/blog/">View all insights <?= icon_svg('arrow'); ?></a>
         </div>
-        <div class="container card-grid">
-            <?php foreach ($portfolioItems as $item): ?>
-                <article class="case-card">
-                    <p class="eyebrow"><?= e($item['type']); ?></p>
-                    <h3><?= e($item['title']); ?></h3>
-                    <p><?= e($item['result']); ?></p>
-                </article>
-            <?php endforeach; ?>
-        </div>
+        <?php if ($blogPosts): ?>
+            <div class="container agency-insight-grid">
+                <?php foreach ($blogPosts as $index => $post): ?>
+                    <article data-reveal>
+                        <span>0<?= $index + 1; ?> / Insights</span>
+                        <h3><a href="/blog/<?= e($post['slug']); ?>.php"><?= e($post['title']); ?></a></h3>
+                        <a href="/blog/<?= e($post['slug']); ?>.php" aria-label="Read <?= e($post['title']); ?>"><?= icon_svg('arrow'); ?></a>
+                    </article>
+                <?php endforeach; ?>
+            </div>
+        <?php else: ?>
+            <div class="container"><p class="agency-side-copy">Approved insights are being prepared.</p></div>
+        <?php endif; ?>
     </section>
 
-    <section class="section">
-        <div class="container testimonial-grid">
-            <div>
-                <p class="eyebrow">Success Stories</p>
-                <h2>Clearer systems, stronger enquiries</h2>
-                <p>Mega Techzy focuses on the full customer path: search visibility, landing page trust, tracking accuracy and fast follow-up.</p>
-            </div>
-            <blockquote>
-                "The biggest improvement was clarity. Our website, ads and reports finally started working together."
-                <cite>Growth partner client</cite>
-            </blockquote>
-        </div>
-    </section>
-
-    <section class="section tech-section">
-        <div class="container">
-            <p class="eyebrow">Technologies</p>
-            <h2>Lightweight stack, serious foundations</h2>
-            <div class="tech-list">
-                <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>PHP 8+</span><span>GA4</span><span>GTM</span><span>Looker Studio</span><span>Zoho</span>
-            </div>
-        </div>
-    </section>
-
-    <section class="section soft-section">
-        <div class="container split-heading">
-            <div>
-                <p class="eyebrow">Locations</p>
-                <h2>Local SEO focus across Pune, PCMC and Solapur</h2>
-            </div>
-            <a class="link-arrow" href="/locations/">View locations <?= icon_svg('arrow'); ?></a>
-        </div>
-        <div class="container location-grid">
-            <?php foreach (array_slice($locations, 0, 9) as $slug => $location): ?>
-                <a href="/locations/<?= e($slug); ?>.php"><?= icon_svg('map'); ?><?= e($location['name']); ?></a>
-            <?php endforeach; ?>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="container split-heading">
-            <div>
-                <p class="eyebrow">Latest Blogs</p>
-                <h2>Practical growth thinking</h2>
-            </div>
-            <a class="link-arrow" href="/blog/">Read blog <?= icon_svg('arrow'); ?></a>
-        </div>
-        <div class="container card-grid">
-            <?php foreach ($blogPosts as $post): ?>
-                <article class="blog-card">
-                    <h3><a href="/blog/<?= e($post['slug']); ?>.php"><?= e($post['title']); ?></a></h3>
-                    <p><?= e($post['excerpt']); ?></p>
-                </article>
-            <?php endforeach; ?>
-        </div>
-    </section>
-
-    <section class="section faq-section">
+    <section class="section soft-section faq-section">
         <div class="container narrow">
             <p class="eyebrow">FAQs</p>
-            <h2>Questions businesses ask before starting</h2>
+            <h2>Digital marketing questions, answered clearly</h2>
             <?php foreach ($homeFaqs as $faq): ?>
                 <details>
                     <summary><?= e($faq['q']); ?></summary>
@@ -218,15 +221,12 @@ include __DIR__ . '/includes/navbar.php';
         </div>
     </section>
 
-    <section class="section cta-section">
-        <div class="container cta-layout">
-            <div>
-                <p class="eyebrow">Final CTA</p>
-                <h2>Ready to build a website and marketing system that can rank, convert and scale?</h2>
-            </div>
-            <div class="form-shell">
-                <?php $formContext = 'Homepage final CTA'; include __DIR__ . '/includes/lead-form.php'; ?>
-            </div>
+    <section class="agency-cta">
+        <div class="container agency-cta-inner">
+            <p class="agency-kicker"><span></span> Let us build something meaningful</p>
+            <h2>Ready when<br>you are.</h2>
+            <a class="agency-button agency-button-gold" href="/contact.php">Tell us about your project <?= icon_svg('arrow'); ?></a>
+            <p class="agency-cta-email">hello@megatechzy.com</p>
         </div>
     </section>
 </main>

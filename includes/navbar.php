@@ -11,7 +11,6 @@
             <a href="/about.php">About</a>
             <a href="/services/">Services</a>
             <a href="/portfolio/">Portfolio</a>
-            <a href="/locations/">Locations</a>
             <a href="/blog/">Blog</a>
             <a class="nav-cta" href="/contact.php">Get Proposal</a>
         </div>

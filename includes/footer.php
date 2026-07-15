@@ -1,29 +1,31 @@
 <footer class="site-footer">
     <div class="container footer-grid">
-        <div>
-            <a class="brand footer-brand" href="/">
-                <img class="brand-logo brand-logo-footer" src="/assets/images/mega-techzy-wordmark.png" alt="Mega Techzy" width="900" height="296">
+        <div class="footer-about">
+            <a class="footer-wordmark" href="/" aria-label="Mega Techzy home">
+                <span>Mega</span>Techzy<sup>&reg;</sup>
             </a>
             <p>Premium digital marketing, website development, SEO, paid ads, automation and lead generation for ambitious businesses.</p>
+            <span class="footer-availability"><i></i> Available for select projects</span>
         </div>
-        <div>
+        <div class="footer-links">
             <h2>Services</h2>
             <a href="/services/website-development.php">Website Development</a>
             <a href="/services/seo.php">SEO</a>
             <a href="/services/google-ads.php">Google Ads</a>
             <a href="/services/lead-generation.php">Lead Generation</a>
         </div>
-        <div>
+        <div class="footer-links">
             <h2>Locations</h2>
             <a href="/locations/pune.php">Pune</a>
             <a href="/locations/pcmc.php">PCMC</a>
             <a href="/locations/solapur.php">Solapur</a>
             <a href="/locations/hinjawadi.php">Hinjawadi</a>
         </div>
-        <div>
+        <div class="footer-contact">
+            <span class="footer-contact-label">Have an idea?</span>
             <h2>Contact</h2>
             <a href="mailto:<?= e(CONTACT_EMAIL); ?>"><?= e(CONTACT_EMAIL); ?></a>
-            <button class="text-button" type="button" data-open-modal>Open enquiry form</button>
+            <button class="footer-enquiry" type="button" data-open-modal>Start an enquiry <span>&rarr;</span></button>
         </div>
     </div>
     <div class="container footer-bottom">
