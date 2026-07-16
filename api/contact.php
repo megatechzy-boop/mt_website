@@ -14,13 +14,12 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 $now = time();
-$_SESSION['lead_attempts'] = array_values(array_filter($_SESSION['lead_attempts'] ?? [], static fn ($ts): bool => $ts > $now - 3600));
-if (count($_SESSION['lead_attempts']) >= 5) {
+$_SESSION['lead_attempts'] = array_values(array_filter($_SESSION['lead_attempts'] ?? [], static fn ($ts): bool => $ts > $now - 900));
+if (count($_SESSION['lead_attempts']) >= 10) {
     http_response_code(429);
-    echo json_encode(['ok' => false, 'message' => 'Too many requests. Please try again later.']);
+    echo json_encode(['ok' => false, 'message' => 'Too many enquiries were submitted recently. Please try again in a few minutes.']);
     exit;
 }
-$_SESSION['lead_attempts'][] = $now;
 
 if (!verify_csrf($_POST['csrf_token'] ?? null)) {
     http_response_code(403);
@@ -68,6 +67,9 @@ if ($errors) {
     echo json_encode(['ok' => false, 'message' => implode(' ', $errors)]);
     exit;
 }
+
+// Only completed, valid enquiries count towards the abuse limit.
+$_SESSION['lead_attempts'][] = $now;
 
 $lead = [
     'created_at' => date(DATE_ATOM),
