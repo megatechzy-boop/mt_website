@@ -53,9 +53,16 @@
         const status = form.querySelector('[data-form-status]');
         form.addEventListener('submit', async (event) => {
             event.preventDefault();
-            if (status) status.textContent = 'Sending...';
+            if (status) {
+                status.textContent = 'Sending your enquiry...';
+                status.classList.remove('is-success', 'is-error');
+                status.classList.add('is-pending');
+            }
             const button = form.querySelector('button[type="submit"]');
-            if (button) button.disabled = true;
+            if (button) {
+                button.disabled = true;
+                button.setAttribute('aria-busy', 'true');
+            }
 
             try {
                 const response = await fetch(form.action, {
@@ -63,7 +70,8 @@
                     body: new FormData(form),
                     headers: { 'Accept': 'application/json' },
                 });
-                const data = await response.json();
+                const contentType = response.headers.get('content-type') || '';
+                const data = contentType.includes('application/json') ? await response.json() : {};
                 if (!response.ok || !data.ok) {
                     throw new Error(data.message || 'Please check the form and try again.');
                 }
@@ -71,14 +79,19 @@
                 if (status) {
                     status.textContent = data.message;
                     status.classList.add('is-success');
+                    status.classList.remove('is-pending', 'is-error');
                 }
             } catch (error) {
                 if (status) {
                     status.textContent = error.message || 'Something went wrong. Please try again.';
-                    status.classList.remove('is-success');
+                    status.classList.remove('is-success', 'is-pending');
+                    status.classList.add('is-error');
                 }
             } finally {
-                if (button) button.disabled = false;
+                if (button) {
+                    button.disabled = false;
+                    button.removeAttribute('aria-busy');
+                }
             }
         });
     });
