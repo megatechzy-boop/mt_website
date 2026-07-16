@@ -195,7 +195,7 @@ include __DIR__ . '/includes/navbar.php';
         </div>
         <?php if ($blogPosts): ?>
             <div class="container agency-insight-grid">
-                <?php foreach ($blogPosts as $index => $post): ?>
+                <?php foreach (array_slice($blogPosts, 0, 6) as $index => $post): ?>
                     <article data-reveal>
                         <span>0<?= $index + 1; ?> / Insights</span>
                         <h3><a href="/blog/<?= e($post['slug']); ?>.php"><?= e($post['title']); ?></a></h3>

@@ -917,7 +917,9 @@ p {
     text-transform: uppercase;
 }
 
-.footer-links a {
+.footer-links a,
+.footer-links > span {
+    display: block;
     width: fit-content;
     margin: .72rem 0;
     color: rgba(243, 250, 246, .8);

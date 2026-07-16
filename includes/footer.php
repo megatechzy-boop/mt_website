@@ -16,15 +16,16 @@
         </div>
         <div class="footer-links">
             <h2>Locations</h2>
-            <a href="/locations/pune.php">Pune</a>
-            <a href="/locations/pcmc.php">PCMC</a>
-            <a href="/locations/solapur.php">Solapur</a>
-            <a href="/locations/hinjawadi.php">Hinjawadi</a>
+            <?php foreach (SERVICE_AREAS as $area): ?>
+                <span><?= e($area); ?></span>
+            <?php endforeach; ?>
         </div>
         <div class="footer-contact">
             <span class="footer-contact-label">Have an idea?</span>
             <h2>Contact</h2>
             <a href="mailto:<?= e(CONTACT_EMAIL); ?>"><?= e(CONTACT_EMAIL); ?></a>
+            <a href="tel:<?= e(CONTACT_PHONES[0]); ?>">+91 70201 62163</a>
+            <a href="tel:<?= e(CONTACT_PHONES[1]); ?>">+91 99754 52779</a>
             <button class="footer-enquiry" type="button" data-open-modal>Start an enquiry <span>&rarr;</span></button>
         </div>
     </div>

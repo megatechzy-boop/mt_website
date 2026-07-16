@@ -18,7 +18,15 @@ $detectedBasePath = preg_match('#^/mt(?:/|$)#', $requestPath) ? '/mt' : '';
 $siteBasePath = rtrim((string) (getenv('SITE_BASE_PATH') ?: $detectedBasePath), '/');
 define('SITE_BASE_PATH', $siteBasePath);
 define('SITE_URL', rtrim((string) (getenv('SITE_URL') ?: 'https://www.megatechzy.com' . SITE_BASE_PATH), '/'));
-define('CONTACT_EMAIL', (string) (getenv('CONTACT_EMAIL') ?: 'hello@megatechzy.com'));
+define('CONTACT_EMAIL', (string) (getenv('CONTACT_EMAIL') ?: 'contact@megatechzy.com'));
+define('INFO_EMAIL', 'info@megatechzy.com');
+define('CONTACT_PHONES', ['+917020162163', '+919975452779']);
+define('SOCIAL_URLS', [
+    'LinkedIn' => 'https://in.linkedin.com/company/mega-techzy',
+    'Instagram' => 'https://www.instagram.com/megatechzy/',
+    'IndiaMART' => 'https://www.indiamart.com/mega-techzy/',
+]);
+define('SERVICE_AREAS', ['Solapur City', 'Ravet, Pune', 'Dehu Road, Pune', 'Wakad, Pune']);
 
 function e(mixed $value): string
 {
@@ -32,7 +40,11 @@ function site_url(string $path = ''): string
 
 function asset_url(string $path): string
 {
-    return (SITE_BASE_PATH ?: '') . '/assets/' . ltrim($path, '/');
+    $relativePath = ltrim($path, '/');
+    $assetFile = dirname(__DIR__) . '/assets/' . $relativePath;
+    $version = is_file($assetFile) ? '?v=' . filemtime($assetFile) : '';
+
+    return (SITE_BASE_PATH ?: '') . '/assets/' . $relativePath . $version;
 }
 
 function csrf_token(): string
@@ -92,8 +104,9 @@ function build_global_schema(): array
             'email' => CONTACT_EMAIL,
             'foundingDate' => '2019',
             'description' => 'Digital marketing and website development company providing SEO, paid ads, automation, analytics and lead generation services.',
-            'areaServed' => ['Pune', 'PCMC', 'Solapur', 'Maharashtra', 'India'],
-            'sameAs' => [],
+            'telephone' => CONTACT_PHONES[0],
+            'areaServed' => array_merge(SERVICE_AREAS, ['Maharashtra', 'India']),
+            'sameAs' => array_values(SOCIAL_URLS),
         ],
         [
             '@context' => 'https://schema.org',
@@ -101,14 +114,9 @@ function build_global_schema(): array
             'name' => SITE_NAME,
             'url' => SITE_URL,
             'email' => CONTACT_EMAIL,
+            'telephone' => CONTACT_PHONES[0],
             'priceRange' => '$$',
-            'address' => [
-                '@type' => 'PostalAddress',
-                'addressLocality' => 'Pune',
-                'addressRegion' => 'Maharashtra',
-                'addressCountry' => 'IN',
-            ],
-            'areaServed' => ['Pune', 'PCMC', 'Solapur'],
+            'areaServed' => array_merge(SERVICE_AREAS, ['Maharashtra', 'India']),
         ],
     ];
 }
