@@ -93,8 +93,56 @@ $body = "New website enquiry\n\n"
     . "Message:\n{$message}\n";
 
 $sent = false;
+
+// FormSubmit handles delivery without exposing mailbox credentials in the site.
+// The first enquiry prompts the mailbox owner to verify this destination.
+$formSubmitEmail = (string) (getenv('FORMSUBMIT_EMAIL') ?: CONTACT_EMAIL);
+if ($formSubmitEmail !== '' && filter_var($formSubmitEmail, FILTER_VALIDATE_EMAIL)) {
+    $formSubmitPayload = [
+        'name' => $name,
+        'phone' => $phone,
+        'email' => $email,
+        'company' => $company,
+        'service' => $service,
+        'message' => $message,
+        'form_context' => $context,
+        '_subject' => $subject,
+        '_template' => 'table',
+        '_captcha' => 'false',
+    ];
+
+    if (function_exists('curl_init')) {
+        $curl = curl_init('https://formsubmit.co/ajax/' . rawurlencode($formSubmitEmail));
+        curl_setopt_array($curl, [
+            CURLOPT_POST => true,
+            CURLOPT_POSTFIELDS => http_build_query($formSubmitPayload),
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_CONNECTTIMEOUT => 8,
+            CURLOPT_TIMEOUT => 15,
+            CURLOPT_HTTPHEADER => [
+                'Accept: application/json',
+                'Content-Type: application/x-www-form-urlencoded',
+            ],
+        ]);
+        $formSubmitResponse = curl_exec($curl);
+        $formSubmitStatus = (int) curl_getinfo($curl, CURLINFO_RESPONSE_CODE);
+        $formSubmitError = curl_error($curl);
+        curl_close($curl);
+
+        if ($formSubmitResponse !== false && $formSubmitStatus >= 200 && $formSubmitStatus < 300) {
+            $sent = true;
+        } elseif ($formSubmitError !== '') {
+            error_log('Mega Techzy FormSubmit error: ' . $formSubmitError);
+        } else {
+            error_log('Mega Techzy FormSubmit response status: ' . $formSubmitStatus);
+        }
+    } else {
+        error_log('Mega Techzy FormSubmit error: cURL is not enabled.');
+    }
+}
+
 $autoload = dirname(__DIR__) . '/vendor/autoload.php';
-if (file_exists($autoload)) {
+if (!$sent && file_exists($autoload)) {
     require_once $autoload;
 }
 
@@ -114,7 +162,7 @@ $smtpPassword = (string) ($mailConfig['password'] ?? getenv('SMTP_PASS') ?: '');
 $smtpSecure = (string) ($mailConfig['secure'] ?? getenv('SMTP_SECURE') ?: ($smtpPort === 465 ? 'ssl' : 'tls'));
 $mailFrom = (string) ($mailConfig['from'] ?? getenv('MAIL_FROM') ?: CONTACT_EMAIL);
 
-if (class_exists(\PHPMailer\PHPMailer\PHPMailer::class)) {
+if (!$sent && class_exists(\PHPMailer\PHPMailer\PHPMailer::class)) {
     try {
         $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
         if ($smtpHost) {
