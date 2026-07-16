@@ -71,7 +71,7 @@ include dirname(__DIR__) . '/includes/navbar.php';
             <details><summary>Can I start with one service?</summary><p>Yes. You can start with the most urgent need, such as a new website, SEO audit, Google Ads campaign or lead follow-up workflow, then build the broader system over time.</p></details>
             <details><summary>Do you work with local businesses?</summary><p>Yes. Mega Techzy works with businesses in Pune, PCMC, Solapur and across India, adapting services to the local market and sales process.</p></details>
             <details><summary>How do I choose between SEO and paid ads?</summary><p>SEO supports longer-term organic visibility, while paid ads can capture immediate demand. The right starting point depends on your offer, timeline, market and current website foundation.</p></details>
-            <a class="btn btn-primary" href="/contact.php">Discuss your service needs <?= icon_svg('arrow'); ?></a>
+            <a class="btn btn-primary" href="/contact">Discuss your service needs <?= icon_svg('arrow'); ?></a>
         </div>
     </section>
 </main>

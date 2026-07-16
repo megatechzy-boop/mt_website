@@ -35,7 +35,12 @@ function e(mixed $value): string
 
 function site_url(string $path = ''): string
 {
-    return SITE_URL . '/' . ltrim($path, '/');
+    $path = ltrim($path, '/');
+    if (!str_starts_with($path, 'api/')) {
+        $path = preg_replace('/\\.php$/', '', $path) ?? $path;
+    }
+
+    return SITE_URL . '/' . $path;
 }
 
 function asset_url(string $path): string

@@ -8,11 +8,11 @@
             <span></span><span></span><span></span>
         </button>
         <div class="nav-links" id="primary-menu">
-            <a href="/about.php">About</a>
+            <a href="/about">About</a>
             <a href="/services/">Services</a>
             <a href="/portfolio/">Portfolio</a>
             <a href="/blog/">Blog</a>
-            <a class="nav-cta" href="/contact.php">Get Proposal</a>
+            <a class="nav-cta" href="/contact">Get Proposal</a>
         </div>
     </nav>
 </header>

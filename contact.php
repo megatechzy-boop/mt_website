@@ -4,11 +4,11 @@ require __DIR__ . '/includes/data.php';
 $pageMeta = [
     'title' => 'Contact Mega Techzy - Get a Growth Proposal',
     'description' => 'Contact Mega Techzy for website development, SEO, Google Ads, Meta Ads, branding, automation and lead generation services in Solapur, Ravet, Dehu Road and Wakad.',
-    'path' => 'contact.php',
+    'path' => 'contact',
 ];
 $pageSchemas = [breadcrumb_schema([
     ['name' => 'Home', 'path' => ''],
-    ['name' => 'Contact', 'path' => 'contact.php'],
+    ['name' => 'Contact', 'path' => 'contact'],
 ])];
 include __DIR__ . '/includes/header.php';
 include __DIR__ . '/includes/navbar.php';

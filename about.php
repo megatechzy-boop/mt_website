@@ -4,11 +4,11 @@ require __DIR__ . '/includes/data.php';
 $pageMeta = [
     'title' => 'About Mega Techzy | Digital Marketing and Website Development Company',
     'description' => 'Mega Techzy is a digital marketing and website development company established in 2019, serving 100+ clients with 50+ projects across SEO, websites, ads and automation.',
-    'path' => 'about.php',
+    'path' => 'about',
 ];
 $pageSchemas = [breadcrumb_schema([
     ['name' => 'Home', 'path' => ''],
-    ['name' => 'About', 'path' => 'about.php'],
+    ['name' => 'About', 'path' => 'about'],
 ]), faq_schema([
     ['q' => 'When was Mega Techzy established?', 'a' => 'Mega Techzy was established in 2019.'],
     ['q' => 'What services does Mega Techzy provide?', 'a' => 'Mega Techzy provides website development, SEO, paid advertising, content marketing, automation, analytics and lead generation support.'],
@@ -97,7 +97,7 @@ include __DIR__ . '/includes/navbar.php';
             <details><summary>When was Mega Techzy established?</summary><p>Mega Techzy was established in 2019.</p></details>
             <details><summary>What does Mega Techzy help businesses with?</summary><p>We help with website development, SEO, paid ads, content marketing, automation, analytics and lead generation.</p></details>
             <details><summary>Where does Mega Techzy work?</summary><p>We work with businesses in Pune, PCMC, Solapur and across India.</p></details>
-            <a class="btn btn-primary" href="/contact.php">Talk to Mega Techzy <?= icon_svg('arrow'); ?></a>
+            <a class="btn btn-primary" href="/contact">Talk to Mega Techzy <?= icon_svg('arrow'); ?></a>
         </div>
     </section>
 </main>

@@ -41,7 +41,7 @@
 
 <h2>How Mega Techzy can help</h2>
 <p>Mega Techzy helps businesses connect AI-assisted work with the wider customer journey. We can map lead capture, website forms, CRM fields, email or WhatsApp follow-up, reporting and the human handoff points that keep communication useful. The aim is not to automate everything. It is to remove delay, protect quality and give your team better context for the conversations that matter.</p>
-<p><a href="/services/email-marketing.php">Explore automation and follow-up services</a> or <a href="/contact.php">talk to Mega Techzy about your workflow</a>.</p>
+<p><a href="/services/email-marketing">Explore automation and follow-up services</a> or <a href="/contact">talk to Mega Techzy about your workflow</a>.</p>
 
 <h2>Sources and further reading</h2>
 <ul>

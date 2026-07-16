@@ -9,10 +9,10 @@
         </div>
         <div class="footer-links">
             <h2>Services</h2>
-            <a href="/services/website-development.php">Website Development</a>
-            <a href="/services/seo.php">SEO</a>
-            <a href="/services/google-ads.php">Google Ads</a>
-            <a href="/services/lead-generation.php">Lead Generation</a>
+            <a href="/services/website-development">Website Development</a>
+            <a href="/services/seo">SEO</a>
+            <a href="/services/google-ads">Google Ads</a>
+            <a href="/services/lead-generation">Lead Generation</a>
         </div>
         <div class="footer-links">
             <h2>Locations</h2>

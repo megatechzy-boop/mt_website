@@ -109,14 +109,14 @@ include dirname(__DIR__) . '/includes/navbar.php';
 
                 <h2>Turn the plan into a growth system</h2>
                 <p><?= e($post['title']); ?> is most effective when it connects to the rest of your marketing. Your website should explain the offer, SEO should capture research-led demand, paid media should reach high-intent searches or relevant audiences, and follow-up should make it easy for qualified people to speak with your team. That connected system is more durable than a one-off tactic.</p>
-                <p>Mega Techzy helps businesses combine these pieces into a clear plan for visibility, conversion and measurement. Explore our <a href="/services/seo.php">SEO services</a>, <a href="/services/website-development.php">website development</a> and <a href="/services/lead-generation.php">lead generation</a> approach, or speak to the team about the next priority for your business.</p>
+                <p>Mega Techzy helps businesses combine these pieces into a clear plan for visibility, conversion and measurement. Explore our <a href="/services/seo">SEO services</a>, <a href="/services/website-development">website development</a> and <a href="/services/lead-generation">lead generation</a> approach, or speak to the team about the next priority for your business.</p>
                 <?php if (isset($post['help'])): ?>
                     <h2>How Mega Techzy can help</h2>
                     <p><?= e($post['help']); ?></p>
                     <p>Instead of treating this as a one-time task, Mega Techzy can connect the right technical setup, content, conversion path and measurement into a practical system that your team can use and improve over time.</p>
                     <a class="link-arrow" href="<?= e($post['help_url']); ?>">Explore the relevant Mega Techzy service <?= icon_svg('arrow'); ?></a>
                 <?php endif; ?>
-                <a class="btn btn-primary" href="/contact.php">Discuss your growth plan <?= icon_svg('arrow'); ?></a>
+                <a class="btn btn-primary" href="/contact">Discuss your growth plan <?= icon_svg('arrow'); ?></a>
             <?php else: ?>
             <h2>Start with the business goal</h2>
             <p>A good digital decision begins with the outcome: more qualified leads, better local visibility, stronger trust, faster follow-up or cleaner reporting. Once the goal is clear, the right mix of website, SEO, ads and automation becomes easier to choose.</p>
@@ -124,7 +124,7 @@ include dirname(__DIR__) . '/includes/navbar.php';
             <p>Your website should load quickly, explain the offer clearly, show proof, answer common objections and make enquiry simple. Campaigns become more efficient when this foundation is in place.</p>
             <h2>Measure what can guide action</h2>
             <p>Track calls, forms, campaign sources and page performance. The best reports do not just show traffic; they show where the next improvement should happen.</p>
-            <a class="btn btn-primary" href="/contact.php">Discuss your growth plan <?= icon_svg('arrow'); ?></a>
+            <a class="btn btn-primary" href="/contact">Discuss your growth plan <?= icon_svg('arrow'); ?></a>
             <?php endif; ?>
         </div>
     </article>

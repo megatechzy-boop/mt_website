@@ -3,6 +3,16 @@ Options -Indexes
 
 <IfModule mod_rewrite.c>
 RewriteEngine On
+
+# Keep public page URLs extensionless. The form API remains a PHP endpoint.
+RewriteCond %{REQUEST_URI} !^/api/ [NC]
+RewriteCond %{THE_REQUEST} \s/+index\.php(?:[\s?]|$) [NC]
+RewriteRule ^index\.php$ / [R=301,L]
+
+RewriteCond %{REQUEST_URI} !^/api/ [NC]
+RewriteCond %{THE_REQUEST} \s/+.+\.php(?:[\s?]|$) [NC]
+RewriteRule ^(.+)\.php$ /$1 [R=301,L,NE]
+
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^(.+?)/?$ $1.php [L]

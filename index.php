@@ -39,7 +39,7 @@ include __DIR__ . '/includes/navbar.php';
                 <h1>We make<br>brands <em>matter.</em></h1>
                 <p class="agency-lede">Mega Techzy is a digital marketing company in Pune serving PCMC, Solapur and businesses across India with websites, SEO, paid ads and automation.</p>
                 <div class="agency-hero-actions">
-                    <a class="agency-button agency-button-gold" href="/contact.php">Start a project <?= icon_svg('arrow'); ?></a>
+                    <a class="agency-button agency-button-gold" href="/contact">Start a project <?= icon_svg('arrow'); ?></a>
                     <a class="agency-text-link" href="#work">Explore our work <span>&darr;</span></a>
                 </div>
                 <div class="agency-hero-footer">
@@ -78,7 +78,7 @@ include __DIR__ . '/includes/navbar.php';
                 <h2>Strategy meets <em>creative energy</em> and turns into growth.</h2>
                 <div>
                     <p>We build the digital moments that make people stop, trust and take action. From the first Google search to the final enquiry, every touchpoint is deliberate.</p>
-                    <a class="agency-text-link agency-text-link-dark" href="/about.php">Meet Mega Techzy <span>&rarr;</span></a>
+                    <a class="agency-text-link agency-text-link-dark" href="/about">Meet Mega Techzy <span>&rarr;</span></a>
                 </div>
             </div>
         </div>
@@ -225,7 +225,7 @@ include __DIR__ . '/includes/navbar.php';
         <div class="container agency-cta-inner">
             <p class="agency-kicker"><span></span> Let us build something meaningful</p>
             <h2>Ready when<br>you are.</h2>
-            <a class="agency-button agency-button-gold" href="/contact.php">Tell us about your project <?= icon_svg('arrow'); ?></a>
+            <a class="agency-button agency-button-gold" href="/contact">Tell us about your project <?= icon_svg('arrow'); ?></a>
             <p class="agency-cta-email">hello@megatechzy.com</p>
         </div>
     </section>
