@@ -5,6 +5,7 @@ $pageMeta = [
     'title' => 'Mega Techzy Portfolio - Websites, SEO and Lead Generation Work',
     'description' => 'See examples of Mega Techzy website, SEO, paid ads, branding and lead generation work for growing businesses.',
     'path' => 'portfolio/',
+    'robots' => 'noindex, follow',
 ];
 $pageSchemas = [breadcrumb_schema([
     ['name' => 'Home', 'path' => ''],

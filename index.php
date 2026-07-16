@@ -94,7 +94,7 @@ include __DIR__ . '/includes/navbar.php';
         </div>
         <div class="container work-grid">
             <article class="work-tile work-tile-wide" data-reveal>
-                <img src="/assets/images/mega-techzy-digital-growth-hero.webp" alt="Digital growth dashboard and website design" loading="lazy" decoding="async" width="1712" height="960">
+                <img src="<?= e(asset_url('images/mega-techzy-digital-growth-hero.webp')); ?>" alt="Digital growth dashboard and website design" loading="lazy" decoding="async" width="1712" height="960">
                 <div class="work-tile-overlay">
                     <p>Digital Growth System</p>
                     <h3>Websites that become the centre of your marketing.</h3>
@@ -145,7 +145,7 @@ include __DIR__ . '/includes/navbar.php';
         <div class="container industry-showcase-grid">
             <?php foreach ($industryShowcase as $index => $industry): ?>
                 <article class="industry-tile industry-tile-<?= $index + 1; ?>" data-reveal>
-                    <img src="/assets/images/<?= e($industry['image']); ?>" alt="<?= e($industry['name']); ?> marketing services" loading="lazy" decoding="async" width="1536" height="1024">
+                    <img src="<?= e(asset_url('images/' . $industry['image'])); ?>" alt="<?= e($industry['name']); ?> marketing services" loading="lazy" decoding="async" width="1536" height="1024">
                     <div class="industry-tile-overlay">
                         <span>0<?= $index + 1; ?></span>
                         <h3><?= e($industry['name']); ?></h3>

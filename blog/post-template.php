@@ -25,11 +25,13 @@ $legacyGuides = [
 if (!isset($post['keyword']) && isset($legacyGuides[$postSlug])) {
     $post = array_merge($post, $legacyGuides[$postSlug]);
 }
+$researchArticle = __DIR__ . '/articles/' . $postSlug . '.php';
+$hasResearchArticle = is_file($researchArticle);
 $metaDescription = $post['excerpt'];
 if (isset($post['keyword'])) {
     $metaDescription .= ' Mega Techzy guide to ' . $post['keyword'] . '.';
 }
-$pageMeta = ['title' => $post['title'] . ' - Mega Techzy', 'description' => $metaDescription, 'path' => 'blog/' . $postSlug . '.php'];
+$pageMeta = ['title' => $post['title'] . ' - Mega Techzy', 'description' => $metaDescription, 'path' => 'blog/' . $postSlug . '.php', 'robots' => $hasResearchArticle ? 'index, follow' : 'noindex, follow'];
 $pageSchemas = [breadcrumb_schema([
     ['name' => 'Home', 'path' => ''],
     ['name' => 'Blog', 'path' => 'blog/'],
@@ -45,7 +47,9 @@ include dirname(__DIR__) . '/includes/navbar.php';
             <p class="eyebrow">Mega Techzy Guide</p>
             <h1><?= e($post['title']); ?></h1>
             <p class="lead"><?= e($post['excerpt']); ?></p>
-            <?php if ($isGuide): ?>
+            <?php if ($hasResearchArticle): ?>
+                <?php include $researchArticle; ?>
+            <?php elseif ($isGuide): ?>
                 <p>If you are one of the <?= e($post['audience']); ?> researching <strong><?= e($post['keyword']); ?></strong>, the goal is not to collect random marketing tasks. The goal is to <?= e($post['outcome']); ?>. This guide gives you a practical way to decide what matters first, what can wait and how to judge whether the work is creating a better customer path.</p>
 
                 <h2>Start with the real customer question</h2>

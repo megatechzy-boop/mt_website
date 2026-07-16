@@ -6,6 +6,7 @@ $pageMeta = [
     'title' => 'Mega Techzy Locations - Pune, PCMC, Solapur and Maharashtra',
     'description' => 'Explore Mega Techzy local SEO pages for Pune, PCMC, Solapur, Nigdi, Pimpri, Chinchwad, Wakad, Baner, Hinjawadi and more.',
     'path' => 'locations/',
+    'robots' => 'noindex, follow',
 ];
 $pageSchemas = [
     breadcrumb_schema([

@@ -17,6 +17,7 @@ $pageMeta = [
     'title' => $location['headline'] . ' - Mega Techzy',
     'description' => 'Mega Techzy provides website development, SEO, paid ads, branding and lead generation for businesses looking for a ' . $location['keyword'] . '.',
     'path' => 'locations/' . $locationSlug . '.php',
+    'robots' => 'noindex, follow',
 ];
 $pageSchemas = [
     breadcrumb_schema([

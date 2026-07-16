@@ -5,6 +5,7 @@ $description = $pageMeta['description'] ?? 'Mega Techzy helps businesses grow on
 $path = $pageMeta['path'] ?? '';
 $canonical = site_url($path);
 $ogImage = site_url('assets/images/mega-techzy-logo.png');
+$robots = $pageMeta['robots'] ?? 'index, follow';
 $schemas = array_merge(build_global_schema(), $pageSchemas ?? []);
 ?>
 <!doctype html>
@@ -15,7 +16,7 @@ $schemas = array_merge(build_global_schema(), $pageSchemas ?? []);
     <title><?= e($title); ?></title>
     <meta name="description" content="<?= e($description); ?>">
     <link rel="canonical" href="<?= e($canonical); ?>">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="<?= e($robots); ?>">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="<?= e(SITE_NAME); ?>">
     <meta property="og:title" content="<?= e($title); ?>">

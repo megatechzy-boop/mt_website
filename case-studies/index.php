@@ -5,6 +5,7 @@ $pageMeta = [
     'title' => 'Mega Techzy Case Studies',
     'description' => 'Explore Mega Techzy case study themes for SEO, website development, paid ads and lead generation systems.',
     'path' => 'case-studies/',
+    'robots' => 'noindex, follow',
 ];
 include dirname(__DIR__) . '/includes/header.php';
 include dirname(__DIR__) . '/includes/navbar.php';
@@ -18,14 +19,8 @@ include dirname(__DIR__) . '/includes/navbar.php';
         </div>
     </section>
     <section class="section">
-        <div class="container card-grid">
-            <?php foreach ($portfolioItems as $item): ?>
-                <article class="case-card">
-                    <p class="eyebrow"><?= e($item['type']); ?></p>
-                    <h2><?= e($item['title']); ?></h2>
-                    <p><?= e($item['result']); ?></p>
-                </article>
-            <?php endforeach; ?>
+        <div class="container narrow">
+            <p>Published case studies will include approved client context, the work completed and verifiable results. Until then, we do not publish illustrative results as client proof.</p>
         </div>
     </section>
 </main>

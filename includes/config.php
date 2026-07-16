@@ -11,7 +11,13 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 }
 
 define('SITE_NAME', 'Mega Techzy');
-define('SITE_URL', rtrim((string) (getenv('SITE_URL') ?: 'https://www.megatechzy.com'), '/'));
+
+// Supports both root-domain and subfolder deployments such as /mt/.
+$requestPath = (string) ($_SERVER['SCRIPT_NAME'] ?? '');
+$detectedBasePath = preg_match('#^/mt(?:/|$)#', $requestPath) ? '/mt' : '';
+$siteBasePath = rtrim((string) (getenv('SITE_BASE_PATH') ?: $detectedBasePath), '/');
+define('SITE_BASE_PATH', $siteBasePath);
+define('SITE_URL', rtrim((string) (getenv('SITE_URL') ?: 'https://www.megatechzy.com' . SITE_BASE_PATH), '/'));
 define('CONTACT_EMAIL', (string) (getenv('CONTACT_EMAIL') ?: 'hello@megatechzy.com'));
 
 function e(mixed $value): string
@@ -26,7 +32,7 @@ function site_url(string $path = ''): string
 
 function asset_url(string $path): string
 {
-    return '/assets/' . ltrim($path, '/');
+    return (SITE_BASE_PATH ?: '') . '/assets/' . ltrim($path, '/');
 }
 
 function csrf_token(): string
