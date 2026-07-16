@@ -53,6 +53,15 @@
         const status = form.querySelector('[data-form-status]');
         form.addEventListener('submit', async (event) => {
             event.preventDefault();
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                if (status) {
+                    status.textContent = 'Please complete the required fields and select a service.';
+                    status.classList.remove('is-success', 'is-pending');
+                    status.classList.add('is-error');
+                }
+                return;
+            }
             if (status) {
                 status.textContent = 'Sending your enquiry...';
                 status.classList.remove('is-success', 'is-error');

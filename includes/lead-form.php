@@ -13,7 +13,7 @@ $serviceChoices = $serviceChoices ?? service_options($services ?? []);
             <input type="text" name="name" autocomplete="name" required maxlength="80">
         </label>
         <label>Phone
-            <input type="tel" name="phone" autocomplete="tel" required maxlength="20">
+            <input type="tel" name="phone" autocomplete="tel" required maxlength="20" pattern="[0-9+\-\s()]{7,20}" title="Enter a valid phone number">
         </label>
         <label>Email
             <input type="email" name="email" autocomplete="email" required maxlength="120">
