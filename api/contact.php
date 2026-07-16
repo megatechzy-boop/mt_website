@@ -112,6 +112,9 @@ if ($formSubmitEmail !== '' && filter_var($formSubmitEmail, FILTER_VALIDATE_EMAI
     ];
 
     if (function_exists('curl_init')) {
+        $formSubmitOrigin = (string) (parse_url(SITE_URL, PHP_URL_SCHEME) ?: 'https')
+            . '://'
+            . (string) (parse_url(SITE_URL, PHP_URL_HOST) ?: ($_SERVER['HTTP_HOST'] ?? 'www.megatechzy.com'));
         $curl = curl_init('https://formsubmit.co/ajax/' . rawurlencode($formSubmitEmail));
         curl_setopt_array($curl, [
             CURLOPT_POST => true,
@@ -122,6 +125,9 @@ if ($formSubmitEmail !== '' && filter_var($formSubmitEmail, FILTER_VALIDATE_EMAI
             CURLOPT_HTTPHEADER => [
                 'Accept: application/json',
                 'Content-Type: application/x-www-form-urlencoded',
+                'Origin: ' . $formSubmitOrigin,
+                'Referer: ' . site_url('contact'),
+                'User-Agent: MegaTechzyWebsite/1.0',
             ],
         ]);
         $formSubmitResponse = curl_exec($curl);
@@ -129,12 +135,16 @@ if ($formSubmitEmail !== '' && filter_var($formSubmitEmail, FILTER_VALIDATE_EMAI
         $formSubmitError = curl_error($curl);
         curl_close($curl);
 
-        if ($formSubmitResponse !== false && $formSubmitStatus >= 200 && $formSubmitStatus < 300) {
+        $formSubmitResult = is_string($formSubmitResponse) ? json_decode($formSubmitResponse, true) : null;
+        $formSubmitAccepted = is_array($formSubmitResult)
+            && in_array($formSubmitResult['success'] ?? false, [true, 'true', 1, '1'], true);
+
+        if ($formSubmitAccepted && $formSubmitStatus >= 200 && $formSubmitStatus < 300) {
             $sent = true;
         } elseif ($formSubmitError !== '') {
             error_log('Mega Techzy FormSubmit error: ' . $formSubmitError);
         } else {
-            error_log('Mega Techzy FormSubmit response status: ' . $formSubmitStatus);
+            error_log('Mega Techzy FormSubmit response: ' . $formSubmitStatus . ' ' . (string) ($formSubmitResult['message'] ?? 'Unknown error'));
         }
     } else {
         error_log('Mega Techzy FormSubmit error: cURL is not enabled.');
