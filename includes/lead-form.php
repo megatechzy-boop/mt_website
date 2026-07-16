@@ -2,7 +2,7 @@
 $formContext = $formContext ?? 'Website enquiry';
 $serviceChoices = $serviceChoices ?? service_options($services ?? []);
 ?>
-<form class="lead-form" data-lead-form method="post" action="/api/contact.php" novalidate>
+<form class="lead-form" data-lead-form method="post" action="<?= e(site_url('api/contact.php')); ?>" novalidate>
     <input type="hidden" name="csrf_token" value="<?= e(csrf_token()); ?>">
     <input type="hidden" name="form_context" value="<?= e($formContext); ?>">
     <label class="hp-field">Leave this field empty
@@ -36,4 +36,3 @@ $serviceChoices = $serviceChoices ?? service_options($services ?? []);
     <button class="btn btn-primary" type="submit">Request Strategy Call <?= icon_svg('arrow'); ?></button>
     <p class="form-note" data-form-status aria-live="polite">We usually respond within one business day.</p>
 </form>
-
