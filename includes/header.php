@@ -27,6 +27,13 @@ $schemas = array_merge(build_global_schema(), $pageSchemas ?? []);
     <meta name="twitter:title" content="<?= e($title); ?>">
     <meta name="twitter:description" content="<?= e($description); ?>">
     <meta name="twitter:image" content="<?= e($ogImage); ?>">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EQ0FXSWDD4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-EQ0FXSWDD4');
+    </script>
     <link rel="icon" type="image/svg+xml" href="<?= e(asset_url('icons/favicon.svg')); ?>">
     <link rel="stylesheet" href="<?= e(asset_url('css/styles.css')); ?>">
     <?php foreach ($schemas as $schema): ?>
