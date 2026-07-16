@@ -760,9 +760,10 @@ p {
 }
 
 .form-note.is-success {
-    border-color: #15803d;
-    background: #ecfdf3;
-    color: #166534;
+    border-color: #f5c518;
+    background: #0b5d45;
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(11, 93, 69, .16);
 }
 
 .form-note.is-pending {
