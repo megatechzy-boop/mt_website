@@ -98,22 +98,37 @@ if (file_exists($autoload)) {
     require_once $autoload;
 }
 
+$mailConfig = [];
+$mailConfigFile = dirname(__DIR__) . '/includes/mail-config.php';
+if (is_file($mailConfigFile)) {
+    $configuredMail = require $mailConfigFile;
+    if (is_array($configuredMail)) {
+        $mailConfig = $configuredMail;
+    }
+}
+
+$smtpHost = (string) ($mailConfig['host'] ?? getenv('SMTP_HOST') ?: '');
+$smtpPort = (int) ($mailConfig['port'] ?? getenv('SMTP_PORT') ?: 587);
+$smtpUser = (string) ($mailConfig['username'] ?? getenv('SMTP_USER') ?: '');
+$smtpPassword = (string) ($mailConfig['password'] ?? getenv('SMTP_PASS') ?: '');
+$smtpSecure = (string) ($mailConfig['secure'] ?? getenv('SMTP_SECURE') ?: ($smtpPort === 465 ? 'ssl' : 'tls'));
+$mailFrom = (string) ($mailConfig['from'] ?? getenv('MAIL_FROM') ?: CONTACT_EMAIL);
+
 if (class_exists(\PHPMailer\PHPMailer\PHPMailer::class)) {
     try {
         $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
-        $smtpHost = getenv('SMTP_HOST');
         if ($smtpHost) {
             $mail->isSMTP();
-            $mail->Host = (string) $smtpHost;
-            $mail->Port = (int) (getenv('SMTP_PORT') ?: 587);
+            $mail->Host = $smtpHost;
+            $mail->Port = $smtpPort;
             $mail->SMTPAuth = true;
-            $mail->Username = (string) getenv('SMTP_USER');
-            $mail->Password = (string) getenv('SMTP_PASS');
-            $mail->SMTPSecure = (string) (getenv('SMTP_SECURE') ?: \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS);
+            $mail->Username = $smtpUser;
+            $mail->Password = $smtpPassword;
+            $mail->SMTPSecure = $smtpSecure;
         } else {
             $mail->isMail();
         }
-        $mail->setFrom((string) (getenv('MAIL_FROM') ?: CONTACT_EMAIL), SITE_NAME);
+        $mail->setFrom($mailFrom, SITE_NAME);
         $mail->addAddress(CONTACT_EMAIL);
         $mail->addReplyTo($email, $name);
         $mail->Subject = $subject;
