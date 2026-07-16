@@ -50,9 +50,9 @@ include dirname(__DIR__) . '/includes/navbar.php';
             <?php foreach ($services as $slug => $service): ?>
                 <article class="service-card">
                     <span class="card-icon"><?= icon_svg($service['icon']); ?></span>
-                    <h2><a href="/services/<?= e($slug); ?>.php"><?= e($service['name']); ?></a></h2>
+                    <h2><a href="/services/<?= e($slug); ?>"><?= e($service['name']); ?></a></h2>
                     <p><?= e($service['intro']); ?></p>
-                    <a class="link-arrow" href="/services/<?= e($slug); ?>.php">Learn more <?= icon_svg('arrow'); ?></a>
+                    <a class="link-arrow" href="/services/<?= e($slug); ?>">Learn more <?= icon_svg('arrow'); ?></a>
                 </article>
             <?php endforeach; ?>
         </div>
