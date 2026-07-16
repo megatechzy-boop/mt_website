@@ -199,13 +199,16 @@ if (!$sent && class_exists(\PHPMailer\PHPMailer\PHPMailer::class)) {
     }
 }
 
-if (!$sent && getenv('ENABLE_PHP_MAIL') === '1') {
+if (!$sent && function_exists('mail')) {
     $headers = [
         'From: ' . SITE_NAME . ' <' . CONTACT_EMAIL . '>',
         'Reply-To: ' . $name . ' <' . $email . '>',
         'Content-Type: text/plain; charset=UTF-8',
     ];
     $sent = mail(CONTACT_EMAIL, $subject, $body, implode("\r\n", $headers));
+    if (!$sent) {
+        error_log('Mega Techzy native mail delivery failed.');
+    }
 }
 
 $storageDir = dirname(__DIR__) . '/storage';
