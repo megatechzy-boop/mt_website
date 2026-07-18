@@ -31,15 +31,24 @@ $schemas = array_merge(build_global_schema(), $pageSchemas ?? []);
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-        window.addEventListener('load', function () {
-            window.setTimeout(function () {
+        (function () {
+            var loaded = false;
+            var loadAnalytics = function () {
+                if (loaded) return;
+                loaded = true;
+                ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (eventName) {
+                    window.removeEventListener(eventName, loadAnalytics);
+                });
                 var tag = document.createElement('script');
                 tag.async = true;
                 tag.src = 'https://www.googletagmanager.com/gtag/js?id=G-EQ0FXSWDD4';
                 document.head.appendChild(tag);
                 gtag('config', 'G-EQ0FXSWDD4');
-            }, 1500);
-        }, { once: true });
+            };
+            ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (eventName) {
+                window.addEventListener(eventName, loadAnalytics, { passive: true, once: true });
+            });
+        }());
     </script>
     <link rel="icon" type="image/svg+xml" href="<?= e(asset_url('icons/favicon.svg')); ?>">
     <?php if ($path === ''): ?>
