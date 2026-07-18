@@ -34,7 +34,7 @@ include __DIR__ . '/includes/navbar.php';
 <main id="main" class="agency-home">
     <section class="agency-hero">
         <div class="container agency-hero-grid">
-            <div class="agency-hero-copy" data-reveal>
+            <div class="agency-hero-copy">
                 <p class="agency-kicker"><span></span> Digital marketing and web studio</p>
                 <h1>We make<br>brands <em>matter.</em></h1>
                 <p class="agency-lede">Mega Techzy is a digital marketing company in Pune serving PCMC, Solapur and businesses across India with websites, SEO, paid ads and automation.</p>
@@ -47,7 +47,7 @@ include __DIR__ . '/includes/navbar.php';
                     <span>Working across India</span>
                 </div>
             </div>
-            <div class="agency-hero-art" aria-label="Digital growth showcase" data-reveal>
+            <div class="agency-hero-art" aria-label="Digital growth showcase">
                 <div class="hero-orbit hero-orbit-one"></div>
                 <div class="hero-orbit hero-orbit-two"></div>
                 <div class="hero-growth-core">
