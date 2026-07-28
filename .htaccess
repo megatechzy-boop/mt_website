@@ -4,6 +4,10 @@ Options -Indexes
 <IfModule mod_rewrite.c>
 RewriteEngine On
 
+# Consolidate all public URLs on the canonical www host.
+RewriteCond %{HTTP_HOST} ^megatechzy\.com$ [NC]
+RewriteRule ^ https://www.megatechzy.com%{REQUEST_URI} [R=301,L,NE]
+
 # Keep public page URLs extensionless. The form API remains a PHP endpoint.
 RewriteCond %{REQUEST_URI} !^/api/ [NC]
 RewriteCond %{THE_REQUEST} \s/+index\.php(?:[\s?]|$) [NC]

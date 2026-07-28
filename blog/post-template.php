@@ -27,16 +27,50 @@ if (!isset($post['keyword']) && isset($legacyGuides[$postSlug])) {
 }
 $researchArticle = __DIR__ . '/articles/' . $postSlug . '.php';
 $hasResearchArticle = is_file($researchArticle);
+$indexablePosts = [
+    'choose-digital-marketing-company-pune',
+    'local-business-website-features',
+    'seo-vs-google-ads',
+    'local-seo-checklist-pune-businesses',
+    'google-business-profile-optimization-pune',
+    'business-website-cost-pune',
+    'website-design-manufacturing-companies',
+    'real-estate-lead-generation-pune-builders',
+    'seo-doctors-clinics-pune',
+    'digital-marketing-schools-coaching-classes',
+];
+$isIndexable = $hasResearchArticle || in_array($postSlug, $indexablePosts, true);
 $metaDescription = $post['excerpt'];
 if (isset($post['keyword'])) {
     $metaDescription .= ' Mega Techzy guide to ' . $post['keyword'] . '.';
 }
-$pageMeta = ['title' => $post['title'] . ' - Mega Techzy', 'description' => $metaDescription, 'path' => 'blog/' . $postSlug . '.php', 'robots' => $hasResearchArticle ? 'index, follow' : 'noindex, follow'];
+$pageMeta = ['title' => $post['title'] . ' - Mega Techzy', 'description' => $metaDescription, 'path' => 'blog/' . $postSlug, 'robots' => $isIndexable ? 'index, follow' : 'noindex, follow'];
 $pageSchemas = [breadcrumb_schema([
     ['name' => 'Home', 'path' => ''],
     ['name' => 'Blog', 'path' => 'blog/'],
-    ['name' => $post['title'], 'path' => 'blog/' . $postSlug . '.php'],
-])];
+    ['name' => $post['title'], 'path' => 'blog/' . $postSlug],
+]), [
+    '@context' => 'https://schema.org',
+    '@type' => 'BlogPosting',
+    'headline' => $post['title'],
+    'description' => $metaDescription,
+    'url' => site_url('blog/' . $postSlug),
+    'mainEntityOfPage' => site_url('blog/' . $postSlug),
+    'author' => [
+        '@type' => 'Organization',
+        'name' => SITE_NAME,
+        'url' => SITE_URL,
+    ],
+    'publisher' => [
+        '@type' => 'Organization',
+        'name' => SITE_NAME,
+        'url' => SITE_URL,
+        'logo' => [
+            '@type' => 'ImageObject',
+            'url' => site_url('assets/images/mega-techzy-logo.png'),
+        ],
+    ],
+]];
 $isGuide = isset($post['keyword']);
 include dirname(__DIR__) . '/includes/header.php';
 include dirname(__DIR__) . '/includes/navbar.php';

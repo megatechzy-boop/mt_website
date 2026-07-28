@@ -26,9 +26,9 @@ include dirname(__DIR__) . '/includes/navbar.php';
             <div class="container card-grid">
                 <?php foreach ($blogPosts as $post): ?>
                     <article class="blog-card">
-                        <h2><a href="/blog/<?= e($post['slug']); ?>.php"><?= e($post['title']); ?></a></h2>
+                        <h2><a href="/blog/<?= e($post['slug']); ?>"><?= e($post['title']); ?></a></h2>
                         <p><?= e($post['excerpt']); ?></p>
-                        <a class="link-arrow" href="/blog/<?= e($post['slug']); ?>.php">Read guide <?= icon_svg('arrow'); ?></a>
+                        <a class="link-arrow" href="/blog/<?= e($post['slug']); ?>">Read guide <?= icon_svg('arrow'); ?></a>
                     </article>
                 <?php endforeach; ?>
             </div>
