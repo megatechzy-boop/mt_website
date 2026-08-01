@@ -8,6 +8,9 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} ^megatechzy\.com$ [NC]
 RewriteRule ^ https://www.megatechzy.com%{REQUEST_URI} [R=301,L,NE]
 
+# Redirect retired URLs to their closest current equivalent.
+RewriteRule ^blog/old-seo-guide/?$ /blog/technical-seo-checklist-new-website [R=301,L,NE]
+
 # Keep public page URLs extensionless. The form API remains a PHP endpoint.
 RewriteCond %{REQUEST_URI} !^/api/ [NC]
 RewriteCond %{THE_REQUEST} \s/+index\.php(?:[\s?]|$) [NC]
