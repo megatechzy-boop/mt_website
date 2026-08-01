@@ -4,10 +4,26 @@ Mega Techzy is a digital marketing and website development company established i
 
 ## Important Pages
 
-- [Home](https://www.megatechzy.com/mt/): Digital marketing and website development overview.
-- [About](https://www.megatechzy.com/mt/about.php): Company background and service approach.
-- [Services](https://www.megatechzy.com/mt/services/): Website, SEO, ads, automation and analytics services.
-- [Contact](https://www.megatechzy.com/mt/contact.php): Enquiries and contact information.
+- [Home](https://www.megatechzy.com/): Digital marketing and website development overview.
+- [About](https://www.megatechzy.com/about): Company background and service approach.
+- [Services](https://www.megatechzy.com/services/): Website, SEO, advertising, automation and analytics services.
+- [Blog](https://www.megatechzy.com/blog/): Practical guides about websites, SEO, advertising, analytics and lead generation.
+- [Contact](https://www.megatechzy.com/contact): Enquiries and contact information.
+
+## Priority Services
+
+- [Website Development](https://www.megatechzy.com/services/website-development): Business website planning and development.
+- [Search Engine Optimization](https://www.megatechzy.com/services/seo): Technical, content and local SEO services.
+- [Google Ads](https://www.megatechzy.com/services/google-ads): Search advertising and conversion measurement.
+- [Lead Generation](https://www.megatechzy.com/services/lead-generation): Lead-generation strategy, landing pages and measurement.
+
+## Featured Guides
+
+- [Google Ads for Local Services](https://www.megatechzy.com/blog/google-ads-local-services-guide): Campaign planning, conversion tracking and search-term review.
+- [Landing Page Checklist](https://www.megatechzy.com/blog/landing-page-checklist-lead-generation): A practical review for lead-generation landing pages.
+- [WhatsApp Lead Follow-Up](https://www.megatechzy.com/blog/whatsapp-lead-follow-up-small-business): Consent-aware follow-up workflows for small businesses.
+- [GA4 Lead-Generation Setup](https://www.megatechzy.com/blog/ga4-setup-lead-generation-websites): Event planning and lead-quality measurement.
+- [Technical SEO Launch Checklist](https://www.megatechzy.com/blog/technical-seo-checklist-new-website): Crawl, indexing, canonical and sitemap launch checks.
 
 ## Contact
 
