@@ -322,9 +322,29 @@ $blogPosts = [
     ['title' => 'Top 5 Automation Mistakes Businesses Should Avoid', 'slug' => 'top-automation-mistakes-businesses-avoid', 'excerpt' => 'Avoid common automation mistakes involving unclear journeys, poor data, spammy messages and missing human support.', 'keyword' => 'automation mistakes businesses should avoid', 'audience' => 'businesses starting automation', 'outcome' => 'launch helpful automation without damaging trust', 'help' => 'Mega Techzy starts automation with journey mapping, consent-aware messaging, testing and human escalation rules instead of a generic blast setup.', 'help_url' => '/services/email-marketing'],
 ];
 
-// Only publish cards for posts that have an approved public page file. Draft
-// ideas can remain in the editorial backlog without creating broken links.
-$blogPosts = array_values(array_filter($blogPosts, static fn (array $post): bool => is_file(dirname(__DIR__) . '/blog/' . $post['slug'] . '.php')));
+// Explicit publication list prevents stale files left by an overlay deployment
+// from putting retired draft pages back into the public blog directory.
+$publishedBlogSlugs = [
+    'choose-digital-marketing-company-pune',
+    'local-business-website-features',
+    'seo-vs-google-ads',
+    'local-seo-checklist-pune-businesses',
+    'google-business-profile-optimization-pune',
+    'business-website-cost-pune',
+    'website-design-manufacturing-companies',
+    'real-estate-lead-generation-pune-builders',
+    'seo-doctors-clinics-pune',
+    'digital-marketing-schools-coaching-classes',
+    'google-ads-local-services-guide',
+    'landing-page-checklist-lead-generation',
+    'whatsapp-lead-follow-up-small-business',
+    'ga4-setup-lead-generation-websites',
+    'technical-seo-checklist-new-website',
+    'best-ai-tools-small-businesses-india',
+    'how-to-choose-website-developer-india',
+    'website-maker-vs-web-developer',
+];
+$blogPosts = array_values(array_filter($blogPosts, static fn (array $post): bool => in_array($post['slug'], $publishedBlogSlugs, true)));
 
 $homeFaqs = [
     ['q' => 'What does Mega Techzy do?', 'a' => 'Mega Techzy helps businesses grow online through websites, SEO, paid ads, automation, branding, analytics and lead generation.'],
