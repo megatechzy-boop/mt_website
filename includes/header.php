@@ -1,23 +1,39 @@
 <?php
 $pageMeta = $pageMeta ?? [];
-$title = $pageMeta['title'] ?? SITE_NAME . ' - Digital Marketing and Website Development Company';
-$description = $pageMeta['description'] ?? 'Mega Techzy helps businesses grow online with websites, SEO, paid ads, branding, automation and lead generation.';
+$title = seo_title($pageMeta['title'] ?? SITE_NAME . ' - Digital Marketing and Website Development Company');
+$description = seo_description($pageMeta['description'] ?? 'Mega Techzy helps businesses grow online with websites, SEO, paid ads, branding, automation and lead generation.');
 $path = $pageMeta['path'] ?? '';
-$canonical = site_url($path);
-$ogImage = site_url('assets/images/mega-techzy-logo.png');
+$canonical = $pageMeta['canonical'] ?? site_url($path);
+$ogImage = $pageMeta['og_image'] ?? site_url('assets/images/mega-techzy-logo.png');
+$ogType = $pageMeta['og_type'] ?? 'website';
 $robots = $pageMeta['robots'] ?? 'index, follow';
-$schemas = array_merge(build_global_schema(), $pageSchemas ?? []);
+if (str_starts_with($robots, 'index') && !str_contains($robots, 'max-image-preview')) {
+    $robots .= ', max-image-preview:large, max-snippet:-1, max-video-preview:-1';
+}
+$htmlLang = $pageMeta['language'] ?? 'en-IN';
+$ogLocale = str_replace('-', '_', $htmlLang);
+$hreflangLinks = $pageMeta['hreflang'] ?? [];
+$pageType = $pageMeta['schema_type'] ?? 'WebPage';
+$schemas = array_merge(
+    build_global_schema(),
+    [webpage_schema($title, $description, $canonical, $htmlLang, $pageType, $pageMeta['about'] ?? [])],
+    $pageSchemas ?? []
+);
 ?>
 <!doctype html>
-<html lang="en-IN">
+<html lang="<?= e($htmlLang); ?>">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= e($title); ?></title>
     <meta name="description" content="<?= e($description); ?>">
     <link rel="canonical" href="<?= e($canonical); ?>">
+    <?php foreach ($hreflangLinks as $hreflang => $href): ?>
+        <link rel="alternate" hreflang="<?= e($hreflang); ?>" href="<?= e($href); ?>">
+    <?php endforeach; ?>
     <meta name="robots" content="<?= e($robots); ?>">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="<?= e($ogType); ?>">
+    <meta property="og:locale" content="<?= e($ogLocale); ?>">
     <meta property="og:site_name" content="<?= e(SITE_NAME); ?>">
     <meta property="og:title" content="<?= e($title); ?>">
     <meta property="og:description" content="<?= e($description); ?>">
@@ -26,7 +42,9 @@ $schemas = array_merge(build_global_schema(), $pageSchemas ?? []);
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="<?= e($title); ?>">
     <meta name="twitter:description" content="<?= e($description); ?>">
+    <meta name="twitter:url" content="<?= e($canonical); ?>">
     <meta name="twitter:image" content="<?= e($ogImage); ?>">
+    <meta name="theme-color" content="#0b1020">
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }

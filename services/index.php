@@ -2,21 +2,42 @@
 require dirname(__DIR__) . '/includes/config.php';
 require dirname(__DIR__) . '/includes/data.php';
 
+$serviceItems = [];
+foreach ($services as $slug => $service) {
+    $serviceItems[] = [
+        '@type' => 'ListItem',
+        'position' => count($serviceItems) + 1,
+        'name' => $service['name'],
+        'url' => site_url('services/' . $slug),
+    ];
+}
+$serviceFaqs = [
+    ['q' => 'Can I start with one digital marketing service?', 'a' => 'Yes. You can start with the most urgent need, such as a new website, SEO audit, Google Ads campaign or lead follow-up workflow, then build the broader system over time.'],
+    ['q' => 'Does Mega Techzy work with local businesses?', 'a' => 'Yes. Mega Techzy supports suitable projects across Maharashtra and India, adapting services to the local market, industry and sales process.'],
+    ['q' => 'How do I choose between SEO and paid ads?', 'a' => 'SEO supports longer-term organic visibility, while paid ads can capture immediate demand. The right starting point depends on your offer, timeline, market and current website foundation.'],
+];
+
 $pageMeta = [
-    'title' => 'Digital Marketing Services | SEO, Websites, Ads and Automation - Mega Techzy',
-    'description' => 'Explore Mega Techzy digital marketing services: website development, SEO, Google Ads, Meta Ads, automation, analytics and lead generation for businesses in Pune, PCMC, Solapur and India.',
+    'title' => 'Digital Marketing Services in Maharashtra | Mega Techzy',
+    'description' => 'Explore website development, SEO, Google Ads, Meta Ads, automation, analytics and lead-generation services for Maharashtra businesses and India.',
     'path' => 'services/',
+    'schema_type' => 'CollectionPage',
+    'about' => ['digital marketing services', 'website development', 'SEO', 'paid advertising', 'automation', 'Maharashtra'],
 ];
 $pageSchemas = [
     breadcrumb_schema([
         ['name' => 'Home', 'path' => ''],
         ['name' => 'Services', 'path' => 'services/'],
     ]),
-    faq_schema([
-        ['q' => 'What digital marketing services does Mega Techzy provide?', 'a' => 'Mega Techzy provides website development, SEO, Google Ads, Meta Ads, LinkedIn Ads, email and WhatsApp automation, analytics, branding, content marketing and lead generation services.'],
-        ['q' => 'Can Mega Techzy combine website and marketing services?', 'a' => 'Yes. Mega Techzy can connect website development, SEO, paid ads, analytics and follow-up automation into one practical growth system.'],
-        ['q' => 'Where does Mega Techzy provide digital marketing services?', 'a' => 'Mega Techzy works with businesses in Pune, PCMC, Solapur and across India.'],
-    ]),
+    faq_schema($serviceFaqs),
+    [
+        '@context' => 'https://schema.org',
+        '@type' => 'ItemList',
+        '@id' => site_url('services/') . '#service-list',
+        'name' => 'Mega Techzy digital marketing services',
+        'numberOfItems' => count($serviceItems),
+        'itemListElement' => $serviceItems,
+    ],
 ];
 include dirname(__DIR__) . '/includes/header.php';
 include dirname(__DIR__) . '/includes/navbar.php';
@@ -68,9 +89,9 @@ include dirname(__DIR__) . '/includes/navbar.php';
         <div class="container narrow">
             <p class="eyebrow">Services FAQs</p>
             <h2>Choosing the right digital marketing service</h2>
-            <details><summary>Can I start with one service?</summary><p>Yes. You can start with the most urgent need, such as a new website, SEO audit, Google Ads campaign or lead follow-up workflow, then build the broader system over time.</p></details>
-            <details><summary>Do you work with local businesses?</summary><p>Yes. Mega Techzy works with businesses in Pune, PCMC, Solapur and across India, adapting services to the local market and sales process.</p></details>
-            <details><summary>How do I choose between SEO and paid ads?</summary><p>SEO supports longer-term organic visibility, while paid ads can capture immediate demand. The right starting point depends on your offer, timeline, market and current website foundation.</p></details>
+            <?php foreach ($serviceFaqs as $faq): ?>
+                <details><summary><?= e($faq['q']); ?></summary><p><?= e($faq['a']); ?></p></details>
+            <?php endforeach; ?>
             <a class="btn btn-primary" href="/contact">Discuss your service needs <?= icon_svg('arrow'); ?></a>
         </div>
     </section>

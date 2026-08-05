@@ -10,7 +10,7 @@ foreach ($blogPosts as $candidate) {
 }
 if (!$post) {
     http_response_code(404);
-    $pageMeta = ['title' => 'Blog Post Not Found - Mega Techzy', 'description' => 'The requested blog post was not found.', 'path' => 'blog/'];
+    $pageMeta = ['title' => 'Blog Post Not Found - Mega Techzy', 'description' => 'The requested blog post was not found.', 'path' => 'blog/', 'robots' => 'noindex, follow'];
     include dirname(__DIR__) . '/includes/header.php';
     include dirname(__DIR__) . '/includes/navbar.php';
     echo '<main id="main" class="section"><div class="container"><h1>Blog post not found</h1><a class="btn btn-primary" href="/blog/">View blog</a></div></main>';
@@ -40,11 +40,21 @@ $indexablePosts = [
     'digital-marketing-schools-coaching-classes',
 ];
 $isIndexable = $hasResearchArticle || in_array($postSlug, $indexablePosts, true);
-$metaDescription = $post['excerpt'];
-if (isset($post['keyword'])) {
-    $metaDescription .= ' Mega Techzy guide to ' . $post['keyword'] . '.';
-}
-$pageMeta = ['title' => $post['title'] . ' - Mega Techzy', 'description' => $metaDescription, 'path' => 'blog/' . $postSlug, 'robots' => $isIndexable ? 'index, follow' : 'noindex, follow'];
+$metaDescription = seo_description($post['excerpt']);
+$articleKeywords = array_values(array_filter([
+    $post['keyword'] ?? null,
+    $post['category'] ?? null,
+    'Mega Techzy',
+]));
+$pageMeta = [
+    'title' => $post['title'] . ' - Mega Techzy',
+    'description' => $metaDescription,
+    'path' => 'blog/' . $postSlug,
+    'robots' => $isIndexable ? 'index, follow' : 'noindex, follow',
+    'og_type' => 'article',
+    'schema_type' => 'WebPage',
+    'about' => $articleKeywords,
+];
 $pageSchemas = [breadcrumb_schema([
     ['name' => 'Home', 'path' => ''],
     ['name' => 'Blog', 'path' => 'blog/'],
@@ -52,24 +62,17 @@ $pageSchemas = [breadcrumb_schema([
 ]), [
     '@context' => 'https://schema.org',
     '@type' => 'BlogPosting',
+    '@id' => site_url('blog/' . $postSlug) . '#article',
     'headline' => $post['title'],
     'description' => $metaDescription,
     'url' => site_url('blog/' . $postSlug),
-    'mainEntityOfPage' => site_url('blog/' . $postSlug),
-    'author' => [
-        '@type' => 'Organization',
-        'name' => SITE_NAME,
-        'url' => SITE_URL,
-    ],
-    'publisher' => [
-        '@type' => 'Organization',
-        'name' => SITE_NAME,
-        'url' => SITE_URL,
-        'logo' => [
-            '@type' => 'ImageObject',
-            'url' => site_url('assets/images/mega-techzy-logo.png'),
-        ],
-    ],
+    'mainEntityOfPage' => ['@id' => site_url('blog/' . $postSlug) . '#webpage'],
+    'author' => ['@id' => SITE_URL . '/#organization'],
+    'publisher' => ['@id' => SITE_URL . '/#organization'],
+    'image' => site_url('assets/images/mega-techzy-logo.png'),
+    'inLanguage' => 'en-IN',
+    'keywords' => $articleKeywords,
+    'isPartOf' => ['@id' => SITE_URL . '/#website'],
 ]];
 $isGuide = isset($post['keyword']);
 include dirname(__DIR__) . '/includes/header.php';
@@ -81,6 +84,11 @@ include dirname(__DIR__) . '/includes/navbar.php';
             <p class="eyebrow">Mega Techzy Guide</p>
             <h1><?= e($post['title']); ?></h1>
             <p class="lead"><?= e($post['excerpt']); ?></p>
+            <aside class="form-shell" aria-labelledby="quick-answer">
+                <h2 id="quick-answer">Quick answer</h2>
+                <p><strong><?= e($metaDescription); ?></strong></p>
+                <p>Use the guide below to compare the practical steps, risks and measurement points before making a decision.</p>
+            </aside>
             <?php if ($hasResearchArticle): ?>
                 <?php include $researchArticle; ?>
             <?php elseif ($isGuide): ?>

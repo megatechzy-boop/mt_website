@@ -5,7 +5,7 @@ require dirname(__DIR__) . '/includes/data.php';
 $service = $services[$serviceSlug] ?? null;
 if (!$service) {
     http_response_code(404);
-    $pageMeta = ['title' => 'Service Not Found - Mega Techzy', 'description' => 'The requested service page was not found.', 'path' => 'services/'];
+    $pageMeta = ['title' => 'Service Not Found - Mega Techzy', 'description' => 'The requested service page was not found.', 'path' => 'services/', 'robots' => 'noindex, follow'];
     include dirname(__DIR__) . '/includes/header.php';
     include dirname(__DIR__) . '/includes/navbar.php';
     echo '<main id="main" class="section"><div class="container"><h1>Service not found</h1><p>Please browse all Mega Techzy services.</p><a class="btn btn-primary" href="/services/">View services</a></div></main>';
@@ -13,15 +13,34 @@ if (!$service) {
     exit;
 }
 
-$pageMeta = ['title' => $service['title'], 'description' => $service['meta'], 'path' => 'services/' . $serviceSlug . '.php'];
+$pageMeta = [
+    'title' => $service['title'],
+    'description' => $service['meta'],
+    'path' => 'services/' . $serviceSlug . '.php',
+    'about' => [$service['name'], 'digital marketing', 'Maharashtra', 'India'],
+];
+if ($serviceSlug === 'website-development') {
+    $pageMeta['language'] = 'en-IN';
+    $pageMeta['hreflang'] = [
+        'en-IN' => site_url('services/website-development'),
+        'en' => site_url('international/website-development'),
+        'x-default' => site_url('international/website-development'),
+    ];
+}
 $pageSchemas = [
     [
         '@context' => 'https://schema.org',
         '@type' => 'Service',
+        '@id' => site_url('services/' . $serviceSlug) . '#service',
         'name' => $service['name'],
-        'provider' => ['@type' => 'Organization', 'name' => SITE_NAME, 'url' => SITE_URL],
-        'areaServed' => ['Pune', 'PCMC', 'Solapur', 'Maharashtra'],
+        'serviceType' => $service['name'],
+        'provider' => ['@id' => SITE_URL . '/#organization'],
+        'areaServed' => [
+            ['@type' => 'AdministrativeArea', 'name' => 'Maharashtra'],
+            ['@type' => 'Country', 'name' => 'India'],
+        ],
         'description' => $service['meta'],
+        'url' => site_url('services/' . $serviceSlug),
     ],
     faq_schema($service['faqs']),
     breadcrumb_schema([
@@ -51,6 +70,19 @@ include dirname(__DIR__) . '/includes/navbar.php';
                 <p><?= e($service['proof']); ?></p>
                 <p><strong>Established in 2019.</strong> Mega Techzy has served 100+ clients and delivered 50+ projects.</p>
             </aside>
+        </div>
+    </section>
+
+    <section class="section soft-section">
+        <div class="container narrow">
+            <p class="eyebrow">Quick answer</p>
+            <h2>What does <?= e(strtolower($service['name'])); ?> include?</h2>
+            <p><strong><?= e($service['name']); ?></strong> from Mega Techzy combines strategy, implementation and measurement around a clear business goal. The exact scope is agreed after reviewing your audience, current setup, market and enquiry process.</p>
+            <div class="check-list">
+                <?php foreach (array_slice($service['deliverables'], 0, 4) as $deliverable): ?>
+                    <div><?= icon_svg('check'); ?><span><?= e($deliverable); ?></span></div>
+                <?php endforeach; ?>
+            </div>
         </div>
     </section>
 
@@ -88,7 +120,7 @@ include dirname(__DIR__) . '/includes/navbar.php';
             <?php foreach ($service['related'] as $relatedSlug): $related = $services[$relatedSlug]; ?>
                 <article class="service-card">
                     <span class="card-icon"><?= icon_svg($related['icon']); ?></span>
-                    <h3><a href="/services/<?= e($relatedSlug); ?>.php"><?= e($related['name']); ?></a></h3>
+                    <h3><a href="/services/<?= e($relatedSlug); ?>"><?= e($related['name']); ?></a></h3>
                     <p><?= e($related['intro']); ?></p>
                 </article>
             <?php endforeach; ?>

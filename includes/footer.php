@@ -10,15 +10,18 @@
         <div class="footer-links">
             <h2>Services</h2>
             <a href="/services/website-development">Website Development</a>
+            <a href="/international/website-development">International Web Development</a>
             <a href="/services/seo">SEO</a>
             <a href="/services/google-ads">Google Ads</a>
             <a href="/services/lead-generation">Lead Generation</a>
         </div>
         <div class="footer-links">
             <h2>Locations</h2>
-            <?php foreach (SERVICE_AREAS as $area): ?>
-                <span><?= e($area); ?></span>
-            <?php endforeach; ?>
+            <a href="/locations/mumbai">Mumbai</a>
+            <a href="/locations/pune">Pune</a>
+            <a href="/locations/nagpur">Nagpur</a>
+            <a href="/locations/nashik">Nashik</a>
+            <a href="/locations/">All Maharashtra cities</a>
         </div>
         <div class="footer-contact">
             <span class="footer-contact-label">Have an idea?</span>

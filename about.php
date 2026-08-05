@@ -1,19 +1,22 @@
 <?php
 require __DIR__ . '/includes/config.php';
 require __DIR__ . '/includes/data.php';
+$aboutFaqs = [
+    ['q' => 'When was Mega Techzy established?', 'a' => 'Mega Techzy was established in 2019.'],
+    ['q' => 'What does Mega Techzy help businesses with?', 'a' => 'We help with website development, SEO, paid ads, content marketing, automation, analytics and lead generation.'],
+    ['q' => 'Where does Mega Techzy work?', 'a' => 'We support suitable projects across Maharashtra and India, including Mumbai, Pune, Pimpri-Chinchwad, Nagpur, Nashik and Solapur.'],
+];
 $pageMeta = [
-    'title' => 'About Mega Techzy | Digital Marketing and Website Development Company',
-    'description' => 'Mega Techzy is a digital marketing and website development company established in 2019, serving 100+ clients with 50+ projects across SEO, websites, ads and automation.',
+    'title' => 'About Mega Techzy | Digital Growth Company',
+    'description' => 'Learn about Mega Techzy, established in 2019, with 100+ clients served and 50+ website, SEO, advertising and automation projects delivered.',
     'path' => 'about',
+    'schema_type' => 'AboutPage',
+    'about' => ['Mega Techzy', 'digital marketing company', 'website development company', 'Maharashtra'],
 ];
 $pageSchemas = [breadcrumb_schema([
     ['name' => 'Home', 'path' => ''],
     ['name' => 'About', 'path' => 'about'],
-]), faq_schema([
-    ['q' => 'When was Mega Techzy established?', 'a' => 'Mega Techzy was established in 2019.'],
-    ['q' => 'What services does Mega Techzy provide?', 'a' => 'Mega Techzy provides website development, SEO, paid advertising, content marketing, automation, analytics and lead generation support.'],
-    ['q' => 'How many clients has Mega Techzy served?', 'a' => 'Mega Techzy has served 100+ clients and delivered 50+ projects.'],
-])];
+]), faq_schema($aboutFaqs)];
 include __DIR__ . '/includes/header.php';
 include __DIR__ . '/includes/navbar.php';
 ?>
@@ -79,7 +82,7 @@ include __DIR__ . '/includes/navbar.php';
                 <p class="eyebrow">What we do</p>
                 <h2>One connected digital growth system</h2>
                 <p>Our services are designed to work together. A high-quality website gives customers a place to understand and contact your business. SEO improves organic discovery. Paid campaigns capture demand faster. Automation helps your team follow up consistently, while analytics makes the next decision clearer.</p>
-                <p>We serve businesses in Pune, PCMC, Solapur and across India, adapting the plan to the industry, service area, sales process and growth goal.</p>
+                <p>We support suitable businesses across Maharashtra and India, adapting the plan to the industry, service area, sales process and growth goal.</p>
             </div>
             <div class="check-list">
                 <div><?= icon_svg('check'); ?><span>Website development with SEO-ready structure.</span></div>
@@ -94,9 +97,9 @@ include __DIR__ . '/includes/navbar.php';
         <div class="container narrow">
             <p class="eyebrow">About Mega Techzy FAQs</p>
             <h2>Questions businesses ask before working with us</h2>
-            <details><summary>When was Mega Techzy established?</summary><p>Mega Techzy was established in 2019.</p></details>
-            <details><summary>What does Mega Techzy help businesses with?</summary><p>We help with website development, SEO, paid ads, content marketing, automation, analytics and lead generation.</p></details>
-            <details><summary>Where does Mega Techzy work?</summary><p>We work with businesses in Pune, PCMC, Solapur and across India.</p></details>
+            <?php foreach ($aboutFaqs as $faq): ?>
+                <details><summary><?= e($faq['q']); ?></summary><p><?= e($faq['a']); ?></p></details>
+            <?php endforeach; ?>
             <a class="btn btn-primary" href="/contact">Talk to Mega Techzy <?= icon_svg('arrow'); ?></a>
         </div>
     </section>

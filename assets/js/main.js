@@ -84,11 +84,19 @@
                 if (!response.ok || !data.ok) {
                     throw new Error(data.message || 'Please check the form and try again.');
                 }
+                const formContext = form.querySelector('input[name="form_context"]')?.value || 'Website enquiry';
+                const selectedService = form.querySelector('select[name="service"]')?.value || 'Not selected';
                 form.reset();
                 if (status) {
                     status.textContent = data.message;
                     status.classList.add('is-success');
                     status.classList.remove('is-pending', 'is-error');
+                }
+                if (typeof window.gtag === 'function') {
+                    window.gtag('event', 'generate_lead', {
+                        form_context: formContext,
+                        service_name: selectedService,
+                    });
                 }
             } catch (error) {
                 if (status) {

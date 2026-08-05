@@ -26,7 +26,7 @@ define('SOCIAL_URLS', [
     'Instagram' => 'https://www.instagram.com/megatechzy/',
     'IndiaMART' => 'https://www.indiamart.com/mega-techzy/',
 ]);
-define('SERVICE_AREAS', ['Solapur City', 'Ravet, Pune', 'Dehu Road, Pune', 'Wakad, Pune']);
+define('SERVICE_AREAS', ['Maharashtra', 'Mumbai', 'Pune', 'Pimpri-Chinchwad', 'Nagpur', 'Nashik', 'Solapur']);
 
 function e(mixed $value): string
 {
@@ -98,32 +98,123 @@ function service_options(array $services): array
     return array_map(static fn (array $service): string => $service['name'], $services);
 }
 
+function seo_text(string $text, int $maxLength): string
+{
+    $text = trim(preg_replace('/\s+/', ' ', $text) ?? $text);
+    if (strlen($text) <= $maxLength) {
+        return $text;
+    }
+
+    $shortened = substr($text, 0, $maxLength + 1);
+    $lastSpace = strrpos($shortened, ' ');
+    if ($lastSpace !== false && $lastSpace >= (int) ($maxLength * 0.72)) {
+        $shortened = substr($shortened, 0, $lastSpace);
+    } else {
+        $shortened = substr($shortened, 0, $maxLength);
+    }
+
+    return rtrim($shortened, " \t\n\r\0\x0B,;:-|");
+}
+
+function seo_title(string $title, int $maxLength = 65): string
+{
+    $title = trim($title);
+    if (strlen($title) <= $maxLength) {
+        return $title;
+    }
+
+    foreach ([' - ' . SITE_NAME, ' | ' . SITE_NAME] as $suffix) {
+        if (str_ends_with($title, $suffix)) {
+            $base = substr($title, 0, -strlen($suffix));
+            return seo_text($base, $maxLength - strlen(' | ' . SITE_NAME)) . ' | ' . SITE_NAME;
+        }
+    }
+
+    return seo_text($title, $maxLength);
+}
+
+function seo_description(string $description, int $maxLength = 160): string
+{
+    return seo_text($description, $maxLength);
+}
+
 function build_global_schema(): array
 {
     return [
         [
             '@context' => 'https://schema.org',
             '@type' => 'Organization',
+            '@id' => SITE_URL . '/#organization',
             'name' => SITE_NAME,
+            'alternateName' => 'MegaTechzy',
             'url' => SITE_URL,
             'email' => CONTACT_EMAIL,
             'foundingDate' => '2019',
             'description' => 'Digital marketing and website development company providing SEO, paid ads, automation, analytics and lead generation services.',
-            'telephone' => CONTACT_PHONES[0],
-            'areaServed' => array_merge(SERVICE_AREAS, ['Maharashtra', 'India']),
+            'logo' => [
+                '@type' => 'ImageObject',
+                '@id' => SITE_URL . '/#logo',
+                'url' => site_url('assets/images/mega-techzy-logo.png'),
+                'contentUrl' => site_url('assets/images/mega-techzy-logo.png'),
+                'caption' => SITE_NAME,
+            ],
+            'contactPoint' => [
+                '@type' => 'ContactPoint',
+                'telephone' => CONTACT_PHONES[0],
+                'email' => CONTACT_EMAIL,
+                'contactType' => 'sales and customer enquiries',
+                'areaServed' => ['IN'],
+                'availableLanguage' => ['English', 'Hindi', 'Marathi'],
+            ],
+            'areaServed' => [
+                ['@type' => 'AdministrativeArea', 'name' => 'Maharashtra'],
+                ['@type' => 'Country', 'name' => 'India'],
+            ],
+            'knowsAbout' => [
+                'Website development',
+                'Search engine optimization',
+                'Google Ads',
+                'Digital analytics',
+                'Marketing automation',
+                'Lead generation',
+            ],
             'sameAs' => array_values(SOCIAL_URLS),
         ],
-        [
-            '@context' => 'https://schema.org',
-            '@type' => 'LocalBusiness',
-            'name' => SITE_NAME,
-            'url' => SITE_URL,
-            'email' => CONTACT_EMAIL,
-            'telephone' => CONTACT_PHONES[0],
-            'priceRange' => '$$',
-            'areaServed' => array_merge(SERVICE_AREAS, ['Maharashtra', 'India']),
-        ],
     ];
+}
+
+function website_schema(): array
+{
+    return [
+        '@context' => 'https://schema.org',
+        '@type' => 'WebSite',
+        '@id' => SITE_URL . '/#website',
+        'url' => site_url(),
+        'name' => SITE_NAME,
+        'alternateName' => 'MegaTechzy',
+        'publisher' => ['@id' => SITE_URL . '/#organization'],
+        'inLanguage' => ['en-IN', 'en'],
+    ];
+}
+
+function webpage_schema(string $name, string $description, string $url, string $language = 'en-IN', string $type = 'WebPage', array $about = []): array
+{
+    $schema = [
+        '@context' => 'https://schema.org',
+        '@type' => $type,
+        '@id' => $url . '#webpage',
+        'url' => $url,
+        'name' => $name,
+        'description' => $description,
+        'isPartOf' => ['@id' => SITE_URL . '/#website'],
+        'about' => ['@id' => SITE_URL . '/#organization'],
+        'inLanguage' => $language,
+    ];
+    if ($about) {
+        $schema['keywords'] = array_values($about);
+    }
+
+    return $schema;
 }
 
 function faq_schema(array $faqs): array

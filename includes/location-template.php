@@ -5,7 +5,7 @@ require dirname(__DIR__) . '/includes/data.php';
 $location = $locations[$locationSlug] ?? null;
 if (!$location) {
     http_response_code(404);
-    $pageMeta = ['title' => 'Location Not Found - Mega Techzy', 'description' => 'The requested location page was not found.', 'path' => 'locations/'];
+    $pageMeta = ['title' => 'Location Not Found - Mega Techzy', 'description' => 'The requested location page was not found.', 'path' => 'locations/', 'robots' => 'noindex, follow'];
     include dirname(__DIR__) . '/includes/header.php';
     include dirname(__DIR__) . '/includes/navbar.php';
     echo '<main id="main" class="section"><div class="container"><h1>Location not found</h1><p>Please browse all Mega Techzy locations.</p><a class="btn btn-primary" href="/locations/">View locations</a></div></main>';
@@ -13,11 +13,28 @@ if (!$location) {
     exit;
 }
 
+$locationFaqs = $location['faqs'] ?? [
+    [
+        'q' => 'Does Mega Techzy provide digital marketing and website services in ' . $location['name'] . '?',
+        'a' => 'Yes. Mega Techzy supports project-based website development, SEO, paid campaigns, analytics and lead-generation work for suitable businesses in ' . $location['name'] . ' and across Maharashtra.',
+    ],
+    [
+        'q' => 'Can the project be delivered remotely?',
+        'a' => 'Yes. Discovery, content reviews, development milestones, campaign reporting and most support can be handled remotely. Any location-specific meeting requirement is confirmed during scoping.',
+    ],
+    [
+        'q' => 'Does a city landing page guarantee Google rankings?',
+        'a' => 'No. A useful city page can clarify service relevance, but rankings also depend on competition, technical quality, content usefulness, authority and genuine business evidence.',
+    ],
+];
+$recommendedServices = $location['focus'] ?? ['website-development', 'seo', 'google-ads', 'lead-generation'];
+
 $pageMeta = [
-    'title' => $location['headline'] . ' - Mega Techzy',
-    'description' => 'Mega Techzy provides website development, SEO, paid ads, branding and lead generation for businesses looking for a ' . $location['keyword'] . '.',
+    'title' => ($location['title'] ?? $location['headline']) . ' - Mega Techzy',
+    'description' => $location['meta'] ?? ('Mega Techzy provides website development, SEO, paid ads, branding and lead generation for businesses looking for a ' . $location['keyword'] . '.'),
     'path' => 'locations/' . $locationSlug . '.php',
-    'robots' => 'noindex, follow',
+    'robots' => !empty($location['indexable']) ? 'index, follow' : 'noindex, follow',
+    'about' => [$location['name'], $location['keyword'], 'website development', 'SEO', 'digital marketing'],
 ];
 $pageSchemas = [
     breadcrumb_schema([
@@ -26,6 +43,26 @@ $pageSchemas = [
         ['name' => $location['name'], 'path' => 'locations/' . $locationSlug . '.php'],
     ]),
 ];
+if (!empty($location['indexable'])) {
+    $pageSchemas[] = [
+        '@context' => 'https://schema.org',
+        '@type' => 'Service',
+        '@id' => site_url('locations/' . $locationSlug) . '#service',
+        'name' => $location['headline'],
+        'serviceType' => 'Website development, SEO and digital marketing',
+        'provider' => ['@id' => SITE_URL . '/#organization'],
+        'areaServed' => [
+            '@type' => 'City',
+            'name' => $location['name'],
+            'containedInPlace' => ['@type' => 'AdministrativeArea', 'name' => 'Maharashtra'],
+        ],
+        'description' => $pageMeta['description'],
+        'url' => site_url('locations/' . $locationSlug),
+    ];
+    if ($locationFaqs) {
+        $pageSchemas[] = faq_schema($locationFaqs);
+    }
+}
 include dirname(__DIR__) . '/includes/header.php';
 include dirname(__DIR__) . '/includes/navbar.php';
 ?>
@@ -35,7 +72,7 @@ include dirname(__DIR__) . '/includes/navbar.php';
             <div>
                 <p class="eyebrow">Local SEO Focus</p>
                 <h1><?= e($location['headline']); ?></h1>
-                <p>Mega Techzy helps <?= e($location['name']); ?> businesses build stronger online trust through premium websites, SEO, paid campaigns, content, automation and lead generation.</p>
+                <p><?= e($location['intro'] ?? ('Mega Techzy helps ' . $location['name'] . ' businesses build stronger online trust through premium websites, SEO, paid campaigns, content, automation and lead generation.')); ?></p>
                 <div class="hero-actions">
                     <a class="btn btn-primary" href="#location-form">Get local strategy <?= icon_svg('arrow'); ?></a>
                     <a class="btn btn-secondary" href="/services/">View services</a>
@@ -48,6 +85,36 @@ include dirname(__DIR__) . '/includes/navbar.php';
             </aside>
         </div>
     </section>
+
+    <?php if (!empty($location['market_context'])): ?>
+        <section class="section">
+            <div class="container two-column">
+                <div>
+                    <p class="eyebrow"><?= e($location['coverage'] ?? 'Maharashtra city market'); ?></p>
+                    <h2>A practical digital strategy for <?= e($location['name']); ?></h2>
+                    <p><?= e($location['market_context']); ?></p>
+                </div>
+                <?php if (!empty($location['audiences'])): ?>
+                    <div class="check-list">
+                        <?php foreach ($location['audiences'] as $audience): ?>
+                            <div><?= icon_svg('check'); ?><span>Pages and campaigns for <?= e($audience); ?>.</span></div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </section>
+    <?php endif; ?>
+
+    <?php if (!empty($location['sections'])): ?>
+        <section class="section">
+            <div class="container narrow">
+                <?php foreach ($location['sections'] as $section): ?>
+                    <h2><?= e($section['title']); ?></h2>
+                    <p><?= e($section['copy']); ?></p>
+                <?php endforeach; ?>
+            </div>
+        </section>
+    <?php endif; ?>
 
     <section class="section">
         <div class="container two-column">
@@ -65,6 +132,21 @@ include dirname(__DIR__) . '/includes/navbar.php';
         </div>
     </section>
 
+    <?php if ($locationFaqs): ?>
+        <section class="section faq-section">
+            <div class="container narrow">
+                <p class="eyebrow">FAQs</p>
+                <h2>Digital marketing and website questions from <?= e($location['name']); ?> businesses</h2>
+                <?php foreach ($locationFaqs as $faq): ?>
+                    <details>
+                        <summary><?= e($faq['q']); ?></summary>
+                        <p><?= e($faq['a']); ?></p>
+                    </details>
+                <?php endforeach; ?>
+            </div>
+        </section>
+    <?php endif; ?>
+
     <section class="section soft-section">
         <div class="container split-heading">
             <div>
@@ -73,7 +155,7 @@ include dirname(__DIR__) . '/includes/navbar.php';
             </div>
         </div>
         <div class="container card-grid">
-            <?php foreach (['website-development', 'seo', 'google-ads', 'lead-generation'] as $slug): $service = $services[$slug]; ?>
+            <?php foreach ($recommendedServices as $slug): if (!isset($services[$slug])) continue; $service = $services[$slug]; ?>
                 <article class="service-card">
                     <span class="card-icon"><?= icon_svg($service['icon']); ?></span>
                     <h3><a href="/services/<?= e($slug); ?>.php"><?= e($service['name']); ?></a></h3>

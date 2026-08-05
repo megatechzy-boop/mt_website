@@ -10,7 +10,7 @@
         <div class="nav-links" id="primary-menu">
             <a href="/about">About</a>
             <a href="/services/">Services</a>
-            <a href="/portfolio/">Portfolio</a>
+            <a href="/industries/">Industries</a>
             <a href="/blog/">Blog</a>
             <a class="nav-cta" href="/contact">Get Proposal</a>
         </div>

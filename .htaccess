@@ -20,6 +20,12 @@ RewriteCond %{REQUEST_URI} !^/api/ [NC]
 RewriteCond %{THE_REQUEST} \s/+.+\.php(?:[\s?]|$) [NC]
 RewriteRule ^(.+)\.php$ /$1 [R=301,L,NE]
 
+# Serve clean city URLs from one validated location controller. Existing
+# location wrapper files continue to redirect to the same canonical URLs.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^locations/([a-z0-9-]+)/?$ locations/city.php?location=$1 [L,QSA,NC]
+
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^(.+?)/?$ $1.php [L]

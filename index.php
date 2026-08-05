@@ -3,23 +3,17 @@ require __DIR__ . '/includes/config.php';
 require __DIR__ . '/includes/data.php';
 
 $pageMeta = [
-    'title' => 'Mega Techzy - Digital Marketing Company in Pune, PCMC and Solapur',
-    'description' => 'Mega Techzy is a digital marketing and website development company established in 2019, serving businesses in Pune, PCMC, Solapur and across India with SEO, Google Ads, websites and automation.',
+    'title' => 'Digital Marketing & Web Development Company in Maharashtra',
+    'description' => 'Mega Techzy provides website development, SEO, Google Ads, analytics and lead generation for businesses across Maharashtra and selected international markets.',
     'path' => '',
+    'about' => ['digital marketing', 'website development', 'SEO', 'Google Ads', 'lead generation', 'Maharashtra'],
 ];
 $pageSchemas = [
+    website_schema(),
     faq_schema($homeFaqs),
     breadcrumb_schema([
         ['name' => 'Home', 'path' => ''],
     ]),
-    [
-        '@context' => 'https://schema.org',
-        '@type' => 'WebPage',
-        'name' => 'Mega Techzy - Digital Marketing Company in Pune, PCMC and Solapur',
-        'description' => 'Digital marketing, website development, SEO, paid ads and automation services from Mega Techzy.',
-        'url' => site_url(),
-        'about' => ['Digital marketing', 'Website development', 'SEO', 'Lead generation'],
-    ],
 ];
 $industryShowcase = [
     ['name' => 'Manufacturing', 'image' => 'industry-manufacturing.webp', 'copy' => 'Industrial visibility and lead systems.'],
@@ -37,7 +31,7 @@ include __DIR__ . '/includes/navbar.php';
             <div class="agency-hero-copy">
                 <p class="agency-kicker"><span></span> Digital marketing and web studio</p>
                 <h1>We make<br>brands <em>matter.</em></h1>
-                <p class="agency-lede">Mega Techzy is a digital marketing company in Pune serving PCMC, Solapur and businesses across India with websites, SEO, paid ads and automation.</p>
+                <p class="agency-lede">Mega Techzy is a Maharashtra-based digital marketing and web development company serving Mumbai, Pune, PCMC, Nagpur, Nashik, Solapur and businesses across the state with websites, SEO, paid ads and automation.</p>
                 <div class="agency-hero-actions">
                     <a class="agency-button agency-button-gold" href="/contact">Start a project <?= icon_svg('arrow'); ?></a>
                     <a class="agency-text-link" href="#work">Explore our work <span>&darr;</span></a>
@@ -90,7 +84,7 @@ include __DIR__ . '/includes/navbar.php';
                 <p class="agency-kicker"><span></span> Selected work</p>
                 <h2>Designed to be<br><em>remembered.</em></h2>
             </div>
-            <a class="agency-button agency-button-outline" href="/portfolio/">View all work <?= icon_svg('arrow'); ?></a>
+                    <a class="agency-button agency-button-outline" href="/contact">Discuss a project <?= icon_svg('arrow'); ?></a>
         </div>
         <div class="container work-grid">
             <article class="work-tile work-tile-wide" data-reveal>

@@ -3,8 +3,10 @@ require __DIR__ . '/includes/config.php';
 require __DIR__ . '/includes/data.php';
 $pageMeta = [
     'title' => 'Contact Mega Techzy - Get a Growth Proposal',
-    'description' => 'Contact Mega Techzy for website development, SEO, Google Ads, Meta Ads, branding, automation and lead generation services in Solapur, Ravet, Dehu Road and Wakad.',
+    'description' => 'Contact Mega Techzy for website development, SEO, paid advertising, analytics, automation and lead-generation services across Maharashtra and India.',
     'path' => 'contact',
+    'schema_type' => 'ContactPage',
+    'about' => ['Mega Techzy contact', 'website project enquiry', 'digital marketing enquiry'],
 ];
 $pageSchemas = [breadcrumb_schema([
     ['name' => 'Home', 'path' => ''],
@@ -26,7 +28,7 @@ include __DIR__ . '/includes/navbar.php';
                 <p><a href="mailto:<?= e(CONTACT_EMAIL); ?>"><?= e(CONTACT_EMAIL); ?></a></p>
                 <p><a href="mailto:<?= e(INFO_EMAIL); ?>"><?= e(INFO_EMAIL); ?></a></p>
                 <p><a href="tel:<?= e(CONTACT_PHONES[0]); ?>">+91 70201 62163</a><br><a href="tel:<?= e(CONTACT_PHONES[1]); ?>">+91 99754 52779</a></p>
-                <p>Service areas: Solapur City, Ravet, Dehu Road and Wakad.</p>
+                <p>Coverage: suitable projects across Maharashtra and India, with selected international website delivery.</p>
             </aside>
         </div>
     </section>

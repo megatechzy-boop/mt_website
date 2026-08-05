@@ -4,10 +4,10 @@ declare(strict_types=1);
 $services = [
     'website-development' => [
         'name' => 'Website Development',
-        'title' => 'Website Development Company in Pune for Fast, SEO-Ready Websites',
-        'meta' => 'Mega Techzy builds premium business websites in Pune, PCMC and Solapur with SEO, speed, security and lead generation built in from day one.',
-        'intro' => 'We design and develop conversion-focused websites that feel premium, load fast and make it easy for customers to trust your business.',
-        'proof' => 'Every build includes responsive layouts, technical SEO, analytics setup, secure forms and a content structure that can scale into location and service pages.',
+        'title' => 'Web Development Company in India | SEO-Ready Websites',
+        'meta' => 'Mega Techzy provides web development services in India for fast, secure and SEO-ready business websites, serving Pune, PCMC, Solapur and remote clients.',
+        'intro' => 'We design and develop conversion-focused business websites for companies in India that need stronger search visibility, trust and qualified enquiries.',
+        'proof' => 'Every website build includes responsive layouts, technical SEO, analytics setup, secure forms and a content structure that can scale into service, location and international pages.',
         'icon' => 'code',
         'outcomes' => ['Premium brand presence', 'Better Google crawlability', 'More qualified enquiries', 'Faster mobile experience'],
         'deliverables' => ['UX sitemap and wireframe', 'Responsive PHP/HTML/CSS build', 'On-page SEO foundations', 'Lead form and analytics integration'],
@@ -217,31 +217,49 @@ $services = [
 $locations = [
     'pune' => ['name' => 'Pune', 'headline' => 'Digital Marketing Company in Pune', 'keyword' => 'digital marketing company in Pune'],
     'pcmc' => ['name' => 'PCMC', 'headline' => 'Digital Marketing Company in PCMC', 'keyword' => 'digital marketing company in PCMC'],
-    'solapur' => ['name' => 'Solapur', 'headline' => 'Website Development Company in Solapur', 'keyword' => 'website development company in Solapur'],
-    'nigdi' => ['name' => 'Nigdi', 'headline' => 'Digital Marketing Services in Nigdi', 'keyword' => 'digital marketing services in Nigdi'],
-    'pimpri' => ['name' => 'Pimpri', 'headline' => 'SEO and Website Development in Pimpri', 'keyword' => 'SEO company in Pimpri'],
-    'chinchwad' => ['name' => 'Chinchwad', 'headline' => 'Website Development and Ads in Chinchwad', 'keyword' => 'website development company in Chinchwad'],
-    'wakad' => ['name' => 'Wakad', 'headline' => 'Lead Generation and SEO in Wakad', 'keyword' => 'lead generation company in Wakad'],
-    'baner' => ['name' => 'Baner', 'headline' => 'Branding and Digital Marketing in Baner', 'keyword' => 'branding agency in Baner'],
-    'hinjawadi' => ['name' => 'Hinjawadi', 'headline' => 'B2B Digital Marketing in Hinjawadi', 'keyword' => 'B2B digital marketing in Hinjawadi'],
-    'moshi' => ['name' => 'Moshi', 'headline' => 'Local SEO and Website Design in Moshi', 'keyword' => 'local SEO services in Moshi'],
-    'bhosari' => ['name' => 'Bhosari', 'headline' => 'Industrial Marketing Services in Bhosari', 'keyword' => 'industrial marketing agency in Bhosari'],
-    'chakan' => ['name' => 'Chakan', 'headline' => 'Manufacturing Lead Generation in Chakan', 'keyword' => 'manufacturing lead generation in Chakan'],
-    'talegaon' => ['name' => 'Talegaon', 'headline' => 'Digital Marketing for Talegaon Businesses', 'keyword' => 'digital marketing services in Talegaon'],
+    'solapur' => [
+        'name' => 'Solapur',
+        'headline' => 'IT and Website Development Company in Solapur',
+        'title' => 'IT & Website Development Company in Solapur',
+        'keyword' => 'IT company in Solapur',
+        'meta' => 'Looking for an IT or website development company in Solapur? Mega Techzy builds SEO-ready websites and supports digital marketing, analytics and lead generation.',
+        'indexable' => true,
+        'intro' => 'Mega Techzy helps Solapur businesses plan and build professional websites, improve Google visibility and connect enquiries with practical follow-up systems.',
+        'sections' => [
+            [
+                'title' => 'Website and software expertise for Solapur businesses',
+                'copy' => 'A business website should do more than list services. We structure pages around customer intent, build responsive interfaces, configure secure enquiry forms and prepare the technical foundation for search. Projects can include company websites, service portals, landing pages and custom integrations based on a defined scope.',
+            ],
+            [
+                'title' => 'SEO and digital marketing connected to the website',
+                'copy' => 'Search visibility improves when the website, local relevance, useful content and measurement work together. Mega Techzy can support technical SEO, on-page optimisation, Google Ads, content planning and analytics without separating them from the customer journey.',
+            ],
+            [
+                'title' => 'A clear process from discovery to launch',
+                'copy' => 'We begin with the target customer, services, proof and required actions. The project then moves through content structure, design, development, mobile testing, analytics and launch checks, giving the business a maintainable foundation for future campaigns.',
+            ],
+        ],
+        'faqs' => [
+            ['q' => 'Does Mega Techzy provide website development in Solapur?', 'a' => 'Yes. Mega Techzy builds responsive, SEO-ready business websites for companies in Solapur and supports projects from planning through launch.'],
+            ['q' => 'Can you handle SEO and digital marketing after the website launch?', 'a' => 'Yes. SEO, paid campaigns, analytics and lead-generation improvements can be connected to the same website and reporting plan.'],
+            ['q' => 'Do you work with businesses outside Solapur?', 'a' => 'Yes. Mega Techzy also serves Pune, PCMC, clients across India and selected international projects through a remote delivery process.'],
+        ],
+    ],
 ];
+
+// Indexable statewide coverage: all Maharashtra municipal-corporation markets
+// plus every district-headquarter market. Detailed data lives separately so
+// local suburb pages can remain noindex until they have sufficient unique value.
+$locations = array_replace($locations, require __DIR__ . '/maharashtra-cities.php');
 
 $industries = ['Manufacturing', 'Real Estate', 'Healthcare', 'Education', 'Retail', 'Ecommerce', 'Professional Services', 'Local Businesses'];
 
-$portfolioItems = [
-    ['title' => 'B2B Manufacturer Growth System', 'type' => 'SEO + Lead Generation', 'result' => 'Built service pages, tracking and search campaigns for higher-quality enquiries.'],
-    ['title' => 'Local Clinic Visibility Upgrade', 'type' => 'Website + Local SEO', 'result' => 'Improved trust signals, appointment paths and location relevance.'],
-    ['title' => 'Retail Brand Launch', 'type' => 'Branding + Meta Ads', 'result' => 'Created launch creatives, audience testing and retargeting journeys.'],
-];
-
 $blogPosts = [
+    ['title' => 'How to Choose a Website Developer in India', 'slug' => 'how-to-choose-website-developer-india', 'excerpt' => 'A practical guide to comparing website developers in India by discovery, scope, SEO foundations, ownership, support and measurable business outcomes.', 'keyword' => 'website developer in India', 'audience' => 'business owners comparing website development partners', 'outcome' => 'choose a developer who can deliver a useful, maintainable and search-ready business website'],
+    ['title' => 'Website Maker vs Web Developer: Which Is Better?', 'slug' => 'website-maker-vs-web-developer', 'excerpt' => 'Compare DIY website makers with professional web development across cost, speed, flexibility, SEO, ownership and ongoing support.', 'keyword' => 'website maker vs web developer', 'audience' => 'businesses deciding how to build a new website', 'outcome' => 'choose the right website approach for their budget, risk and growth plans'],
     ['title' => 'How to Choose a Digital Marketing Company in Pune', 'slug' => 'choose-digital-marketing-company-pune', 'excerpt' => 'A practical checklist for comparing strategy, reporting, local SEO knowledge and lead quality.'],
     ['title' => 'Website Features Every Local Business Needs', 'slug' => 'local-business-website-features', 'excerpt' => 'The pages, trust signals and conversion tools that turn a brochure website into a lead engine.'],
-    ['title' => 'SEO vs Google Ads: Which Should You Start First?', 'slug' => 'seo-vs-google-ads', 'excerpt' => 'How to decide between immediate demand capture and long-term organic growth.'],
+    ['title' => 'SEO vs Google Ads: Which Should You Start First?', 'slug' => 'seo-vs-google-ads', 'excerpt' => 'Compare SEO and Google Ads by timeline, search intent, budget, measurement and business goals before choosing the right starting channel.'],
     ['title' => 'Local SEO Checklist for Pune Businesses', 'slug' => 'local-seo-checklist-pune-businesses', 'excerpt' => 'A practical local SEO checklist for Pune businesses that want more calls, direction requests and qualified enquiries.', 'keyword' => 'local SEO checklist for Pune businesses', 'audience' => 'Pune service businesses', 'outcome' => 'improve local visibility and capture more nearby enquiries'],
     ['title' => 'Google Business Profile Optimization for Pune Companies', 'slug' => 'google-business-profile-optimization-pune', 'excerpt' => 'Learn how Pune companies can make their Google Business Profile clearer, more useful and more conversion-ready.', 'keyword' => 'Google Business Profile optimization Pune', 'audience' => 'Pune business owners', 'outcome' => 'turn map visibility into calls and visits'],
     ['title' => 'How Much Does a Business Website Cost in Pune?', 'slug' => 'business-website-cost-pune', 'excerpt' => 'A transparent guide to website cost in Pune, including scope, features, content and ongoing optimisation.', 'keyword' => 'business website cost in Pune', 'audience' => 'business owners planning a new website', 'outcome' => 'set a realistic website budget and avoid expensive gaps'],
@@ -304,8 +322,12 @@ $blogPosts = [
     ['title' => 'Top 5 Automation Mistakes Businesses Should Avoid', 'slug' => 'top-automation-mistakes-businesses-avoid', 'excerpt' => 'Avoid common automation mistakes involving unclear journeys, poor data, spammy messages and missing human support.', 'keyword' => 'automation mistakes businesses should avoid', 'audience' => 'businesses starting automation', 'outcome' => 'launch helpful automation without damaging trust', 'help' => 'Mega Techzy starts automation with journey mapping, consent-aware messaging, testing and human escalation rules instead of a generic blast setup.', 'help_url' => '/services/email-marketing'],
 ];
 
+// Only publish cards for posts that have an approved public page file. Draft
+// ideas can remain in the editorial backlog without creating broken links.
+$blogPosts = array_values(array_filter($blogPosts, static fn (array $post): bool => is_file(dirname(__DIR__) . '/blog/' . $post['slug'] . '.php')));
+
 $homeFaqs = [
     ['q' => 'What does Mega Techzy do?', 'a' => 'Mega Techzy helps businesses grow online through websites, SEO, paid ads, automation, branding, analytics and lead generation.'],
-    ['q' => 'Which locations do you serve?', 'a' => 'The primary focus is Pune, PCMC and Solapur, with expansion across Maharashtra and India.'],
+    ['q' => 'Which locations do you serve?', 'a' => 'Mega Techzy supports suitable projects across Maharashtra, including Mumbai, Pune, PCMC, Nagpur, Nashik, Solapur and all district-headquarter markets.'],
     ['q' => 'Can Mega Techzy build both website and marketing campaigns?', 'a' => 'Yes. The team can connect website development, SEO, ads, tracking and follow-up into one growth system.'],
 ];
