@@ -68,11 +68,14 @@ $schemas = array_merge(
             });
         }());
     </script>
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
     <link rel="icon" type="image/png" href="<?= e(asset_url('icons/favicon-transparent.png')); ?>">
     <link rel="apple-touch-icon" href="<?= e(asset_url('icons/favicon-transparent.png')); ?>">
+    <link rel="preload" as="image" href="<?= e(asset_url('images/megatechzy-logo-enhanced.webp')); ?>" type="image/webp" fetchpriority="high">
     <?php if ($path === ''): ?>
         <link rel="preload" as="image" href="<?= e(asset_url('images/mega-techzy-digital-growth-hero.webp')); ?>" type="image/webp" fetchpriority="high">
     <?php endif; ?>
+    <link rel="preload" href="<?= e(asset_url('css/styles.min.css')); ?>" as="style">
     <link rel="stylesheet" href="<?= e(asset_url('css/styles.min.css')); ?>">
     <?php foreach ($schemas as $schema): ?>
         <script type="application/ld+json"><?= json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?></script>
