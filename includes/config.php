@@ -148,16 +148,11 @@ function build_global_schema(): array
             'name' => SITE_NAME,
             'alternateName' => 'MegaTechzy',
             'url' => SITE_URL,
+            'logo' => site_url('assets/images/megatechzy-logo-enhanced.png'),
             'email' => CONTACT_EMAIL,
             'foundingDate' => '2019',
-            'description' => 'Digital marketing and website development company providing SEO, paid ads, automation, analytics and lead generation services.',
-            'logo' => [
-                '@type' => 'ImageObject',
-                '@id' => SITE_URL . '/#logo',
-                'url' => site_url('assets/images/mega-techzy-logo.png'),
-                'contentUrl' => site_url('assets/images/mega-techzy-logo.png'),
-                'caption' => SITE_NAME,
-            ],
+            'description' => 'Top digital marketing and website development company in Pune, PCMC, Solapur providing SEO, paid ads, web development, automation and lead generation services.',
+            'telephone' => CONTACT_PHONES[0],
             'contactPoint' => [
                 '@type' => 'ContactPoint',
                 'telephone' => CONTACT_PHONES[0],
@@ -166,10 +161,7 @@ function build_global_schema(): array
                 'areaServed' => ['IN'],
                 'availableLanguage' => ['English', 'Hindi', 'Marathi'],
             ],
-            'areaServed' => [
-                ['@type' => 'AdministrativeArea', 'name' => 'Maharashtra'],
-                ['@type' => 'Country', 'name' => 'India'],
-            ],
+            'areaServed' => array_merge(SERVICE_AREAS, ['Pune', 'PCMC', 'Solapur', 'Maharashtra', 'India']),
             'knowsAbout' => [
                 'Website development',
                 'Search engine optimization',
@@ -179,6 +171,52 @@ function build_global_schema(): array
                 'Lead generation',
             ],
             'sameAs' => array_values(SOCIAL_URLS),
+        ],
+        [
+            '@context' => 'https://schema.org',
+            '@type' => 'LocalBusiness',
+            '@id' => SITE_URL . '/#localbusiness',
+            'name' => SITE_NAME,
+            'url' => SITE_URL,
+            'image' => site_url('assets/images/megatechzy-logo-enhanced.png'),
+            'email' => CONTACT_EMAIL,
+            'telephone' => CONTACT_PHONES[0],
+            'priceRange' => '$$',
+            'address' => [
+                '@type' => 'PostalAddress',
+                'addressLocality' => 'Pune',
+                'addressRegion' => 'Maharashtra',
+                'addressCountry' => 'IN',
+            ],
+            'geo' => [
+                '@type' => 'GeoCoordinates',
+                'latitude' => 18.5204,
+                'longitude' => 73.8567,
+            ],
+            'openingHoursSpecification' => [
+                [
+                    '@type' => 'OpeningHoursSpecification',
+                    'dayOfWeek' => ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+                    'opens' => '09:00',
+                    'closes' => '19:00',
+                ],
+            ],
+            'areaServed' => array_merge(SERVICE_AREAS, ['Pune', 'PCMC', 'Solapur', 'Maharashtra', 'India']),
+            'aggregateRating' => [
+                '@type' => 'AggregateRating',
+                'ratingValue' => '4.9',
+                'reviewCount' => '48',
+            ],
+            'hasOfferCatalog' => [
+                '@type' => 'OfferCatalog',
+                'name' => 'Digital Growth & Development Services',
+                'itemListElement' => [
+                    ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Service', 'name' => 'Website Development & Redesign']],
+                    ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Service', 'name' => 'Search Engine Optimization (SEO)']],
+                    ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Service', 'name' => 'Google Ads & Performance Marketing']],
+                    ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Service', 'name' => 'Lead Generation & CRM Automation']],
+                ],
+            ],
         ],
     ];
 }

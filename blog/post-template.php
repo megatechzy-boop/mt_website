@@ -69,7 +69,7 @@ $pageSchemas = [breadcrumb_schema([
     'mainEntityOfPage' => ['@id' => site_url('blog/' . $postSlug) . '#webpage'],
     'author' => ['@id' => SITE_URL . '/#organization'],
     'publisher' => ['@id' => SITE_URL . '/#organization'],
-    'image' => site_url('assets/images/mega-techzy-logo.png'),
+    'image' => site_url('assets/images/megatechzy-logo-enhanced.png'),
     'inLanguage' => 'en-IN',
     'keywords' => $articleKeywords,
     'isPartOf' => ['@id' => SITE_URL . '/#website'],

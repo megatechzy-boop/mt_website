@@ -4,7 +4,7 @@ $title = seo_title($pageMeta['title'] ?? SITE_NAME . ' - Digital Marketing and W
 $description = seo_description($pageMeta['description'] ?? 'Mega Techzy helps businesses grow online with websites, SEO, paid ads, branding, automation and lead generation.');
 $path = $pageMeta['path'] ?? '';
 $canonical = $pageMeta['canonical'] ?? site_url($path);
-$ogImage = $pageMeta['og_image'] ?? site_url('assets/images/mega-techzy-logo.png');
+$ogImage = $pageMeta['og_image'] ?? site_url('assets/images/megatechzy-logo-enhanced.png');
 $ogType = $pageMeta['og_type'] ?? 'website';
 $robots = $pageMeta['robots'] ?? 'index, follow';
 if (str_starts_with($robots, 'index') && !str_contains($robots, 'max-image-preview')) {
@@ -68,7 +68,8 @@ $schemas = array_merge(
             });
         }());
     </script>
-    <link rel="icon" type="image/svg+xml" href="<?= e(asset_url('icons/favicon.svg')); ?>">
+    <link rel="icon" type="image/png" href="<?= e(asset_url('icons/favicon-transparent.png')); ?>">
+    <link rel="apple-touch-icon" href="<?= e(asset_url('icons/favicon-transparent.png')); ?>">
     <?php if ($path === ''): ?>
         <link rel="preload" as="image" href="<?= e(asset_url('images/mega-techzy-digital-growth-hero.webp')); ?>" type="image/webp" fetchpriority="high">
     <?php endif; ?>

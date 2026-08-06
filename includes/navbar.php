@@ -1,7 +1,7 @@
 <header class="site-header">
     <nav class="nav container" aria-label="Main navigation">
         <a class="brand" href="/" aria-label="Mega Techzy home">
-            <span class="brand-mark logo-mark"><img src="<?= e(asset_url('images/mega-techzy-mark-96.webp')); ?>" alt="" width="42" height="42"></span>
+            <span class="brand-mark logo-mark"><img src="<?= e(asset_url('images/megatechzy-logo-enhanced.png')); ?>" alt="Mega Techzy" width="230" height="72" style="display:block;width:230px;height:72px;object-fit:contain;"></span>
             <span class="brand-word">Mega Techzy</span>
         </a>
         <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-menu">
