@@ -10,10 +10,18 @@ RewriteRule ^ https://www.megatechzy.com%{REQUEST_URI} [R=301,L,NE]
 
 # Keep intentionally retired pages gone even when a hosting upload leaves old
 # physical files behind. Remove a slug here when its replacement is approved.
-RewriteRule ^(?:portfolio|case-studies)/?$ - [R=410,L,NC]
+RewriteRule ^(?:portfolio|case-studies)(?:/.*)?$ - [R=410,L,NC]
 RewriteRule ^blog/(?:ai-tools-content-writing-workflow|ai-tools-customer-support-small-business|ai-tools-digital-marketing-agencies|ai-tools-ecommerce-product-descriptions|ai-tools-real-estate-marketing|ai-tools-sales-lead-generation|ai-tools-seo-research-content-planning|ai-tools-social-media-managers|ai-tools-website-design-content-planning|b2b-lead-generation-industrial-companies|content-marketing-ideas-b2b-india|digital-marketing-strategy-startups-pune|domain-name-vs-web-hosting|ecommerce-product-page-seo-checklist|email-automation-vs-whatsapp-automation|google-ads-vs-social-media-ads|instagram-reels-ideas-local-businesses|local-seo-solapur-businesses|reduce-cost-per-lead-google-ads|shared-vps-cloud-hosting-comparison|top-automation-mistakes-businesses-avoid|top-benefits-digital-marketing-local-businesses|top-benefits-marketing-automation-businesses|top-benefits-whatsapp-automation-lead-follow-up|top-benefits-wordpress-website-small-business|top-cpanel-features-website-owner|top-crm-automation-benefits-sales-teams|top-digital-marketing-strategies-service-businesses|top-domain-extensions-indian-businesses|top-lead-follow-up-automation-workflows|top-tips-choose-domain-name-business|top-tips-choose-web-hosting-business-website|top-wordpress-security-practices-business-websites|top-wordpress-seo-tips-business-websites|traditional-marketing-vs-digital-marketing|website-speed-optimization-small-business|what-is-cpanel-hosting|what-is-digital-marketing-beginner-guide|what-is-domain-name-business|what-is-marketing-automation-how-it-works|what-is-web-hosting-beginners-guide|what-is-whatsapp-automation|what-is-wordpress-business-guide|whatsapp-automation-customer-support-sales|whatsapp-automation-vs-manual-follow-up|why-digital-marketing-important-small-business|wordpress-vs-custom-website)/?$ - [R=410,L,NC]
 
 # Redirect retired URLs to their closest current equivalent.
+RewriteRule ^contact-us(?:\.php)?/?$ /contact [R=301,L,NE,NC]
+RewriteRule ^our-services(?:\.php)?/?$ /services/ [R=301,L,NE,NC]
+RewriteRule ^locations/pimpri-chinchwad(?:\.php)?/?$ /locations/pcmc [R=301,L,NE,NC]
+RewriteRule ^locations/aurangabad(?:\.php)?/?$ /locations/chhatrapati-sambhajinagar [R=301,L,NE,NC]
+RewriteRule ^locations/osmanabad(?:\.php)?/?$ /locations/dharashiv [R=301,L,NE,NC]
+RewriteRule ^locations/ahmednagar(?:\.php)?/?$ /locations/ahilyanagar [R=301,L,NE,NC]
+RewriteRule ^locations/(?:baner|hinjawadi|chakan|talegaon)(?:\.php)?/?$ /locations/pune [R=301,L,NE,NC]
+RewriteRule ^locations/(?:wakad|bhosari|chinchwad|moshi|nigdi|pimpri)(?:\.php)?/?$ /locations/pcmc [R=301,L,NE,NC]
 RewriteRule ^blog/old-seo-guide/?$ /blog/technical-seo-checklist-new-website [R=301,L,NE]
 
 # Keep public page URLs extensionless. The form API remains a PHP endpoint.

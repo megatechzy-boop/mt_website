@@ -40,6 +40,14 @@ $indexablePosts = [
     'digital-marketing-schools-coaching-classes',
 ];
 $isIndexable = $hasResearchArticle || in_array($postSlug, $indexablePosts, true);
+$articleLocationSlugs = ['pune', 'mumbai', 'nagpur'];
+if (str_contains($postSlug, 'pune')) {
+    $articleLocationSlugs = ['pune', 'pcmc', 'mumbai'];
+} elseif (str_contains($postSlug, 'manufacturing') || str_contains($postSlug, 'b2b')) {
+    $articleLocationSlugs = ['pune', 'pcmc', 'solapur'];
+} elseif (str_contains($postSlug, 'local') || str_contains($postSlug, 'google-business')) {
+    $articleLocationSlugs = ['mumbai', 'pune', 'nashik'];
+}
 $metaDescription = seo_description($post['excerpt']);
 $articleKeywords = array_values(array_filter([
     $post['keyword'] ?? null,
@@ -168,6 +176,16 @@ include dirname(__DIR__) . '/includes/navbar.php';
             <p>Track calls, forms, campaign sources and page performance. The best reports do not just show traffic; they show where the next improvement should happen.</p>
             <a class="btn btn-primary" href="/contact">Discuss your growth plan <?= icon_svg('arrow'); ?></a>
             <?php endif; ?>
+
+            <aside aria-labelledby="service-markets" style="margin-top:3rem">
+                <p class="eyebrow">Service markets</p>
+                <h2 id="service-markets">Explore relevant Maharashtra locations</h2>
+                <div class="location-grid">
+                    <?php foreach ($articleLocationSlugs as $articleLocationSlug): if (!isset($locations[$articleLocationSlug])) continue; ?>
+                        <a href="/locations/<?= e($articleLocationSlug); ?>"><?= icon_svg('map'); ?> <?= e($locations[$articleLocationSlug]['name']); ?></a>
+                    <?php endforeach; ?>
+                </div>
+            </aside>
         </div>
     </article>
 </main>

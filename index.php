@@ -116,7 +116,7 @@ include __DIR__ . '/includes/navbar.php';
         </div>
         <div class="container agency-service-list">
             <?php $serviceNumber = 1; foreach (array_slice($services, 0, 8) as $slug => $service): ?>
-                <a class="agency-service-row" href="/services/<?= e($slug); ?>.php" data-reveal>
+                <a class="agency-service-row" href="/services/<?= e($slug); ?>" data-reveal>
                     <span class="agency-service-no">0<?= $serviceNumber++; ?></span>
                     <span class="agency-service-icon"><?= icon_svg($service['icon']); ?></span>
                     <span class="agency-service-name"><?= e($service['name']); ?></span>
@@ -192,8 +192,8 @@ include __DIR__ . '/includes/navbar.php';
                 <?php foreach (array_slice($blogPosts, 0, 6) as $index => $post): ?>
                     <article data-reveal>
                         <span>0<?= $index + 1; ?> / Insights</span>
-                        <h3><a href="/blog/<?= e($post['slug']); ?>.php"><?= e($post['title']); ?></a></h3>
-                        <a href="/blog/<?= e($post['slug']); ?>.php" aria-label="Read <?= e($post['title']); ?>"><?= icon_svg('arrow'); ?></a>
+                        <h3><a href="/blog/<?= e($post['slug']); ?>"><?= e($post['title']); ?></a></h3>
+                        <a href="/blog/<?= e($post['slug']); ?>" aria-label="Read <?= e($post['title']); ?>"><?= icon_svg('arrow'); ?></a>
                     </article>
                 <?php endforeach; ?>
             </div>

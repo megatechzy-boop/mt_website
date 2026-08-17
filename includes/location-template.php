@@ -29,6 +29,48 @@ $locationFaqs = $location['faqs'] ?? [
 ];
 $recommendedServices = $location['focus'] ?? ['website-development', 'seo', 'google-ads', 'lead-generation'];
 
+$indexableLocationSlugs = array_keys(array_filter(
+    $locations,
+    static fn (array $candidate): bool => !empty($candidate['indexable'])
+));
+$divisionLocationSlugs = array_values(array_filter(
+    $indexableLocationSlugs,
+    static fn (string $slug): bool => ($locations[$slug]['division'] ?? null) === ($location['division'] ?? null)
+));
+$sameDivisionSlugs = [];
+$currentDivisionIndex = array_search($locationSlug, $divisionLocationSlugs, true);
+if ($currentDivisionIndex !== false && count($divisionLocationSlugs) > 1) {
+    for ($offset = 1; $offset < count($divisionLocationSlugs); $offset++) {
+        $relatedSlug = $divisionLocationSlugs[($currentDivisionIndex + $offset) % count($divisionLocationSlugs)];
+        if ($relatedSlug !== $locationSlug) {
+            $sameDivisionSlugs[] = $relatedSlug;
+        }
+    }
+}
+$otherLocationSlugs = array_values(array_filter(
+    $indexableLocationSlugs,
+    static fn (string $slug): bool => $slug !== $locationSlug && !in_array($slug, $sameDivisionSlugs, true)
+));
+$relatedLocationSlugs = array_slice(array_merge($sameDivisionSlugs, $otherLocationSlugs), 0, 6);
+
+$guideCatalog = [
+    'website-development' => ['slug' => 'local-business-website-features', 'title' => 'Website features every local business needs'],
+    'seo' => ['slug' => 'local-seo-checklist-pune-businesses', 'title' => 'A practical local SEO checklist'],
+    'google-ads' => ['slug' => 'google-ads-local-services-guide', 'title' => 'Google Ads for local services'],
+    'lead-generation' => ['slug' => 'landing-page-checklist-lead-generation', 'title' => 'Landing page checklist for lead generation'],
+    'analytics' => ['slug' => 'ga4-setup-lead-generation-websites', 'title' => 'GA4 setup for lead-generation websites'],
+    'content-marketing' => ['slug' => 'technical-seo-checklist-new-website', 'title' => 'Technical SEO checklist for a new website'],
+];
+$locationGuides = [];
+foreach (array_merge($recommendedServices, array_keys($guideCatalog)) as $serviceSlug) {
+    if (isset($guideCatalog[$serviceSlug])) {
+        $locationGuides[$guideCatalog[$serviceSlug]['slug']] = $guideCatalog[$serviceSlug];
+    }
+    if (count($locationGuides) === 3) {
+        break;
+    }
+}
+
 $pageMeta = [
     'title' => ($location['title'] ?? $location['headline']) . ' - Mega Techzy',
     'description' => $location['meta'] ?? ('Mega Techzy provides website development, SEO, paid ads, branding and lead generation for businesses looking for a ' . $location['keyword'] . '.'),
@@ -158,8 +200,34 @@ include dirname(__DIR__) . '/includes/navbar.php';
             <?php foreach ($recommendedServices as $slug): if (!isset($services[$slug])) continue; $service = $services[$slug]; ?>
                 <article class="service-card">
                     <span class="card-icon"><?= icon_svg($service['icon']); ?></span>
-                    <h3><a href="/services/<?= e($slug); ?>.php"><?= e($service['name']); ?></a></h3>
+                    <h3><a href="/services/<?= e($slug); ?>"><?= e($service['name']); ?></a></h3>
                     <p><?= e($service['intro']); ?></p>
+                </article>
+            <?php endforeach; ?>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container split-heading">
+            <div>
+                <p class="eyebrow">Continue exploring</p>
+                <h2>Nearby markets and useful guides for <?= e($location['name']); ?></h2>
+            </div>
+            <p>Compare nearby Maharashtra markets and use these practical guides to plan the website, search and lead-generation work behind a local campaign.</p>
+        </div>
+        <?php if ($relatedLocationSlugs): ?>
+            <div class="container location-grid" aria-label="Related Maharashtra locations">
+                <?php foreach ($relatedLocationSlugs as $relatedSlug): ?>
+                    <a href="/locations/<?= e($relatedSlug); ?>"><?= icon_svg('map'); ?> <?= e($locations[$relatedSlug]['name']); ?></a>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+        <div class="container card-grid" style="margin-top:1.25rem">
+            <?php foreach ($locationGuides as $guide): ?>
+                <article class="blog-card">
+                    <p class="eyebrow">Practical guide</p>
+                    <h3><a href="/blog/<?= e($guide['slug']); ?>"><?= e($guide['title']); ?></a></h3>
+                    <a class="link-arrow" href="/blog/<?= e($guide['slug']); ?>">Read guide <?= icon_svg('arrow'); ?></a>
                 </article>
             <?php endforeach; ?>
         </div>

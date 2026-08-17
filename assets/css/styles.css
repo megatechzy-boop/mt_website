@@ -155,6 +155,12 @@ svg {
     box-shadow: none;
 }
 
+.brand .logo-mark picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
 .brand .logo-mark img {
     display: block;
     width: 100%;
