@@ -36,6 +36,7 @@
     </div>
     <div class="container footer-bottom">
         <span>&copy; <?= date('Y'); ?> Mega Techzy. All rights reserved.</span>
+        <a href="/careers">Careers</a>
         <a href="/privacy-policy">Privacy Policy</a>
         <a href="/sitemap.xml">Sitemap</a>
     </div>

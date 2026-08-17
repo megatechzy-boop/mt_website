@@ -20,6 +20,7 @@ define('SITE_BASE_PATH', $siteBasePath);
 define('SITE_URL', rtrim((string) (getenv('SITE_URL') ?: 'https://www.megatechzy.com' . SITE_BASE_PATH), '/'));
 define('CONTACT_EMAIL', (string) (getenv('CONTACT_EMAIL') ?: 'contact@megatechzy.com'));
 define('INFO_EMAIL', 'info@megatechzy.com');
+define('HR_EMAIL', 'hr@megatechzy.com');
 define('CONTACT_PHONES', ['+917020162163', '+919975452779']);
 define('SOCIAL_URLS', [
     'LinkedIn' => 'https://in.linkedin.com/company/mega-techzy',

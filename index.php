@@ -230,7 +230,6 @@ include __DIR__ . '/includes/navbar.php';
             <p class="agency-kicker"><span></span> Let us build something meaningful</p>
             <h2>Ready when<br>you are.</h2>
             <a class="agency-button agency-button-gold" href="/contact">Tell us about your project <?= icon_svg('arrow'); ?></a>
-            <p class="agency-cta-email">hello@megatechzy.com</p>
         </div>
     </section>
 </main>

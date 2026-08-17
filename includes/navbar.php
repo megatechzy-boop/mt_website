@@ -14,6 +14,7 @@
             <a href="/services/">Services</a>
             <a href="/industries/">Industries</a>
             <a href="/blog/">Blog</a>
+            <a href="/careers">Careers</a>
             <a class="nav-cta" href="/contact">Get Proposal</a>
         </div>
     </nav>
