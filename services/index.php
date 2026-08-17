@@ -11,6 +11,8 @@ foreach ($services as $slug => $service) {
         'url' => site_url('services/' . $slug),
     ];
 }
+$priorityServiceSlugs = ['website-development', 'video-marketing', 'social-media', 'branding', 'seo', 'google-ads', 'lead-generation', 'analytics'];
+$serviceDisplaySlugs = array_values(array_unique(array_merge($priorityServiceSlugs, array_keys($services))));
 $serviceFaqs = [
     ['q' => 'Can I start with one digital marketing service?', 'a' => 'Yes. You can start with the most urgent need, such as a new website, SEO audit, Google Ads campaign or lead follow-up workflow, then build the broader system over time.'],
     ['q' => 'Does Mega Techzy work with local businesses?', 'a' => 'Yes. Mega Techzy supports suitable projects across Maharashtra and India, adapting services to the local market, industry and sales process.'],
@@ -19,7 +21,7 @@ $serviceFaqs = [
 
 $pageMeta = [
     'title' => 'Digital Marketing Services in Maharashtra | Mega Techzy',
-    'description' => 'Explore website development, SEO, Google Ads, Meta Ads, automation, analytics and lead-generation services for Maharashtra businesses and India.',
+    'description' => 'Explore website development, video and reel marketing, social media, branding, SEO, paid ads and lead-generation services in Maharashtra.',
     'path' => 'services/',
     'schema_type' => 'CollectionPage',
     'about' => ['digital marketing services', 'website development', 'SEO', 'paid advertising', 'automation', 'Maharashtra'],
@@ -47,7 +49,7 @@ include dirname(__DIR__) . '/includes/navbar.php';
         <div class="container narrow">
             <p class="eyebrow">Services</p>
             <h1>Digital marketing services for websites, visibility and qualified leads</h1>
-            <p>Choose one focused service or connect website development, SEO, paid ads, automation and analytics into a complete digital growth system for your business.</p>
+            <p>Choose one focused service or connect website development, video and reel marketing, social media, branding, SEO, paid ads and analytics into a complete digital growth system.</p>
         </div>
     </section>
     <section class="section">
@@ -60,15 +62,16 @@ include dirname(__DIR__) . '/includes/navbar.php';
             </div>
             <div class="check-list">
                 <div><?= icon_svg('check'); ?><span>Website development with SEO-ready structure.</span></div>
+                <div><?= icon_svg('check'); ?><span>Video, reels and social content built around a clear brand.</span></div>
+                <div><?= icon_svg('check'); ?><span>Brand identity and graphic design for consistent campaigns.</span></div>
                 <div><?= icon_svg('check'); ?><span>SEO for local visibility and organic demand.</span></div>
                 <div><?= icon_svg('check'); ?><span>Google and Meta Ads for focused campaigns.</span></div>
-                <div><?= icon_svg('check'); ?><span>Automation and analytics for cleaner follow-up.</span></div>
             </div>
         </div>
     </section>
     <section class="section">
         <div class="container card-grid service-grid">
-            <?php foreach ($services as $slug => $service): ?>
+            <?php foreach ($serviceDisplaySlugs as $slug): if (!isset($services[$slug])) continue; $service = $services[$slug]; ?>
                 <article class="service-card">
                     <span class="card-icon"><?= icon_svg($service['icon']); ?></span>
                     <h2><a href="/services/<?= e($slug); ?>"><?= e($service['name']); ?></a></h2>

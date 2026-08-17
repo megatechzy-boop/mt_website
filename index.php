@@ -22,6 +22,16 @@ $industryShowcase = [
     ['name' => 'Education', 'image' => 'industry-education.webp', 'copy' => 'Demand generation for learning brands.'],
     ['name' => 'Retail and Ecommerce', 'image' => 'industry-commerce.webp', 'copy' => 'Campaigns built for attention and action.'],
 ];
+$featuredHomeServiceSlugs = [
+    'website-development',
+    'video-marketing',
+    'social-media',
+    'branding',
+    'seo',
+    'google-ads',
+    'lead-generation',
+    'analytics',
+];
 include __DIR__ . '/includes/header.php';
 include __DIR__ . '/includes/navbar.php';
 ?>
@@ -29,9 +39,9 @@ include __DIR__ . '/includes/navbar.php';
     <section class="agency-hero">
         <div class="container agency-hero-grid">
             <div class="agency-hero-copy">
-                <p class="agency-kicker"><span></span> Digital marketing and web studio</p>
-                <h1>We make<br>brands <em>matter.</em></h1>
-                <p class="agency-lede">Mega Techzy is a Maharashtra-based digital marketing and web development company serving Mumbai, Pune, PCMC, Nagpur, Nashik, Solapur and businesses across the state with websites, SEO, paid ads and automation.</p>
+                <p class="agency-kicker"><span></span> Digital marketing, creative and web studio</p>
+                <h1>Digital marketing<br>&amp; web development<br><em>in Maharashtra.</em></h1>
+                <p class="agency-lede">Mega Techzy helps businesses grow through websites, SEO, video and reel marketing, social media management, branding, paid campaigns and automation across Mumbai, Pune, PCMC, Nagpur, Nashik, Solapur and Maharashtra.</p>
                 <div class="agency-hero-actions">
                     <a class="agency-button agency-button-gold" href="/contact">Start a project <?= icon_svg('arrow'); ?></a>
                     <a class="agency-text-link" href="#work">Explore our work <span>&darr;</span></a>
@@ -115,7 +125,7 @@ include __DIR__ . '/includes/navbar.php';
             <p class="agency-side-copy">Pick a focused service or connect every channel into one powerful growth engine.</p>
         </div>
         <div class="container agency-service-list">
-            <?php $serviceNumber = 1; foreach (array_slice($services, 0, 8) as $slug => $service): ?>
+            <?php $serviceNumber = 1; foreach ($featuredHomeServiceSlugs as $slug): if (!isset($services[$slug])) continue; $service = $services[$slug]; ?>
                 <a class="agency-service-row" href="/services/<?= e($slug); ?>" data-reveal>
                     <span class="agency-service-no">0<?= $serviceNumber++; ?></span>
                     <span class="agency-service-icon"><?= icon_svg($service['icon']); ?></span>

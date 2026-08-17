@@ -109,6 +109,18 @@ include dirname(__DIR__) . '/includes/navbar.php';
         </div>
     </section>
 
+    <?php if (!empty($service['sections'])): ?>
+        <section class="section">
+            <div class="container narrow">
+                <p class="eyebrow">How the service works</p>
+                <?php foreach ($service['sections'] as $section): ?>
+                    <h2><?= e($section['title']); ?></h2>
+                    <p><?= e($section['copy']); ?></p>
+                <?php endforeach; ?>
+            </div>
+        </section>
+    <?php endif; ?>
+
     <section class="section soft-section">
         <div class="container split-heading">
             <div>

@@ -10,7 +10,9 @@
         <div class="footer-links">
             <h2>Services</h2>
             <a href="/services/website-development">Website Development</a>
-            <a href="/international/website-development">International Web Development</a>
+            <a href="/services/video-marketing">Video &amp; Reel Marketing</a>
+            <a href="/services/social-media">Social Media Management</a>
+            <a href="/services/branding">Branding &amp; Graphic Design</a>
             <a href="/services/seo">SEO</a>
             <a href="/services/google-ads">Google Ads</a>
             <a href="/services/lead-generation">Lead Generation</a>
