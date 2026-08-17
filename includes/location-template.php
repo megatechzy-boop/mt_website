@@ -122,8 +122,8 @@ include dirname(__DIR__) . '/includes/navbar.php';
             </div>
             <aside class="proof-panel">
                 <span class="card-icon"><?= icon_svg('map'); ?></span>
-                <h2>Why local pages matter</h2>
-                <p>Location-specific pages help customers and search engines understand your relevance, services, proof and service area more clearly.</p>
+                <h2>Digital growth for businesses in <?= e($location['name']); ?></h2>
+                <p>We help businesses in <?= e($location['name']); ?> build professional websites, improve their Google visibility and generate qualified enquiries through SEO and paid campaigns.</p>
             </aside>
         </div>
     </section>
