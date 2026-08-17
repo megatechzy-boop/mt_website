@@ -2590,6 +2590,30 @@ p {
     color: inherit;
 }
 
+.agency-inner .service-card:hover h2,
+.agency-inner .service-card:hover h3,
+.agency-inner .service-card:hover .service-number,
+.agency-inner .service-card:hover .check-list div,
+.agency-inner .service-card:hover .check-list span,
+.agency-inner .service-card:hover .feature-list div,
+.agency-inner .service-card:hover .feature-list span,
+.agency-inner .case-card:hover h2,
+.agency-inner .case-card:hover h3,
+.agency-inner .blog-card:hover h2,
+.agency-inner .blog-card:hover h3 {
+    color: #fbfaf5;
+}
+
+.agency-inner .service-card:hover .check-list div,
+.agency-inner .service-card:hover .feature-list div {
+    border-bottom-color: rgba(251, 250, 245, .24);
+}
+
+.agency-inner .service-card:hover .check-list svg,
+.agency-inner .service-card:hover .feature-list svg {
+    color: #ffc21a;
+}
+
 .agency-inner .service-card .card-icon {
     color: #0b3328;
     border-radius: 50%;
