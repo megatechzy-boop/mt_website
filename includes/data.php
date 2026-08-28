@@ -270,6 +270,7 @@ $locations = array_replace($locations, require __DIR__ . '/maharashtra-cities.ph
 $industries = ['Manufacturing', 'Real Estate', 'Healthcare', 'Education', 'Retail', 'Ecommerce', 'Professional Services', 'Local Businesses'];
 
 $blogPosts = [
+    ['title' => 'Google.com/goto Explained: What It Means for SEO and Analytics', 'slug' => 'google-com-goto-redirect-seo', 'excerpt' => 'Google is routing Search result clicks through google.com/goto. Learn how the redirect works and what it means for SEO, analytics and rank tracking.', 'keyword' => 'google.com/goto', 'category' => 'SEO News', 'audience' => 'website owners, marketers and SEO professionals', 'outcome' => 'understand the redirect and monitor its practical impact without making unnecessary SEO changes', 'published' => '2026-08-28', 'modified' => '2026-08-28'],
     ['title' => 'How to Choose a Website Developer in India', 'slug' => 'how-to-choose-website-developer-india', 'excerpt' => 'A practical guide to comparing website developers in India by discovery, scope, SEO foundations, ownership, support and measurable business outcomes.', 'keyword' => 'website developer in India', 'audience' => 'business owners comparing website development partners', 'outcome' => 'choose a developer who can deliver a useful, maintainable and search-ready business website'],
     ['title' => 'Website Maker vs Web Developer: Which Is Better?', 'slug' => 'website-maker-vs-web-developer', 'excerpt' => 'Compare DIY website makers with professional web development across cost, speed, flexibility, SEO, ownership and ongoing support.', 'keyword' => 'website maker vs web developer', 'audience' => 'businesses deciding how to build a new website', 'outcome' => 'choose the right website approach for their budget, risk and growth plans'],
     ['title' => 'How to Choose a Digital Marketing Company in Pune', 'slug' => 'choose-digital-marketing-company-pune', 'excerpt' => 'A practical checklist for comparing strategy, reporting, local SEO knowledge and lead quality.'],
@@ -340,6 +341,7 @@ $blogPosts = [
 // Explicit publication list prevents stale files left by an overlay deployment
 // from putting retired draft pages back into the public blog directory.
 $publishedBlogSlugs = [
+    'google-com-goto-redirect-seo',
     'choose-digital-marketing-company-pune',
     'local-business-website-features',
     'seo-vs-google-ads',
