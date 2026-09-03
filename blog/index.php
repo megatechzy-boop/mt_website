@@ -26,6 +26,11 @@ include dirname(__DIR__) . '/includes/navbar.php';
             <div class="container card-grid">
                 <?php foreach ($blogPosts as $post): ?>
                     <article class="blog-card">
+                        <?php if (!empty($post['image'])): ?>
+                            <a class="blog-card-image" href="/blog/<?= e($post['slug']); ?>" tabindex="-1" aria-hidden="true">
+                                <img src="<?= e(asset_url($post['image'])); ?>" alt="" width="<?= e($post['image_width'] ?? 1600); ?>" height="<?= e($post['image_height'] ?? 900); ?>" loading="lazy" decoding="async">
+                            </a>
+                        <?php endif; ?>
                         <h2><a href="/blog/<?= e($post['slug']); ?>"><?= e($post['title']); ?></a></h2>
                         <p><?= e($post['excerpt']); ?></p>
                         <a class="link-arrow" href="/blog/<?= e($post['slug']); ?>">Read guide <?= icon_svg('arrow'); ?></a>

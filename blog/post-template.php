@@ -49,6 +49,10 @@ if (str_contains($postSlug, 'pune')) {
     $articleLocationSlugs = ['mumbai', 'pune', 'nashik'];
 }
 $metaDescription = seo_description($post['excerpt']);
+$articleImage = $post['image'] ?? null;
+$articleImageUrl = $articleImage
+    ? site_url('assets/' . $articleImage)
+    : site_url('assets/images/megatechzy-logo-enhanced.png');
 $articleKeywords = array_values(array_filter([
     $post['keyword'] ?? null,
     $post['category'] ?? null,
@@ -60,6 +64,7 @@ $pageMeta = [
     'path' => 'blog/' . $postSlug,
     'robots' => $isIndexable ? 'index, follow' : 'noindex, follow',
     'og_type' => 'article',
+    'og_image' => $articleImageUrl,
     'schema_type' => 'WebPage',
     'about' => $articleKeywords,
 ];
@@ -77,7 +82,7 @@ $pageSchemas = [breadcrumb_schema([
     'mainEntityOfPage' => ['@id' => site_url('blog/' . $postSlug) . '#webpage'],
     'author' => ['@id' => SITE_URL . '/#organization'],
     'publisher' => ['@id' => SITE_URL . '/#organization'],
-    'image' => site_url('assets/images/megatechzy-logo-enhanced.png'),
+    'image' => $articleImageUrl,
     'inLanguage' => 'en-IN',
     'keywords' => $articleKeywords,
     'isPartOf' => ['@id' => SITE_URL . '/#website'],
@@ -87,6 +92,9 @@ if (isset($post['published'])) {
 }
 if (isset($post['modified'])) {
     $pageSchemas[1]['dateModified'] = $post['modified'];
+}
+if (!empty($post['faqs'])) {
+    $pageSchemas[] = faq_schema($post['faqs']);
 }
 $isGuide = isset($post['keyword']);
 include dirname(__DIR__) . '/includes/header.php';
@@ -98,13 +106,18 @@ include dirname(__DIR__) . '/includes/navbar.php';
             <p class="eyebrow">Mega Techzy Guide</p>
             <h1><?= e($post['title']); ?></h1>
             <?php if (isset($post['published'])): ?>
-                <p><time datetime="<?= e($post['published']); ?>">Published <?= e(date('F j, Y', strtotime($post['published']))); ?></time><?php if (($post['modified'] ?? $post['published']) !== $post['published']): ?> · Updated <time datetime="<?= e($post['modified']); ?>"><?= e(date('F j, Y', strtotime($post['modified']))); ?></time><?php endif; ?></p>
+                <p class="article-meta"><time datetime="<?= e($post['published']); ?>">Published <?= e(date('F j, Y', strtotime($post['published']))); ?></time><?php if (($post['modified'] ?? $post['published']) !== $post['published']): ?> · Updated <time datetime="<?= e($post['modified']); ?>"><?= e(date('F j, Y', strtotime($post['modified']))); ?></time><?php endif; ?></p>
             <?php endif; ?>
             <p class="lead"><?= e($post['excerpt']); ?></p>
+            <?php if ($articleImage): ?>
+                <figure class="article-hero-media">
+                    <img src="<?= e(asset_url($articleImage)); ?>" alt="<?= e($post['image_alt'] ?? ''); ?>" width="<?= e($post['image_width'] ?? 1600); ?>" height="<?= e($post['image_height'] ?? 900); ?>" fetchpriority="high" decoding="async">
+                </figure>
+            <?php endif; ?>
             <aside class="form-shell" aria-labelledby="quick-answer">
                 <h2 id="quick-answer">Quick answer</h2>
-                <p><strong><?= e($metaDescription); ?></strong></p>
-                <p>Use the guide below to compare the practical steps, risks and measurement points before making a decision.</p>
+                <p><strong><?= e($post['quick_answer'] ?? $metaDescription); ?></strong></p>
+                <p>Use the guide below to understand the practical steps, limitations and measurement points before making changes.</p>
             </aside>
             <?php if ($hasResearchArticle): ?>
                 <?php include $researchArticle; ?>
