@@ -2924,6 +2924,16 @@ p {
     object-fit: cover;
 }
 
+.agency-inner .blog-card {
+    min-width: 0;
+}
+
+.agency-inner .blog-card h2 {
+    font-size: clamp(1.55rem, 1.1rem + 1vw, 2rem);
+    line-height: 1.12;
+    overflow-wrap: anywhere;
+}
+
 @media (max-width: 980px) {
     .agency-inner .page-hero h1 {
         font-size: 3.7rem;
