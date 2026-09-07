@@ -27,19 +27,7 @@ if (!isset($post['keyword']) && isset($legacyGuides[$postSlug])) {
 }
 $researchArticle = __DIR__ . '/articles/' . $postSlug . '.php';
 $hasResearchArticle = is_file($researchArticle);
-$indexablePosts = [
-    'choose-digital-marketing-company-pune',
-    'local-business-website-features',
-    'seo-vs-google-ads',
-    'local-seo-checklist-pune-businesses',
-    'google-business-profile-optimization-pune',
-    'business-website-cost-pune',
-    'website-design-manufacturing-companies',
-    'real-estate-lead-generation-pune-builders',
-    'seo-doctors-clinics-pune',
-    'digital-marketing-schools-coaching-classes',
-];
-$isIndexable = $hasResearchArticle || in_array($postSlug, $indexablePosts, true);
+$isIndexable = in_array($postSlug, $publishedBlogSlugs, true);
 $articleLocationSlugs = ['pune', 'mumbai', 'nagpur'];
 if (str_contains($postSlug, 'pune')) {
     $articleLocationSlugs = ['pune', 'pcmc', 'mumbai'];
