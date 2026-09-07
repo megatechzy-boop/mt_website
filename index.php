@@ -3,10 +3,11 @@ require __DIR__ . '/includes/config.php';
 require __DIR__ . '/includes/data.php';
 
 $pageMeta = [
-    'title' => 'Digital Marketing & Web Development Company in Maharashtra',
-    'description' => 'Mega Techzy provides website development, SEO, Google Ads, analytics and lead generation for businesses across Maharashtra and selected international markets.',
+    'title' => 'Digital Marketing & Web Development Company | Mega Techzy',
+    'description' => 'Mega Techzy helps businesses grow through SEO, website development, Google Ads, social media marketing and lead generation with conversion-focused digital strategies.',
+    'description_max_length' => 166,
     'path' => '',
-    'about' => ['digital marketing', 'website development', 'SEO', 'Google Ads', 'lead generation', 'Maharashtra'],
+    'about' => ['digital marketing', 'website development', 'SEO', 'Google Ads', 'social media marketing', 'lead generation'],
 ];
 $pageSchemas = [
     website_schema(),
@@ -16,11 +17,11 @@ $pageSchemas = [
     ]),
 ];
 $industryShowcase = [
-    ['name' => 'Manufacturing', 'image' => 'industry-manufacturing.webp', 'copy' => 'Industrial visibility and lead systems.'],
-    ['name' => 'Real Estate', 'image' => 'industry-real-estate.webp', 'copy' => 'Launch campaigns made to move enquiries.'],
-    ['name' => 'Healthcare', 'image' => 'industry-healthcare.webp', 'copy' => 'Trust-led digital experiences for care.'],
-    ['name' => 'Education', 'image' => 'industry-education.webp', 'copy' => 'Demand generation for learning brands.'],
-    ['name' => 'Retail and Ecommerce', 'image' => 'industry-commerce.webp', 'copy' => 'Campaigns built for attention and action.'],
+    ['name' => 'Manufacturing & B2B', 'image' => 'industry-manufacturing.webp', 'copy' => 'Industrial websites, technical SEO, LinkedIn marketing and lead generation for longer sales cycles.'],
+    ['name' => 'Real Estate', 'image' => 'industry-real-estate.webp', 'copy' => 'Performance advertising, landing pages and enquiry campaigns for launches and ongoing inventory.'],
+    ['name' => 'Healthcare & Clinics', 'image' => 'industry-healthcare.webp', 'copy' => 'Local SEO, trust-led websites and patient enquiry journeys designed for responsible growth.'],
+    ['name' => 'Education', 'image' => 'industry-education.webp', 'copy' => 'Admissions-focused websites, search campaigns and social media for schools and training brands.'],
+    ['name' => 'Retail & Ecommerce', 'image' => 'industry-commerce.webp', 'copy' => 'SEO, paid media and conversion-focused shopping experiences built around measurable sales.'],
 ];
 $featuredHomeServiceSlugs = [
     'website-development',
@@ -32,6 +33,14 @@ $featuredHomeServiceSlugs = [
     'lead-generation',
     'analytics',
 ];
+$featuredHomeLocations = [
+    'pune' => 'Digital Marketing in Pune',
+    'pcmc' => 'Digital Marketing in PCMC',
+    'mumbai' => 'Digital Marketing in Mumbai',
+    'solapur' => 'Website Development in Solapur',
+    'nashik' => 'Digital Marketing in Nashik',
+    'nagpur' => 'Digital Marketing in Nagpur',
+];
 include __DIR__ . '/includes/header.php';
 include __DIR__ . '/includes/navbar.php';
 ?>
@@ -40,11 +49,11 @@ include __DIR__ . '/includes/navbar.php';
         <div class="container agency-hero-grid">
             <div class="agency-hero-copy">
                 <p class="agency-kicker"><span></span> Digital marketing, creative and web studio</p>
-                <h1>Digital marketing<br>&amp; web development<br><em>in Maharashtra.</em></h1>
-                <p class="agency-lede">Mega Techzy helps businesses grow through websites, SEO, video and reel marketing, social media management, branding, paid campaigns and automation across Mumbai, Pune, PCMC, Nagpur, Nashik, Solapur and Maharashtra.</p>
+                <h1>Digital Marketing<br>&amp; Web Development<br><em>Company</em></h1>
+                <p class="agency-lede">Mega Techzy helps businesses generate more enquiries and grow online through SEO, high-performing websites, Google Ads, social media marketing and conversion-focused digital strategies. From local businesses and clinics to manufacturers and growing brands, we build practical digital solutions focused on visibility, leads and measurable business growth.</p>
                 <div class="agency-hero-actions">
-                    <a class="agency-button agency-button-gold" href="/contact">Start a project <?= icon_svg('arrow'); ?></a>
-                    <a class="agency-text-link" href="#work">Explore our work <span>&darr;</span></a>
+                    <a class="agency-button agency-button-gold" href="/contact">Get a Free Consultation <?= icon_svg('arrow'); ?></a>
+                    <a class="agency-text-link" href="/services/">Explore Our Services <span>&rarr;</span></a>
                 </div>
                 <div class="agency-hero-footer">
                     <span>Based in Maharashtra</span>
@@ -56,7 +65,7 @@ include __DIR__ . '/includes/navbar.php';
                 <div class="hero-orbit hero-orbit-two"></div>
                 <div class="hero-growth-core">
                     <span class="hero-core-eyebrow"><i></i> Growth signal</span>
-                    <strong>+68%</strong>
+                    <strong>SEO</strong>
                     <span class="hero-core-copy">Organic visibility<br>built to compound</span>
                     <div class="hero-core-trend" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
                 </div>
@@ -79,7 +88,7 @@ include __DIR__ . '/includes/navbar.php';
         <div class="container">
             <p class="agency-kicker dark-kicker"><span></span> The Mega Techzy approach</p>
             <div class="agency-statement-grid">
-                <h2>Strategy meets <em>creative energy</em> and turns into growth.</h2>
+                <h2>Why Businesses Choose <em>Mega Techzy.</em></h2>
                 <div>
                     <p>We build the digital moments that make people stop, trust and take action. From the first Google search to the final enquiry, every touchpoint is deliberate.</p>
                     <a class="agency-text-link agency-text-link-dark" href="/about">Meet Mega Techzy <span>&rarr;</span></a>
@@ -92,13 +101,13 @@ include __DIR__ . '/includes/navbar.php';
         <div class="container agency-section-heading">
             <div>
                 <p class="agency-kicker"><span></span> Selected work</p>
-                <h2>Designed to be<br><em>remembered.</em></h2>
+                <h2>Selected Digital<br><em>Work.</em></h2>
             </div>
                     <a class="agency-button agency-button-outline" href="/contact">Discuss a project <?= icon_svg('arrow'); ?></a>
         </div>
         <div class="container work-grid">
             <article class="work-tile work-tile-wide" data-reveal>
-                <img src="<?= e(asset_url('images/mega-techzy-digital-growth-hero.webp')); ?>" alt="Digital growth dashboard and website design" loading="eager" fetchpriority="high" decoding="async" width="1712" height="960">
+                <img src="<?= e(asset_url('images/mega-techzy-digital-growth-hero.webp')); ?>" alt="Digital growth dashboard and website design" loading="lazy" decoding="async" width="1712" height="960">
                 <div class="work-tile-overlay">
                     <p>Digital Growth System</p>
                     <h3>Websites that become the centre of your marketing.</h3>
@@ -120,7 +129,7 @@ include __DIR__ . '/includes/navbar.php';
         <div class="container agency-section-heading">
             <div>
                 <p class="agency-kicker dark-kicker"><span></span> What we do</p>
-                <h2>Capabilities with<br><em>real pull.</em></h2>
+                <h2>Digital Marketing Services<br><em>That Drive Business Growth.</em></h2>
             </div>
             <p class="agency-side-copy">Pick a focused service or connect every channel into one powerful growth engine.</p>
         </div>
@@ -129,7 +138,7 @@ include __DIR__ . '/includes/navbar.php';
                 <a class="agency-service-row" href="/services/<?= e($slug); ?>" data-reveal>
                     <span class="agency-service-no">0<?= $serviceNumber++; ?></span>
                     <span class="agency-service-icon"><?= icon_svg($service['icon']); ?></span>
-                    <span class="agency-service-name"><?= e($service['name']); ?></span>
+                    <h3 class="agency-service-name"><?= e($service['name']); ?></h3>
                     <span class="agency-service-copy"><?= e($service['outcomes'][0]); ?></span>
                     <span class="agency-service-arrow"><?= icon_svg('arrow'); ?></span>
                 </a>
@@ -142,7 +151,7 @@ include __DIR__ . '/includes/navbar.php';
         <div class="container agency-section-heading">
             <div>
                 <p class="agency-kicker"><span></span> Industries</p>
-                <h2>Different markets.<br><em>One sharp system.</em></h2>
+                <h2>Digital Marketing Solutions<br><em>for Different Industries.</em></h2>
             </div>
             <p class="agency-side-copy light-copy">Every industry needs a different trust story, offer and conversion path. We shape the system around yours.</p>
         </div>
@@ -163,11 +172,27 @@ include __DIR__ . '/includes/navbar.php';
         </div>
     </section>
 
+    <section class="agency-locations section soft-section">
+        <div class="container agency-section-heading">
+            <div>
+                <p class="agency-kicker dark-kicker"><span></span> Where we work</p>
+                <h2>Serving Businesses Across<br><em>Maharashtra.</em></h2>
+            </div>
+            <p class="agency-side-copy">Our homepage introduces the full digital offering, while dedicated location pages explain the market, services and customer needs relevant to each city.</p>
+        </div>
+        <div class="container location-grid">
+            <?php foreach ($featuredHomeLocations as $slug => $label): if (!isset($locations[$slug])) continue; ?>
+                <a href="/locations/<?= e($slug); ?>"><?= e($label); ?> <?= icon_svg('arrow'); ?></a>
+            <?php endforeach; ?>
+        </div>
+        <div class="container agency-services-foot"><a class="agency-text-link agency-text-link-dark" href="/locations/">Explore all service areas <span>&rarr;</span></a></div>
+    </section>
+
     <section class="agency-process section">
         <div class="container agency-section-heading">
             <div>
                 <p class="agency-kicker dark-kicker"><span></span> How it moves</p>
-                <h2>From first spark<br>to <em>real momentum.</em></h2>
+                <h2>Our Digital Marketing<br><em>Process.</em></h2>
             </div>
         </div>
         <div class="container agency-process-grid">
@@ -183,9 +208,9 @@ include __DIR__ . '/includes/navbar.php';
 
     <section class="agency-proof section">
         <div class="container agency-proof-grid">
-            <div class="agency-proof-mark">M<span>T</span></div>
-            <blockquote>Clear strategy. Thoughtful creative. Measurable digital execution.<cite>The Mega Techzy approach</cite></blockquote>
-            <div class="agency-proof-stat"><strong>01</strong><span>Connected growth system, built around your business</span></div>
+            <div class="agency-proof-mark" aria-label="Established in 2019">20<span>19</span></div>
+            <blockquote>100+ clients served through practical digital strategy, website development and marketing support.<cite>Mega Techzy delivery experience</cite></blockquote>
+            <div class="agency-proof-stat"><strong>50+</strong><span>Website, SEO, advertising and automation projects delivered</span></div>
         </div>
     </section>
 
@@ -193,7 +218,7 @@ include __DIR__ . '/includes/navbar.php';
         <div class="container agency-section-heading">
             <div>
                 <p class="agency-kicker dark-kicker"><span></span> Fresh thinking</p>
-                <h2>Ideas with<br><em>commercial value.</em></h2>
+                <h2>Digital Marketing<br><em>Insights.</em></h2>
             </div>
             <a class="agency-button agency-button-dark" href="/blog/">View all insights <?= icon_svg('arrow'); ?></a>
         </div>
@@ -215,7 +240,7 @@ include __DIR__ . '/includes/navbar.php';
     <section class="section soft-section faq-section">
         <div class="container narrow">
             <p class="eyebrow">FAQs</p>
-            <h2>Digital marketing questions, answered clearly</h2>
+            <h2>Frequently Asked Questions</h2>
             <?php foreach ($homeFaqs as $faq): ?>
                 <details>
                     <summary><?= e($faq['q']); ?></summary>
@@ -228,7 +253,7 @@ include __DIR__ . '/includes/navbar.php';
     <section class="agency-cta">
         <div class="container agency-cta-inner">
             <p class="agency-kicker"><span></span> Let us build something meaningful</p>
-            <h2>Ready when<br>you are.</h2>
+            <h2>Ready to Grow Your<br><em>Business Online?</em></h2>
             <a class="agency-button agency-button-gold" href="/contact">Tell us about your project <?= icon_svg('arrow'); ?></a>
         </div>
     </section>

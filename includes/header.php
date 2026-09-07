@@ -1,7 +1,10 @@
 <?php
 $pageMeta = $pageMeta ?? [];
 $title = seo_title($pageMeta['title'] ?? SITE_NAME . ' - Digital Marketing and Website Development Company');
-$description = seo_description($pageMeta['description'] ?? 'Mega Techzy helps businesses grow online with websites, SEO, paid ads, branding, automation and lead generation.');
+$description = seo_description(
+    $pageMeta['description'] ?? 'Mega Techzy helps businesses grow online with websites, SEO, paid ads, branding, automation and lead generation.',
+    $pageMeta['description_max_length'] ?? 160
+);
 $path = $pageMeta['path'] ?? '';
 $canonical = $pageMeta['canonical'] ?? site_url($path);
 $ogImage = $pageMeta['og_image'] ?? site_url('assets/images/megatechzy-logo-enhanced.png');
@@ -14,8 +17,9 @@ $htmlLang = $pageMeta['language'] ?? 'en-IN';
 $ogLocale = str_replace('-', '_', $htmlLang);
 $hreflangLinks = $pageMeta['hreflang'] ?? [];
 $pageType = $pageMeta['schema_type'] ?? 'WebPage';
+$globalSchemas = $canonical === site_url() ? build_global_schema() : [];
 $schemas = array_merge(
-    build_global_schema(),
+    $globalSchemas,
     [webpage_schema($title, $description, $canonical, $htmlLang, $pageType, $pageMeta['about'] ?? [])],
     $pageSchemas ?? []
 );

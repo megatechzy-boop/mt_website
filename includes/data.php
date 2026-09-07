@@ -398,7 +398,9 @@ $publishedBlogSlugs = [
 $blogPosts = array_values(array_filter($blogPosts, static fn (array $post): bool => in_array($post['slug'], $publishedBlogSlugs, true)));
 
 $homeFaqs = [
-    ['q' => 'What does Mega Techzy do?', 'a' => 'Mega Techzy helps businesses grow online through websites, SEO, paid ads, automation, branding, analytics and lead generation.'],
-    ['q' => 'Which locations do you serve?', 'a' => 'Mega Techzy supports suitable projects across Maharashtra, including Mumbai, Pune, PCMC, Nagpur, Nashik, Solapur and all district-headquarter markets.'],
-    ['q' => 'Can Mega Techzy build both website and marketing campaigns?', 'a' => 'Yes. The team can connect website development, SEO, ads, tracking and follow-up into one growth system.'],
+    ['q' => 'What digital marketing services does Mega Techzy provide?', 'a' => 'Mega Techzy provides SEO, website development, Google Ads, social media marketing, branding, analytics, automation and lead generation services.'],
+    ['q' => 'Does Mega Techzy provide digital marketing services across Maharashtra?', 'a' => 'Yes. Mega Techzy supports suitable projects across Maharashtra, including Mumbai, Pune, PCMC, Nagpur, Nashik, Solapur and other district-headquarter markets.'],
+    ['q' => 'Do you provide SEO services for local businesses?', 'a' => 'Yes. Local SEO work can include technical and on-page improvements, location-focused content, Google Business Profile guidance and enquiry tracking.'],
+    ['q' => 'Does Mega Techzy build SEO-friendly websites?', 'a' => 'Yes. Mega Techzy builds responsive, secure and SEO-ready websites with clear structure, technical foundations, analytics and conversion paths.'],
+    ['q' => 'Can you manage Google Ads and social media campaigns?', 'a' => 'Yes. Google Ads and social media campaigns can be planned around a defined audience, offer, landing page, budget and measurable enquiry goals.'],
 ];
