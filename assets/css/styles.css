@@ -2762,6 +2762,21 @@ p {
     margin: 2.2rem 0 2.5rem;
 }
 
+/* Opt-in header for long editorial titles; avoids the fixed dark gradient. */
+.agency-inner .agency-article.agency-article--light {
+    background: #f8f8f3;
+}
+
+.agency-inner .agency-article--light h1,
+.agency-inner .agency-article--light .article-meta {
+    color: #0b3328;
+}
+
+.agency-inner .agency-article--light .eyebrow,
+.agency-inner .agency-article--light .lead {
+    color: #0b7755;
+}
+
 .article-hero-media {
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, .2);

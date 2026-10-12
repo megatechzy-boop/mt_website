@@ -47,7 +47,7 @@ $articleKeywords = array_values(array_filter([
     'Mega Techzy',
 ]));
 $pageMeta = [
-    'title' => $post['title'] . ' - Mega Techzy',
+    'title' => ($post['seo_title'] ?? $post['title']) . ' - Mega Techzy',
     'description' => $metaDescription,
     'path' => 'blog/' . $postSlug,
     'robots' => $isIndexable ? 'index, follow' : 'noindex, follow',
@@ -89,7 +89,7 @@ include dirname(__DIR__) . '/includes/header.php';
 include dirname(__DIR__) . '/includes/navbar.php';
 ?>
 <main id="main" class="agency-inner">
-    <article class="section article agency-article">
+    <article class="section article agency-article<?= !empty($post['light_header']) ? ' agency-article--light' : ''; ?>">
         <div class="container narrow">
             <p class="eyebrow">Mega Techzy Guide</p>
             <h1><?= e($post['title']); ?></h1>

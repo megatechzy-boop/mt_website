@@ -271,6 +271,31 @@ $industries = ['Manufacturing', 'Real Estate', 'Healthcare', 'Education', 'Retai
 
 $blogPosts = [
     [
+        'title' => 'Zoho Built Its Own Cloud Instead of AWS and Google Cloud—Now Catalyst Is Free for Students',
+        'seo_title' => 'Zoho Cloud & Catalyst: Free Cloud for Students',
+        'light_header' => true,
+        'slug' => 'zoho-cloud-catalyst-free-for-students',
+        'excerpt' => 'Explore Zoho cloud infrastructure and Catalyst for students: free usage limits, eligibility, app ideas and what to check before deploying your project.',
+        'keyword' => 'Zoho cloud infrastructure',
+        'category' => 'Cloud Technology',
+        'audience' => 'students, developers and business owners exploring Zoho Catalyst',
+        'outcome' => 'understand the student offer and choose a suitable path from a local prototype to a live application',
+        'published' => '2026-10-12',
+        'modified' => '2026-10-12',
+        'image' => 'images/blog/zoho-cloud-catalyst-students-hero.webp',
+        'image_alt' => 'Conceptual illustration of an Indian student developer connecting a laptop to cloud infrastructure and server racks',
+        'image_width' => 1600,
+        'image_height' => 900,
+        'quick_answer' => 'Zoho maintains its own cloud infrastructure and offers Catalyst as a full-stack application platform. Qualifying students can deploy non-commercial projects without a subscription or credit card, with up to $250 in usage over six months. At that threshold the app stops rather than automatically charging the student; additional free usage requires a support review. This is different from the regular monthly free tier.',
+        'faqs' => [
+            ['q' => 'Is Zoho Catalyst free for students?', 'a' => 'Yes, for qualifying non-commercial student projects. The published allowance is up to $250 in usage over six months, without a subscription or credit card. Check the current student terms before deploying.'],
+            ['q' => 'What happens when a student project reaches the usage limit?', 'a' => 'The application is temporarily stopped, not automatically billed. Students can contact Catalyst Support to request an extension, which is subject to eligibility review.'],
+            ['q' => 'Is the student program the same as the Catalyst free tier?', 'a' => 'No. The student program has educational and non-commercial eligibility conditions. The regular free tier has monthly resource allowances and separate billing terms beyond those allowances.'],
+            ['q' => 'Can a business use the free student offer for a commercial app?', 'a' => 'The student offer is for non-commercial projects. A paid customer app or revenue-generating business service should be evaluated against the appropriate commercial plan and terms.'],
+            ['q' => 'Does using Catalyst automatically improve Google rankings?', 'a' => 'No. Search visibility depends on useful content, crawlable public pages, indexing eligibility, performance and other signals. A cloud provider does not guarantee rankings or indexing.'],
+        ],
+    ],
+    [
         'title' => 'Trial Reels Are Not an Option on My Instagram Account: What to Do',
         'slug' => 'instagram-trial-reels-not-showing',
         'excerpt' => 'Instagram Trial Reels not showing? Check account eligibility, recommendation status, the correct publishing screen and the safest troubleshooting steps.',
@@ -392,6 +417,7 @@ $blogPosts = [
 // Explicit publication list prevents stale files left by an overlay deployment
 // from putting retired draft pages back into the public blog directory.
 $publishedBlogSlugs = [
+    'zoho-cloud-catalyst-free-for-students',
     'instagram-trial-reels-not-showing',
     'google-ai-mode-seo-small-businesses-2026',
     'google-com-goto-redirect-seo',
