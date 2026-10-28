@@ -144,7 +144,7 @@ function build_global_schema(): array
     return [
         [
             '@context' => 'https://schema.org',
-            '@type' => 'Organization',
+            '@type' => ['Organization', 'ProfessionalService'],
             '@id' => SITE_URL . '/#organization',
             'name' => SITE_NAME,
             'alternateName' => 'MegaTechzy',
@@ -154,6 +154,14 @@ function build_global_schema(): array
             'foundingDate' => '2019',
             'description' => 'Mega Techzy provides website development, SEO, Google Ads, social media marketing, analytics, automation and lead generation services for businesses across India.',
             'telephone' => CONTACT_PHONES[0],
+            // City-level address only: the business is run from Pune without a
+            // public street address.
+            'address' => [
+                '@type' => 'PostalAddress',
+                'addressLocality' => 'Pune',
+                'addressRegion' => 'Maharashtra',
+                'addressCountry' => 'IN',
+            ],
             'contactPoint' => [
                 '@type' => 'ContactPoint',
                 'telephone' => CONTACT_PHONES[0],

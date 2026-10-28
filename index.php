@@ -3,11 +3,10 @@ require __DIR__ . '/includes/config.php';
 require __DIR__ . '/includes/data.php';
 
 $pageMeta = [
-    'title' => 'Digital Marketing & Web Development Company | Mega Techzy',
-    'description' => 'Mega Techzy helps businesses grow through SEO, website development, Google Ads, social media marketing and lead generation with conversion-focused digital strategies.',
-    'description_max_length' => 166,
+    'title' => 'Digital Marketing & Web Development Company in Pune | Mega Techzy',
+    'description' => 'Pune-based digital marketing and web development company. SEO, websites, Google Ads and social media marketing for businesses in Pune, Solapur and India.',
     'path' => '',
-    'about' => ['digital marketing', 'website development', 'SEO', 'Google Ads', 'social media marketing', 'lead generation'],
+    'about' => ['Pune', 'digital marketing', 'website development', 'SEO', 'Google Ads', 'social media marketing', 'lead generation'],
 ];
 $pageSchemas = [
     website_schema(),
@@ -49,7 +48,7 @@ include __DIR__ . '/includes/navbar.php';
         <div class="container agency-hero-grid">
             <div class="agency-hero-copy">
                 <p class="agency-kicker"><span></span> Digital marketing, creative and web studio</p>
-                <h1>Digital Marketing<br>&amp; Web Development<br><em>Company</em></h1>
+                <h1>Digital Marketing<br>&amp; Web Development<br><em>Company in Pune</em></h1>
                 <p class="agency-lede">Mega Techzy helps businesses generate more enquiries and grow online through SEO, high-performing websites, Google Ads, social media marketing and conversion-focused digital strategies. From local businesses and clinics to manufacturers and growing brands, we build practical digital solutions focused on visibility, leads and measurable business growth.</p>
                 <div class="agency-hero-actions">
                     <a class="agency-button agency-button-gold" href="/contact">Get a Free Consultation <?= icon_svg('arrow'); ?></a>
