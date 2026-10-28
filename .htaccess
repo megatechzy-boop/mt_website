@@ -13,6 +13,8 @@ RewriteRule ^ https://www.megatechzy.com%{REQUEST_URI} [R=301,L,NE]
 # Keep intentionally retired pages gone even when a hosting upload leaves old
 # physical files behind. Remove a slug here when its replacement is approved.
 RewriteRule ^case-studies(?:/.*)?$ - [R=410,L,NC]
+RewriteRule ^(?:wp-admin|wp-includes|wp-content)(?:/.*)?$ - [R=410,L,NC]
+RewriteRule ^(?:wp-login|xmlrpc)\.php$ - [R=410,L,NC]
 
 # Old WordPress portfolio URLs still collect impressions; send them to the
 # closest current service instead of a 404 so their signals are kept.
