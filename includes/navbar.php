@@ -2,7 +2,7 @@
     <nav class="nav container" aria-label="Main navigation">
         <a class="brand" href="/" aria-label="Mega Techzy home">
             <span class="brand-mark logo-mark">
-                <img src="<?= e(asset_url('images/mega-techzy-logo-final-transparent.png')); ?>" alt="Mega Techzy" width="230" height="72" fetchpriority="high">
+                <img src="<?= e(asset_url('images/mega-techzy-logo-460.webp')); ?>" alt="Mega Techzy" width="230" height="72" fetchpriority="high">
             </span>
             <span class="brand-word">Mega Techzy</span>
         </a>

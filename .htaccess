@@ -12,7 +12,17 @@ RewriteRule ^ https://www.megatechzy.com%{REQUEST_URI} [R=301,L,NE]
 
 # Keep intentionally retired pages gone even when a hosting upload leaves old
 # physical files behind. Remove a slug here when its replacement is approved.
-RewriteRule ^(?:portfolio|case-studies)(?:/.*)?$ - [R=410,L,NC]
+RewriteRule ^case-studies(?:/.*)?$ - [R=410,L,NC]
+
+# Old WordPress portfolio URLs still collect impressions; send them to the
+# closest current service instead of a 404 so their signals are kept.
+RewriteRule ^portfolio/search-engine-optimization/?$ /services/seo [R=301,L,NC]
+RewriteRule ^portfolio/social-media-marketing/?$ /services/social-media [R=301,L,NC]
+RewriteRule ^portfolio/digital-v-card/?$ /services/branding [R=301,L,NC]
+RewriteRule ^portfolio/(?:software-development|app-development|ui-ux-design)/?$ /services/website-development [R=301,L,NC]
+RewriteRule ^portfolio(?:-category)?(?:/.*)?$ /services/ [R=301,L,NC]
+RewriteRule ^free-a-quote/?$ /contact [R=301,L,NC]
+RewriteRule ^Digital/?$ / [R=301,L]
 RewriteRule ^(?:feed|comments/feed)/?$ - [R=410,L,NC]
 RewriteRule ^blog/(?:ai-tools-seo-research-content-planning|ecommerce-product-page-seo-checklist|reduce-cost-per-lead-google-ads|what-is-whatsapp-automation)/?$ - [R=410,L,NC]
 

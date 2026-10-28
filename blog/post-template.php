@@ -37,6 +37,26 @@ if (str_contains($postSlug, 'pune')) {
     $articleLocationSlugs = ['mumbai', 'pune', 'nashik'];
 }
 $metaDescription = seo_description($post['excerpt']);
+// Link each post to its closest published siblings so every article gets
+// crawlable internal links beyond the blog index.
+$slugWords = static fn (string $slug): array => array_diff(explode('-', $slug), ['a', 'and', 'for', 'in', 'of', 'the', 'to', 'vs', 'what', 'is', 'how', 'top', 'best', 'business', 'businesses', 'small']);
+$postWords = $slugWords($postSlug);
+$postIndex = (int) array_search($postSlug, array_column($blogPosts, 'slug'), true);
+$relatedScores = [];
+foreach ($blogPosts as $index => $candidate) {
+    if ($candidate['slug'] === $postSlug) {
+        continue;
+    }
+    $distance = ($index - $postIndex + count($blogPosts)) % count($blogPosts);
+    $relatedScores[$candidate['slug']] = count(array_intersect($postWords, $slugWords($candidate['slug']))) * 1000 - $distance;
+}
+// The next post in the list is always included so no article is left with
+// only the blog index linking to it; the other two are the closest topics.
+$nextSlug = $blogPosts[($postIndex + 1) % count($blogPosts)]['slug'];
+unset($relatedScores[$nextSlug]);
+arsort($relatedScores);
+$relatedSlugs = array_merge(array_slice(array_keys($relatedScores), 0, 2), $postSlug === $nextSlug ? [] : [$nextSlug]);
+$relatedPosts = array_values(array_filter($blogPosts, static fn (array $candidate): bool => in_array($candidate['slug'], $relatedSlugs, true)));
 $articleImage = $post['image'] ?? null;
 $articleImageUrl = $articleImage
     ? site_url('assets/' . $articleImage)
@@ -185,6 +205,18 @@ include dirname(__DIR__) . '/includes/navbar.php';
             <h2>Measure what can guide action</h2>
             <p>Track calls, forms, campaign sources and page performance. The best reports do not just show traffic; they show where the next improvement should happen.</p>
             <a class="btn btn-primary" href="/contact">Discuss your growth plan <?= icon_svg('arrow'); ?></a>
+            <?php endif; ?>
+
+            <?php if ($relatedPosts): ?>
+            <aside aria-labelledby="related-articles" style="margin-top:3rem">
+                <p class="eyebrow">Keep reading</p>
+                <h2 id="related-articles">Related articles</h2>
+                <ul>
+                    <?php foreach ($relatedPosts as $relatedPost): ?>
+                        <li><a href="/blog/<?= e($relatedPost['slug']); ?>"><?= e($relatedPost['title']); ?></a></li>
+                    <?php endforeach; ?>
+                </ul>
+            </aside>
             <?php endif; ?>
 
             <aside aria-labelledby="service-markets" style="margin-top:3rem">

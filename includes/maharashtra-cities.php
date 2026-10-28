@@ -9,7 +9,8 @@ $city = static function (
     array $focus,
     string $coverage = 'Municipal corporation market',
     ?string $searchName = null,
-    ?string $shortTitle = null
+    ?string $shortTitle = null,
+    ?string $meta = null
 ): array {
     $searchName = $searchName ?? $name;
 
@@ -22,7 +23,7 @@ $city = static function (
         'headline' => 'Digital Marketing and Web Development Company in ' . $name,
         'title' => $shortTitle ?? ('Digital Marketing Company in ' . $name),
         'keyword' => 'digital marketing company in ' . $searchName,
-        'meta' => 'Mega Techzy provides website development, SEO, Google Ads and lead generation for businesses in ' . $name . ' and across Maharashtra.',
+        'meta' => $meta ?? ('Mega Techzy provides website development, SEO, Google Ads and lead generation for businesses in ' . $name . ' and across Maharashtra.'),
         'intro' => 'Mega Techzy helps businesses in ' . $name . ' build SEO-ready websites, improve search visibility, run measurable campaigns and create clearer enquiry journeys.',
         'market_context' => $marketContext,
         'audiences' => $audiences,
@@ -197,7 +198,9 @@ return [
         'Nashik has competitive manufacturing, agriculture, wine, hospitality, real estate and professional-service markets. Businesses can benefit from separate B2B capability pages and consumer-focused local or campaign landing pages.',
         ['manufacturing and industrial companies', 'wine, food and hospitality brands', 'real estate and professional services'],
         ['website-development', 'seo', 'branding', 'lead-generation'],
-        'Municipal corporation and metro market'
+        'Municipal corporation and metro market',
+        shortTitle: 'Digital Marketing & SEO Company in Nashik',
+        meta: 'Digital marketing agency for Nashik businesses: SEO, Google Ads, social media and lead-generation websites for manufacturing, real estate and local brands.'
     ),
     'malegaon' => $city(
         'Malegaon',

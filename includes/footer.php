@@ -2,7 +2,7 @@
     <div class="container footer-grid">
         <div class="footer-about">
             <a class="footer-wordmark" href="/" aria-label="Mega Techzy home">
-                <img src="<?= e(asset_url('images/mega-techzy-logo-final-transparent.png')); ?>" alt="Mega Techzy" width="230" height="72" style="display:block;width:230px;height:auto;object-fit:contain;" loading="lazy">
+                <img src="<?= e(asset_url('images/mega-techzy-logo-460.webp')); ?>" alt="Mega Techzy" width="230" height="72" style="display:block;width:230px;height:auto;object-fit:contain;" loading="lazy">
             </a>
             <p>Premium digital marketing, website development, SEO, paid ads, automation and lead generation for ambitious businesses.</p>
             <span class="footer-availability"><i></i> Available for select projects</span>

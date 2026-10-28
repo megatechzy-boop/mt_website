@@ -4,7 +4,7 @@ declare(strict_types=1);
 $services = [
     'website-development' => [
         'name' => 'Website Development',
-        'title' => 'Web Development Company in India | SEO-Ready Websites',
+        'title' => 'Website Design & Development Company | SEO-Ready Sites',
         'meta' => 'Mega Techzy provides web development services in India for fast, secure and SEO-ready business websites, serving Pune, PCMC, Solapur and remote clients.',
         'intro' => 'We design and develop conversion-focused business websites for companies in India that need stronger search visibility, trust and qualified enquiries.',
         'proof' => 'Every website build includes responsive layouts, technical SEO, analytics setup, secure forms and a content structure that can scale into service, location and international pages.',
@@ -144,8 +144,8 @@ $services = [
     ],
     'social-media' => [
         'name' => 'Social Media Management',
-        'title' => 'Social Media Management Company in Maharashtra',
-        'meta' => 'Plan and manage social media strategy, calendars, captions, creatives, reels and reporting with Mega Techzy for businesses in Maharashtra.',
+        'title' => 'Social Media Marketing Agency in Maharashtra',
+        'meta' => 'Social media marketing for businesses in Maharashtra: strategy, monthly calendars, reels, creatives, captions and lead-focused reporting by Mega Techzy.',
         'intro' => 'Mega Techzy plans and manages social media content that helps businesses stay visible, communicate consistently and support campaigns or enquiries.',
         'proof' => 'We connect content pillars, monthly calendars, captions, branded creatives, reels and reporting to a defined role for each social channel.',
         'icon' => 'share',
@@ -272,10 +272,10 @@ $industries = ['Manufacturing', 'Real Estate', 'Healthcare', 'Education', 'Retai
 $blogPosts = [
     [
         'title' => 'Zoho Built Its Own Cloud Instead of AWS and Google Cloud—Now Catalyst Is Free for Students',
-        'seo_title' => 'Zoho Cloud & Catalyst: Free Cloud for Students',
+        'seo_title' => 'Zoho Catalyst Free for Students: $250 Credit Guide',
         'light_header' => true,
         'slug' => 'zoho-cloud-catalyst-free-for-students',
-        'excerpt' => 'Explore Zoho cloud infrastructure and Catalyst for students: free usage limits, eligibility, app ideas and what to check before deploying your project.',
+        'excerpt' => 'Zoho Catalyst is free for eligible students: up to $250 usage for six months, no credit card. See eligibility, limits and how it differs from the free tier.',
         'keyword' => 'Zoho cloud infrastructure',
         'category' => 'Cloud Technology',
         'audience' => 'students, developers and business owners exploring Zoho Catalyst',
@@ -297,8 +297,9 @@ $blogPosts = [
     ],
     [
         'title' => 'Trial Reels Are Not an Option on My Instagram Account: What to Do',
+        'seo_title' => 'Instagram Trial Reels Not Showing? Causes and Fixes',
         'slug' => 'instagram-trial-reels-not-showing',
-        'excerpt' => 'Instagram Trial Reels not showing? Check account eligibility, recommendation status, the correct publishing screen and the safest troubleshooting steps.',
+        'excerpt' => 'Trial Reels option missing on Instagram? Check eligibility, recommendation status and the right publishing screen, then follow safe step-by-step fixes.',
         'keyword' => 'Instagram Trial Reels not showing',
         'category' => 'Social Media Marketing',
         'audience' => 'creators, small businesses and social media managers who cannot find the Trial Reels option',
@@ -344,7 +345,7 @@ $blogPosts = [
     ['title' => 'Google.com/goto Explained: What It Means for SEO and Analytics', 'slug' => 'google-com-goto-redirect-seo', 'excerpt' => 'Google is routing Search result clicks through google.com/goto. Learn how the redirect works and what it means for SEO, analytics and rank tracking.', 'keyword' => 'google.com/goto', 'category' => 'SEO News', 'audience' => 'website owners, marketers and SEO professionals', 'outcome' => 'understand the redirect and monitor its practical impact without making unnecessary SEO changes', 'published' => '2026-08-28', 'modified' => '2026-08-28'],
     ['title' => 'ChatGPT Ads in India 2026: Complete Guide for Businesses', 'slug' => 'chatgpt-ads-india', 'excerpt' => 'A current guide to ChatGPT Ads in India, including availability, placements, pricing models, privacy, measurement and a practical first-test plan.', 'keyword' => 'ChatGPT Ads India', 'audience' => 'Indian businesses and marketers evaluating conversational advertising', 'outcome' => 'decide whether and how to test ChatGPT Ads responsibly', 'image' => 'images/blog/chatgpt-ads-india-2026.png', 'image_alt' => 'ChatGPT Ads in India 2026 guide by Mega Techzy'],
     ['title' => 'How to Advertise on ChatGPT: Step-by-Step Guide', 'slug' => 'how-to-advertise-on-chatgpt', 'excerpt' => 'Learn how to create an Ads Manager account, plan campaigns and ad groups, build relevant creative, measure conversions and improve performance.', 'keyword' => 'how to advertise on ChatGPT', 'audience' => 'businesses preparing their first ChatGPT Ads campaign', 'outcome' => 'launch a focused campaign with clear measurement and review steps', 'image' => 'images/blog/how-to-advertise-on-chatgpt.png', 'image_alt' => 'How to advertise on ChatGPT step-by-step guide'],
-    ['title' => 'ChatGPT Ads Cost in India 2026: CPC, CPM and Budget Guide', 'slug' => 'chatgpt-ads-cost-india', 'excerpt' => 'Understand ChatGPT Ads pricing in India, CPC, CPM, oCPC, daily budgets and the business metrics that matter more than a headline click cost.', 'keyword' => 'ChatGPT Ads cost India', 'audience' => 'Indian advertisers planning a ChatGPT Ads test budget', 'outcome' => 'set a controlled budget and judge results by qualified leads and customer economics', 'image' => 'images/blog/chatgpt-ads-cost-india.png', 'image_alt' => 'ChatGPT Ads cost and budget guide for India'],
+    ['title' => 'ChatGPT Ads Cost in India 2026: CPC, CPM and Budget Guide', 'seo_title' => 'ChatGPT Ads Cost in India 2026: CPC, CPM & Budget', 'slug' => 'chatgpt-ads-cost-india', 'excerpt' => 'How much do ChatGPT Ads cost in India? Compare CPC, CPM and oCPC pricing, set a test budget and judge results by cost per qualified lead.', 'keyword' => 'ChatGPT Ads cost India', 'audience' => 'Indian advertisers planning a ChatGPT Ads test budget', 'outcome' => 'set a controlled budget and judge results by qualified leads and customer economics', 'image' => 'images/blog/chatgpt-ads-cost-india.png', 'image_alt' => 'ChatGPT Ads cost and budget guide for India'],
     ['title' => 'ChatGPT Ads vs Google Ads vs Meta Ads: Which Is Better in 2026?', 'slug' => 'chatgpt-ads-vs-google-ads-meta-ads', 'excerpt' => 'Compare ChatGPT Ads, Google Ads and Meta Ads by user mindset, targeting, creative, measurement and the role each channel can play in a campaign.', 'keyword' => 'ChatGPT Ads vs Google Ads', 'audience' => 'businesses comparing paid advertising channels', 'outcome' => 'choose a channel mix that matches customer intent and campaign goals', 'image' => 'images/blog/chatgpt-ads-vs-google-meta.png', 'image_alt' => 'Comparison of ChatGPT Ads, Google Ads and Meta Ads'],
     ['title' => 'Are ChatGPT Ads Worth It for Small Businesses in India?', 'slug' => 'chatgpt-ads-small-business', 'excerpt' => 'A practical decision guide for small businesses considering ChatGPT Ads, with suitability checks, test planning, measurement and risk controls.', 'keyword' => 'ChatGPT Ads for small business', 'audience' => 'small businesses in India evaluating a new advertising channel', 'outcome' => 'decide whether a small, measurable ChatGPT Ads test is commercially sensible', 'image' => 'images/blog/chatgpt-ads-small-business.png', 'image_alt' => 'Are ChatGPT Ads worth it for small businesses'],
     ['title' => 'How to Choose a Website Developer in India', 'slug' => 'how-to-choose-website-developer-india', 'excerpt' => 'A practical guide to comparing website developers in India by discovery, scope, SEO foundations, ownership, support and measurable business outcomes.', 'keyword' => 'website developer in India', 'audience' => 'business owners comparing website development partners', 'outcome' => 'choose a developer who can deliver a useful, maintainable and search-ready business website'],
