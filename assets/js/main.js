@@ -98,6 +98,12 @@
                         service_name: selectedService,
                     });
                 }
+                if (typeof window.fbq === 'function') {
+                    window.fbq('track', 'Lead', {
+                        content_name: formContext,
+                        content_category: selectedService,
+                    });
+                }
             } catch (error) {
                 if (status) {
                     status.textContent = error.message || 'Something went wrong. Please try again.';
