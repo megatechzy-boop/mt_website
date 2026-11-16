@@ -62,6 +62,27 @@ function csrf_token(): string
     return (string) $_SESSION['csrf_token'];
 }
 
+// Signed render time for lead forms, so instant bot submissions can be spotted
+// without trusting a value the browser could simply rewrite.
+function form_time_token(): string
+{
+    $time = (string) time();
+
+    return $time . '.' . hash_hmac('sha256', $time, csrf_token());
+}
+
+function form_age_seconds(?string $token): ?int
+{
+    if (!is_string($token) || !preg_match('/^(\d{10})\.([a-f0-9]{64})$/', $token, $parts)) {
+        return null;
+    }
+    if (!hash_equals(hash_hmac('sha256', $parts[1], csrf_token()), $parts[2])) {
+        return null;
+    }
+
+    return time() - (int) $parts[1];
+}
+
 function verify_csrf(?string $token): bool
 {
     return is_string($token) && hash_equals((string) ($_SESSION['csrf_token'] ?? ''), $token);

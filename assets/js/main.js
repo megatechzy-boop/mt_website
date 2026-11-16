@@ -51,6 +51,13 @@
 
     document.querySelectorAll('[data-lead-form]').forEach((form) => {
         const status = form.querySelector('[data-form-status]');
+        const humanCheck = form.querySelector('[data-human-check]');
+        const markHuman = () => {
+            if (humanCheck) humanCheck.value = 'mt-' + form.querySelector('input[name="csrf_token"]')?.value.slice(0, 12);
+        };
+        ['pointerdown', 'keydown', 'touchstart', 'focusin'].forEach((eventName) => {
+            form.addEventListener(eventName, markHuman, { once: true, passive: true });
+        });
         form.addEventListener('submit', async (event) => {
             event.preventDefault();
             if (!form.checkValidity()) {

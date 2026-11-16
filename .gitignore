@@ -3,3 +3,4 @@ storage/qa/
 vendor/
 .env
 includes/mail-config.php
+storage/rate-*.json

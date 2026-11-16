@@ -5,6 +5,10 @@ ErrorDocument 404 /404.php
 <IfModule mod_rewrite.c>
 RewriteEngine On
 
+# Lead storage and private includes must never be served over the web.
+RewriteRule ^(?:storage|vendor)(?:/|$) - [F,L,NC]
+RewriteRule ^includes/(?:mail-config|config|data)\.php$ - [F,L,NC]
+
 # Consolidate all public URLs on HTTPS and the canonical www host.
 RewriteCond %{HTTPS} !=on [OR]
 RewriteCond %{HTTP_HOST} !^www\.megatechzy\.com$ [NC]

@@ -27,8 +27,53 @@ if (!verify_csrf($_POST['csrf_token'] ?? null)) {
     exit;
 }
 
+$storageDir = dirname(__DIR__) . '/storage';
+if (!is_dir($storageDir)) {
+    mkdir($storageDir, 0755, true);
+}
+
+// Spam is answered like a normal success so bots get no signal to adapt to,
+// and logged privately so false positives can be reviewed.
+function reject_as_spam(string $reason, string $storageDir): void
+{
+    $entry = [
+        'created_at' => date(DATE_ATOM),
+        'reason' => $reason,
+        'ip' => $_SERVER['REMOTE_ADDR'] ?? '',
+        'name' => substr((string) ($_POST['name'] ?? ''), 0, 80),
+        'email' => substr((string) ($_POST['email'] ?? ''), 0, 120),
+        'message' => substr((string) ($_POST['message'] ?? ''), 0, 300),
+    ];
+    file_put_contents($storageDir . '/spam.jsonl', json_encode($entry, JSON_UNESCAPED_SLASHES) . PHP_EOL, FILE_APPEND | LOCK_EX);
+    echo json_encode(['ok' => true, 'message' => 'Thanks. Your enquiry has been sent.']);
+    exit;
+}
+
 if (!empty($_POST['website'] ?? '')) {
-    echo json_encode(['ok' => true, 'message' => 'Thanks. We will get back to you soon.']);
+    reject_as_spam('honeypot', $storageDir);
+}
+
+$formAge = form_age_seconds($_POST['form_time'] ?? null);
+if ($formAge === null || $formAge > 86400) {
+    http_response_code(403);
+    echo json_encode(['ok' => false, 'message' => 'This form has expired. Please refresh the page and try again.']);
+    exit;
+}
+if ($formAge < 4) {
+    reject_as_spam('submitted too fast', $storageDir);
+}
+if (($_POST['human_check'] ?? '') !== 'mt-' . substr((string) ($_POST['csrf_token'] ?? ''), 0, 12)) {
+    reject_as_spam('no human interaction', $storageDir);
+}
+
+// Session limits are easy to dodge by dropping cookies, so also cap per IP.
+$ipKey = hash('sha256', (string) ($_SERVER['REMOTE_ADDR'] ?? ''));
+$rateFile = $storageDir . '/rate-' . substr($ipKey, 0, 32) . '.json';
+$ipAttempts = is_file($rateFile) ? (json_decode((string) file_get_contents($rateFile), true) ?: []) : [];
+$ipAttempts = array_values(array_filter($ipAttempts, static fn ($ts): bool => is_int($ts) && $ts > $now - 3600));
+if (count($ipAttempts) >= 5) {
+    http_response_code(429);
+    echo json_encode(['ok' => false, 'message' => 'Too many enquiries were submitted recently. Please try again later.']);
     exit;
 }
 
@@ -62,14 +107,31 @@ if (!in_array($service, $validServices, true)) {
     $errors[] = 'Please select a service.';
 }
 
+if (strlen(preg_replace('/\D/', '', $phone) ?? '') < 10) {
+    $errors[] = 'Please enter a valid phone number.';
+}
+
 if ($errors) {
     http_response_code(422);
     echo json_encode(['ok' => false, 'message' => implode(' ', $errors)]);
     exit;
 }
 
+$spamText = $name . ' ' . $company . ' ' . $message;
+if (preg_match_all('#https?://|www\.#i', $spamText) > 1 || preg_match('#https?://|www\.#i', $name)) {
+    reject_as_spam('links', $storageDir);
+}
+if (preg_match('/[\p{Cyrillic}\p{Han}\p{Hangul}]/u', $spamText)) {
+    reject_as_spam('foreign script', $storageDir);
+}
+if (preg_match('/\b(?:backlinks?|guest post|crypto|bitcoin|casino|betting|viagra|cialis|loan offer|forex|seo package|dofollow|da\s*\d{2}|link building)\b/i', $spamText)) {
+    reject_as_spam('spam keywords', $storageDir);
+}
+
 // Only completed, valid enquiries count towards the abuse limit.
 $_SESSION['lead_attempts'][] = $now;
+$ipAttempts[] = $now;
+file_put_contents($rateFile, json_encode($ipAttempts), LOCK_EX);
 
 $lead = [
     'created_at' => date(DATE_ATOM),
@@ -211,10 +273,6 @@ if (!$sent && function_exists('mail')) {
     }
 }
 
-$storageDir = dirname(__DIR__) . '/storage';
-if (!is_dir($storageDir)) {
-    mkdir($storageDir, 0755, true);
-}
 file_put_contents($storageDir . '/leads.jsonl', json_encode($lead, JSON_UNESCAPED_SLASHES) . PHP_EOL, FILE_APPEND | LOCK_EX);
 
 echo json_encode([

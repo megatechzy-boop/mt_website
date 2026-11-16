@@ -5,6 +5,8 @@ $serviceChoices = $serviceChoices ?? service_options($services ?? []);
 <form class="lead-form" data-lead-form method="post" action="<?= e(site_url('api/contact.php')); ?>" novalidate>
     <input type="hidden" name="csrf_token" value="<?= e(csrf_token()); ?>">
     <input type="hidden" name="form_context" value="<?= e($formContext); ?>">
+    <input type="hidden" name="form_time" value="<?= e(form_time_token()); ?>">
+    <input type="hidden" name="human_check" value="" data-human-check>
     <label class="hp-field">Leave this field empty
         <input type="text" name="website" tabindex="-1" autocomplete="off">
     </label>
