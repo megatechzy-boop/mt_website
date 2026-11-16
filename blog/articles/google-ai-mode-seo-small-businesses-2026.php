@@ -264,7 +264,7 @@
 <h2>Final thoughts</h2>
 <p>Search is moving beyond simple keyword matching toward conversational and AI-assisted discovery. This does not mean abandoning SEO. It means applying SEO with greater clarity, originality and attention to real customer questions.</p>
 
-<p>A durable approach combines <strong>SEO foundations, answer-friendly structure, consistent business information, local visibility and original expertise</strong>. Start by improving the information already on the website, then build useful resources around questions customers actually ask.</p>
+<p>A durable approach combines <strong>SEO foundations, answer-friendly structure, consistent business information, local visibility and original expertise</strong>. Start by improving the information already on the website, then build useful resources around questions customers actually ask. The same principles apply to classic rankings: see what to check after the <a href="/blog/google-november-2026-core-update">Google November 2026 core update</a>.</p>
 
 <p>The objective is not only to rank for a keyword. It is to become a trustworthy source that customers and search systems can understand.</p>
 

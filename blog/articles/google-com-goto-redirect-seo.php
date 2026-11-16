@@ -76,7 +76,7 @@
 <p>No. Interfering with a legitimate redirect could prevent searchers from reaching the website. Monitor the final landing experience and reporting instead.</p>
 
 <h2>The practical takeaway</h2>
-<p><code>google.com/goto</code> is a subtle but important Search infrastructure change. It is mostly invisible to users, potentially significant for SERP-data providers and worth monitoring in analytics. It is not, by itself, proof of a ranking, indexing or canonical problem.</p>
+<p><code>google.com/goto</code> is a subtle but important Search infrastructure change. It is mostly invisible to users, potentially significant for SERP-data providers and worth monitoring in analytics. It is not, by itself, proof of a ranking, indexing or canonical problem. If your rankings moved in November 2026, read our guide to the <a href="/blog/google-november-2026-core-update">Google November 2026 core update</a> first.</p>
 
 <p>The sensible response is to compare reliable data sources and avoid speculative site changes. If your Search Console, GA4 or ranking reports no longer agree, Mega Techzy can help you audit the measurement path and technical SEO foundations. Explore our <a href="/services/seo">SEO services</a> or <a href="/contact">contact the team</a> to discuss the issue.</p>
 

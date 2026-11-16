@@ -29,5 +29,5 @@
 
 <h2>Measure operational value</h2>
 <p>Track median first-response time, percentage of leads contacted within the promised window, qualified-lead rate and opt-outs or complaints. Message delivery alone is not success. Review conversation samples to find missing information on the website or form; repeated questions often reveal content that should be clarified before the enquiry.</p>
-<p>The safest automation handles predictable administration. People should remain responsible for advice, negotiation, exceptions and relationship-building.</p>
+<p>The safest automation handles predictable administration. People should remain responsible for advice, negotiation, exceptions and relationship-building. To bring more new conversations into this workflow, see how <a href="/blog/whatsapp-status-ads-india">WhatsApp Status ads work in India</a>.</p>
 
