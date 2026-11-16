@@ -271,6 +271,48 @@ $industries = ['Manufacturing', 'Real Estate', 'Healthcare', 'Education', 'Retai
 
 $blogPosts = [
     [
+        'title' => 'Google November 2026 Core Update: What Changed and What Business Websites Should Do',
+        'seo_title' => 'Google November 2026 Core Update: What to Do Now',
+        'light_header' => true,
+        'slug' => 'google-november-2026-core-update',
+        'excerpt' => 'Google\'s November 2026 core update began on November 10. See the confirmed dates, when to check rankings, and a step-by-step plan if your traffic dropped.',
+        'keyword' => 'Google November 2026 core update',
+        'category' => 'SEO News',
+        'audience' => 'business owners, marketers and website managers in India',
+        'outcome' => 'understand the update, measure its impact correctly and improve affected pages without panic changes',
+        'published' => '2026-11-16',
+        'modified' => '2026-11-16',
+        'quick_answer' => 'Google began rolling out the November 2026 core update on November 10, 2026. It applies globally to all languages and may take up to two weeks. Google has not shared update-specific advice. Wait until the rollout finishes, then wait one more week before comparing Search Console data with the week before November 10, and improve the pages that lost the most visibility.',
+        'faqs' => [
+            ['q' => 'When did the Google November 2026 core update start?', 'a' => 'It started on November 10, 2026, according to the Google Search Status Dashboard. Google said the rollout could take up to two weeks.'],
+            ['q' => 'Is a core update a penalty?', 'a' => 'No. A core update is a broad change to how Google assesses content. A drop usually means other pages are now judged more useful, not that your site broke a rule.'],
+            ['q' => 'How long should I wait before checking my rankings?', 'a' => 'Wait until Google confirms the rollout is complete, then wait at least one more full week before comparing Search Console data with the week before the update started.'],
+            ['q' => 'Can a backlink package help me recover?', 'a' => 'No. Buying links breaks Google\'s spam policies and can make things worse. Recovery comes from making the affected pages genuinely more helpful and trustworthy.'],
+            ['q' => 'Does this update affect Indian websites?', 'a' => 'Yes. Google said the update applies globally and to all languages, including searches in India.'],
+        ],
+    ],
+    [
+        'title' => 'WhatsApp Status Ads in India: How They Work, Setup and Cost',
+        'seo_title' => 'WhatsApp Status Ads India: Setup, Cost & Tips',
+        'light_header' => true,
+        'slug' => 'whatsapp-status-ads-india',
+        'excerpt' => 'WhatsApp now shows ads in Status. Learn how Status ads work in India, how to set one up in Meta Ads Manager, what affects cost, and which businesses should test them.',
+        'keyword' => 'WhatsApp Status ads India',
+        'category' => 'WhatsApp Marketing',
+        'audience' => 'Indian businesses that sell or take enquiries on WhatsApp',
+        'outcome' => 'decide whether to test Status ads and launch a small, measurable first campaign',
+        'published' => '2026-11-16',
+        'modified' => '2026-11-16',
+        'quick_answer' => 'WhatsApp Status ads appear in the Updates tab between people\'s Status updates, never in personal chats. Indian businesses create them in Meta Ads Manager by choosing the WhatsApp Status placement, and the ad can open a chat with your business or a website. There is no fixed price: cost depends on Meta\'s ad auction, so judge results by cost per qualified lead.',
+        'faqs' => [
+            ['q' => 'Do WhatsApp ads appear in personal chats?', 'a' => 'No. Meta says ads appear only in the Updates tab, which holds Status and Channels. Personal chats and calls stay ad-free and end-to-end encrypted.'],
+            ['q' => 'Are WhatsApp Status ads available in India?', 'a' => 'Yes. Meta announced WhatsApp placements for Indian advertisers in September 2025 and later rolled Status ads out globally. Availability in individual accounts has been gradual, so check your Ads Manager.'],
+            ['q' => 'How do I create a WhatsApp Status ad?', 'a' => 'Create a campaign in Meta Ads Manager, choose a WhatsApp chat or website destination, select manual placements and turn on WhatsApp Status. The WhatsApp Business app also has a simpler option for Status ads.'],
+            ['q' => 'How much does a WhatsApp Status ad cost?', 'a' => 'There is no fixed rate. Status ads run in Meta\'s auction, so cost depends on audience, competition, budget and creative. Start with a small test budget and measure cost per qualified lead.'],
+            ['q' => 'Can users block WhatsApp Status ads?', 'a' => 'Users cannot turn off ads completely in India, but they can block or hide ads from specific businesses inside the app.'],
+        ],
+    ],
+    [
         'title' => 'Zoho Built Its Own Cloud Instead of AWS and Google Cloud—Now Catalyst Is Free for Students',
         'seo_title' => 'Zoho Catalyst Free for Students: How to Get Started',
         'light_header' => true,
@@ -418,6 +460,8 @@ $blogPosts = [
 // Explicit publication list prevents stale files left by an overlay deployment
 // from putting retired draft pages back into the public blog directory.
 $publishedBlogSlugs = [
+    'google-november-2026-core-update',
+    'whatsapp-status-ads-india',
     'zoho-cloud-catalyst-free-for-students',
     'instagram-trial-reels-not-showing',
     'google-ai-mode-seo-small-businesses-2026',
