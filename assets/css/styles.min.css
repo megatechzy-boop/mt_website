@@ -8,3 +8,4 @@
 .agency-inner .blog-card{min-width:0}.agency-inner .blog-card h2{font-size:clamp(1.55rem,1.1rem + 1vw,2rem);line-height:1.12;overflow-wrap:anywhere}
 .agency-inner .agency-article.agency-article--light{background:#f8f8f3}.agency-inner .agency-article--light h1,.agency-inner .agency-article--light .article-meta{color:#0b3328}.agency-inner .agency-article--light .eyebrow,.agency-inner .agency-article--light .lead{color:#0b7755}
 
+.agency-inner .agency-article{background:#f8f8f3}.agency-inner .agency-article .article-header{background:#0b1712;box-shadow:0 0 0 100vmax #0b1712;clip-path:inset(-8rem -100vmax 0);padding-bottom:2.5rem}.agency-inner .agency-article--light .article-header{background:none;box-shadow:none;padding-bottom:0}@media (max-width:640px){.agency-inner .agency-article{background:#f8f8f3}.agency-inner .agency-article .article-header{clip-path:inset(-5rem -100vmax 0)}}

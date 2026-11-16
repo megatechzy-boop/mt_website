@@ -111,12 +111,14 @@ include dirname(__DIR__) . '/includes/navbar.php';
 <main id="main" class="agency-inner">
     <article class="section article agency-article<?= !empty($post['light_header']) ? ' agency-article--light' : ''; ?>">
         <div class="container narrow">
+            <header class="article-header">
             <p class="eyebrow">Mega Techzy Guide</p>
             <h1><?= e($post['title']); ?></h1>
             <?php if (isset($post['published'])): ?>
                 <p class="article-meta"><time datetime="<?= e($post['published']); ?>">Published <?= e(date('F j, Y', strtotime($post['published']))); ?></time><?php if (($post['modified'] ?? $post['published']) !== $post['published']): ?> · Updated <time datetime="<?= e($post['modified']); ?>"><?= e(date('F j, Y', strtotime($post['modified']))); ?></time><?php endif; ?></p>
             <?php endif; ?>
             <p class="lead"><?= e($post['excerpt']); ?></p>
+            </header>
             <?php if ($articleImage): ?>
                 <figure class="article-hero-media">
                     <img src="<?= e(asset_url($articleImage)); ?>" alt="<?= e($post['image_alt'] ?? ''); ?>" width="<?= e($post['image_width'] ?? 1600); ?>" height="<?= e($post['image_height'] ?? 900); ?>" fetchpriority="high" decoding="async">

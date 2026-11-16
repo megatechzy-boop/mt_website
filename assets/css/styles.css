@@ -3327,3 +3327,32 @@ p {
         justify-content: center;
     }
 }
+
+/* The dark band follows the header's real height, so long titles and intros
+   never spill onto the light background on small screens. */
+.agency-inner .agency-article {
+    background: #f8f8f3;
+}
+
+.agency-inner .agency-article .article-header {
+    padding-bottom: 2.5rem;
+    background: #0b1712;
+    box-shadow: 0 0 0 100vmax #0b1712;
+    clip-path: inset(-8rem -100vmax 0);
+}
+
+.agency-inner .agency-article--light .article-header {
+    padding-bottom: 0;
+    background: none;
+    box-shadow: none;
+}
+
+@media (max-width: 640px) {
+    .agency-inner .agency-article {
+        background: #f8f8f3;
+    }
+
+    .agency-inner .agency-article .article-header {
+        clip-path: inset(-5rem -100vmax 0);
+    }
+}
