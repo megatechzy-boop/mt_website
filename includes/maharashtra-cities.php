@@ -10,7 +10,10 @@ $city = static function (
     string $coverage = 'Municipal corporation market',
     ?string $searchName = null,
     ?string $shortTitle = null,
-    ?string $meta = null
+    ?string $meta = null,
+    array $sections = [],
+    ?array $faqs = null,
+    ?string $intro = null
 ): array {
     $searchName = $searchName ?? $name;
 
@@ -24,10 +27,12 @@ $city = static function (
         'title' => $shortTitle ?? ('Digital Marketing Company in ' . $name),
         'keyword' => 'digital marketing company in ' . $searchName,
         'meta' => $meta ?? ('Mega Techzy provides website development, SEO, Google Ads and lead generation for businesses in ' . $name . ' and across Maharashtra.'),
-        'intro' => 'Mega Techzy helps businesses in ' . $name . ' build SEO-ready websites, improve search visibility, run measurable campaigns and create clearer enquiry journeys.',
+        'intro' => $intro ?? ('Mega Techzy helps businesses in ' . $name . ' build SEO-ready websites, improve search visibility, run measurable campaigns and create clearer enquiry journeys.'),
         'market_context' => $marketContext,
         'audiences' => $audiences,
         'focus' => $focus,
+        'sections' => $sections,
+        'faqs' => $faqs,
     ];
 };
 
@@ -150,7 +155,26 @@ return [
         ['website-development', 'seo', 'linkedin-ads', 'lead-generation'],
         'Municipal corporation and metro market',
         'PCMC',
-        'Digital Marketing Company in PCMC'
+        'Digital Marketing Company in PCMC',
+        'Digital marketing company in Pimpri-Chinchwad (PCMC): SEO, websites, Google Ads and LinkedIn campaigns for auto, engineering, IT and local businesses.',
+        [
+            ['title' => 'B2B marketing for PCMC\'s automotive and engineering companies', 'copy' => 'Pimpri, Chinchwad, Bhosari, Akurdi and the nearby Chakan belt form one of India\'s best-known automotive and engineering clusters. Component makers, fabricators, tool rooms and service vendors sell to OEMs and Tier-1 suppliers who compare several vendors before they shortlist. We build websites that show capabilities, machines, quality systems, industries served and past part categories clearly, optimise them for specific searches, and run LinkedIn and Google Ads campaigns aimed at purchase and engineering teams.'],
+            ['title' => 'Lead generation for IT, SaaS and service firms near Hinjewadi', 'copy' => 'Many technology and professional-service firms are based in Wakad, Ravet, Talawade or close to the Hinjewadi IT Park. Their buyers are often outside Pune, so the website has to work as a sales tool for clients across India and abroad. We focus on clear service and case-study pages, technical SEO, LinkedIn content, landing pages for specific offers and analytics that connect enquiries to the campaigns that produced them.'],
+            ['title' => 'Local SEO for shops, clinics and services across PCMC', 'copy' => 'PCMC is a large, spread-out city, and customers usually search for services close to where they live, such as Nigdi, Pimple Saudagar, Wakad, Moshi or Chikhali. We optimise Google Business Profiles with accurate categories, service areas, photos and regular posts, create service pages that answer local questions, and set up a simple review process so satisfied customers can share their experience on Google.'],
+            ['title' => 'Real estate and new-township marketing', 'copy' => 'Residential projects in Ravet, Moshi, Punawale, Tathawade and other growing areas compete for the same home buyers online. Project landing pages need RERA details, price structure, connectivity, amenities and a quick site-visit booking option. We pair those pages with Meta and Google lead campaigns, WhatsApp follow-up and source tracking so sales teams know which campaigns lead to real visits.'],
+            ['title' => 'How we work with PCMC businesses', 'copy' => 'Mega Techzy is based in Pune, next to PCMC, and runs projects through scheduled calls, shared documents and clear milestones. We begin with your services, buyers and current lead sources, agree on scope and how success will be measured, then move into website, SEO or campaign work with regular reporting. Pricing depends on scope and is confirmed in a written proposal before any work starts.'],
+        ],
+        [
+            ['q' => 'Is Mega Techzy a digital marketing company in PCMC?', 'a' => 'Mega Techzy is a Pune-based digital marketing and web development team that works with businesses across Pimpri-Chinchwad, including Pimpri, Chinchwad, Bhosari, Wakad, Nigdi and Moshi.'],
+            ['q' => 'Can you help an auto component manufacturer in PCMC get B2B leads?', 'a' => 'Yes. We build capability and product pages, optimise them for specific industrial searches and can run LinkedIn and Google Ads campaigns targeted at procurement and engineering buyers.'],
+            ['q' => 'Do you offer local SEO for shops and clinics in PCMC?', 'a' => 'Yes. Local SEO includes Google Business Profile optimisation, service-area pages, review requests and tracking calls and direction requests from Google.'],
+            ['q' => 'How long does SEO take in a competitive area like PCMC?', 'a' => 'Google Business Profile and on-page improvements can show early movement within weeks. Competitive keywords usually need three to six months of steady work, and no one can guarantee a specific ranking.'],
+            ['q' => 'Can you run real estate lead campaigns for projects in Ravet or Moshi?', 'a' => 'Yes. We create project landing pages, run Meta and Google lead campaigns and connect them to WhatsApp follow-up and source tracking.'],
+            ['q' => 'How much does digital marketing cost in PCMC?', 'a' => 'Cost depends on the services, number of pages, ad budgets and reporting you need. We share a written proposal with a clear scope and price after an initial discussion.'],
+            ['q' => 'Can meetings happen in person?', 'a' => 'Most work is handled over video calls and shared documents. Because the team is in Pune, any in-person meeting requirement in PCMC can be discussed during scoping.'],
+            ['q' => 'Do you only work with large companies?', 'a' => 'No. We work with small local businesses, growing service firms and manufacturers. The scope is matched to the business size and budget.'],
+        ],
+        'Mega Techzy helps Pimpri-Chinchwad manufacturers, IT and service firms, builders and local businesses win more qualified enquiries through SEO, websites, Google Ads and LinkedIn campaigns.'
     ),
     'solapur' => $city(
         'Solapur',
@@ -200,7 +224,26 @@ return [
         ['website-development', 'seo', 'branding', 'lead-generation'],
         'Municipal corporation and metro market',
         shortTitle: 'Digital Marketing & SEO Company in Nashik',
-        meta: 'Digital marketing agency for Nashik businesses: SEO, Google Ads, social media and lead-generation websites for manufacturing, real estate and local brands.'
+        meta: 'Digital marketing agency for Nashik businesses: SEO, Google Ads, social media and lead-generation websites for manufacturing, real estate and local brands.',
+        intro: 'Mega Techzy helps Nashik manufacturers, builders, agri and food brands, clinics and local businesses get found on Google, look credible online and turn visitors into qualified enquiries.',
+        sections: [
+            ['title' => 'Digital marketing for Nashik\'s MIDC manufacturers and suppliers', 'copy' => 'Industrial buyers searching for suppliers in Satpur, Ambad, Sinnar or Igatpuri want proof before they call: what you make, which industries you serve, machine capacity, certifications and how to request a quote. We build B2B websites with separate pages for products and capabilities, technical SEO so those pages can be found for specific searches, and LinkedIn or Google Ads campaigns aimed at procurement teams rather than the general public. The goal is fewer, better RFQs, not more random calls.'],
+            ['title' => 'Grape, wine, onion and agri-food businesses', 'copy' => 'Nashik is known across India for grapes, wineries and onion trade, and many of these businesses sell to distributors, exporters, retailers or visitors rather than to one type of customer. A single generic website rarely serves all of them. We plan separate journeys for trade buyers and consumers, product and origin pages that answer real questions, Google Business Profile optimisation for tasting rooms, farm stays and outlets, and social media content that shows the product and the people behind it.'],
+            ['title' => 'Real estate marketing for Nashik builders and developers', 'copy' => 'Residential and commercial projects across Nashik compete for the same buyers on Google and Instagram. Builders need project landing pages with RERA details, pricing structure, location benefits, floor plans and a fast way to book a site visit. We combine those pages with Meta and Google lead campaigns, WhatsApp follow-up and call tracking, so the sales team can see which campaign produced which site visit instead of guessing.'],
+            ['title' => 'Preparing for Simhastha Kumbh 2027 demand', 'copy' => 'The Simhastha Kumbh Mela in Nashik and Trimbakeshwar is expected to bring a very large number of visitors in 2027. Hotels, travel operators, restaurants, transport services, retailers and religious-tourism businesses that build search visibility and clear booking pages early will be better placed than those who start when demand arrives. We help with Google Business Profiles, location and service pages, multilingual content where useful, and campaigns timed around the event dates.'],
+            ['title' => 'Local SEO for clinics, coaching classes and service businesses', 'copy' => 'For local services, most enquiries start with a search such as "dentist near me" or a Google Maps result. We optimise Google Business Profiles with the right categories, services, photos and posts, build service pages for each treatment or course, add clear contact options and set up review requests so happy customers can describe their experience. Marathi and English content can be planned together where your customers search in both languages.'],
+            ['title' => 'How we work with Nashik businesses', 'copy' => 'Mega Techzy is a Pune-based team, so Nashik projects are run remotely with scheduled video calls, shared documents and clear milestones. We start with your services, target customers and current enquiry sources, agree a scope and a measurement plan, then move through content, design, development or campaign setup and regular reporting. Pricing depends on the pages, campaigns and support you need, and is confirmed in a written proposal before work begins.'],
+        ],
+        faqs: [
+            ['q' => 'Does Mega Techzy work with businesses in Nashik?', 'a' => 'Yes. Mega Techzy provides website development, SEO, Google Ads, Meta Ads, social media and lead-generation services for Nashik businesses. Projects are delivered remotely by a Pune-based team.'],
+            ['q' => 'Can you help an MIDC manufacturer get more B2B enquiries?', 'a' => 'Yes. We build product and capability pages, optimise them for specific industrial searches, and can run LinkedIn or Google Ads campaigns aimed at procurement and engineering buyers.'],
+            ['q' => 'Do you create Marathi content for Nashik customers?', 'a' => 'Where your customers search or prefer to read in Marathi, we can plan Marathi and English content together, for example on Google Business Profile posts, social media and selected website pages.'],
+            ['q' => 'How long does SEO take to show results in Nashik?', 'a' => 'Local SEO and Google Business Profile changes can start improving visibility within a few weeks. Competitive service keywords usually take three to six months of consistent work. No one can guarantee a specific ranking.'],
+            ['q' => 'Can you run ads for a real estate project in Nashik?', 'a' => 'Yes. We set up project landing pages, Meta and Google lead campaigns, WhatsApp follow-up and tracking so you can see which campaigns produce site visits.'],
+            ['q' => 'Should hotels and travel businesses prepare now for Kumbh 2027?', 'a' => 'Starting early helps. Search visibility, reviews and booking pages take time to build, so businesses that prepare months ahead are better placed when visitor searches increase.'],
+            ['q' => 'How much does digital marketing cost for a Nashik business?', 'a' => 'It depends on the scope: number of pages, campaign budgets, content needs and reporting. We share a written proposal with a clear scope and price after understanding your goals.'],
+            ['q' => 'Do I need to meet in person?', 'a' => 'No. Discovery, reviews, approvals and reporting are handled over video calls and shared documents. Any in-person meeting requirement is discussed during scoping.'],
+        ]
     ),
     'malegaon' => $city(
         'Malegaon',
