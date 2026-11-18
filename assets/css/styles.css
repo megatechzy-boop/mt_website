@@ -1022,6 +1022,14 @@ p {
     overflow-wrap: anywhere;
 }
 
+.footer-address {
+    margin: 0 0 1.3rem;
+    color: #f4faf6;
+    font-size: .98rem;
+    font-style: normal;
+    font-weight: 700;
+}
+
 .footer-enquiry {
     display: inline-flex;
     align-items: center;
