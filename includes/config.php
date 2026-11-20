@@ -231,6 +231,7 @@ function webpage_schema(string $name, string $description, string $url, string $
         'description' => $description,
         'isPartOf' => ['@id' => SITE_URL . '/#website'],
         'about' => ['@id' => SITE_URL . '/#organization'],
+        'publisher' => ['@id' => SITE_URL . '/#organization'],
         'inLanguage' => $language,
     ];
     if ($about) {

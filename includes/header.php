@@ -17,7 +17,9 @@ $htmlLang = $pageMeta['language'] ?? 'en-IN';
 $ogLocale = str_replace('-', '_', $htmlLang);
 $hreflangLinks = $pageMeta['hreflang'] ?? [];
 $pageType = $pageMeta['schema_type'] ?? 'WebPage';
-$globalSchemas = $canonical === site_url() ? build_global_schema() : [];
+// Every page carries the organization node so the WebPage's about/publisher
+// references resolve on that page, not only on the homepage.
+$globalSchemas = build_global_schema();
 $schemas = array_merge(
     $globalSchemas,
     [webpage_schema($title, $description, $canonical, $htmlLang, $pageType, $pageMeta['about'] ?? [])],
