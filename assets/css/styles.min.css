@@ -10,3 +10,4 @@
 
 .agency-inner .agency-article{background:#f8f8f3}.agency-inner .agency-article .article-header{background:#0b1712;box-shadow:0 0 0 100vmax #0b1712;clip-path:inset(-8rem -100vmax 0);padding-bottom:2.5rem}.agency-inner .agency-article--light .article-header{background:none;box-shadow:none;padding-bottom:0}@media (max-width:640px){.agency-inner .agency-article{background:#f8f8f3}.agency-inner .agency-article .article-header{clip-path:inset(-5rem -100vmax 0)}}
 .footer-address{color:#f4faf6;font-size:.98rem;font-style:normal;font-weight:700;margin:0 0 1.3rem}
+.agency-summary-list{color:#34443d;line-height:1.6;margin:0 0 1.4rem;padding-left:1.1rem}.agency-summary-list li+li{margin-top:.45rem}

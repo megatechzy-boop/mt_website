@@ -89,7 +89,12 @@ include __DIR__ . '/includes/navbar.php';
             <div class="agency-statement-grid">
                 <h2>Why Businesses Choose <em>Mega Techzy.</em></h2>
                 <div>
-                    <p>We build the digital moments that make people stop, trust and take action. From the first Google search to the final enquiry, every touchpoint is deliberate.</p>
+                    <p><strong>In short:</strong> Mega Techzy is a Pune-based digital marketing and web development company, working since 2019. We help small and growing businesses in Pune, Pimpri-Chinchwad, Solapur, Nashik and across India get more qualified enquiries through websites, SEO, Google Ads and social media marketing.</p>
+                    <ul class="agency-summary-list">
+                        <li><strong>Who it is for:</strong> clinics, manufacturers, builders, coaching institutes, retailers and service businesses.</li>
+                        <li><strong>What you get:</strong> a website that converts, visibility on Google and Maps, and campaigns measured by real leads.</li>
+                        <li><strong>How we work:</strong> founder-led, with a written proposal within 24 hours and clear monthly reporting.</li>
+                    </ul>
                     <a class="agency-text-link agency-text-link-dark" href="/about">Meet Mega Techzy <span>&rarr;</span></a>
                 </div>
             </div>
@@ -187,6 +192,29 @@ include __DIR__ . '/includes/navbar.php';
         <div class="container agency-services-foot"><a class="agency-text-link agency-text-link-dark" href="/locations/">Explore all service areas <span>&rarr;</span></a></div>
     </section>
 
+    <section class="section">
+        <div class="container narrow">
+            <p class="eyebrow">Choose the right service</p>
+            <h2>Which digital marketing service does your business need?</h2>
+            <p>Start with your goal, not with a channel. This table shows where most businesses should begin.</p>
+            <div class="article-table-wrap" role="region" aria-label="Which service to choose by business goal" tabindex="0">
+                <table class="article-table">
+                    <thead>
+                        <tr><th scope="col">Your goal</th><th scope="col">Start with</th><th scope="col">Best for</th><th scope="col">When results show</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><th scope="row">Look credible when customers check you online</th><td><a href="/services/website-development">Website development</a></td><td>New businesses or outdated, slow websites</td><td>At launch, usually 2 to 5 weeks</td></tr>
+                        <tr><th scope="row">Get found on Google and Maps without paying per click</th><td><a href="/services/seo">SEO and local SEO</a></td><td>Clinics, local services and B2B suppliers</td><td>Early movement in weeks; competitive terms in 3 to 6 months</td></tr>
+                        <tr><th scope="row">Get enquiries quickly</th><td><a href="/services/google-ads">Google Ads</a></td><td>People already searching for your service</td><td>Within days of launch</td></tr>
+                        <tr><th scope="row">Reach new customers and build awareness</th><td><a href="/services/social-media">Social media marketing</a> and <a href="/services/meta-ads">Meta Ads</a></td><td>Retail, real estate, education and consumer brands</td><td>Ads within days; organic growth over months</td></tr>
+                        <tr><th scope="row">Stop losing leads after they enquire</th><td><a href="/services/whatsapp-marketing">WhatsApp marketing and automation</a></td><td>Businesses with many enquiries and slow follow-up</td><td>As soon as the workflow is live</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>Not sure? Most local businesses get the best return from a fast website plus local SEO first, then add Google Ads for quicker leads. Read <a href="/blog/seo-vs-google-ads">SEO vs Google Ads</a> to decide.</p>
+        </div>
+    </section>
+
     <section class="agency-process section">
         <div class="container agency-section-heading">
             <div>
@@ -195,7 +223,7 @@ include __DIR__ . '/includes/navbar.php';
             </div>
         </div>
         <div class="container agency-process-grid">
-            <?php foreach (['Discover' => 'Find the opportunity hiding in your market.', 'Define' => 'Turn insight into a focused growth plan.', 'Create' => 'Build the website, campaigns and content.', 'Evolve' => 'Measure, learn and keep compounding.'] as $number => $copy): ?>
+            <?php foreach (['Discover' => 'We review your website, Google visibility, competitors and current lead sources.', 'Define' => 'You get a written plan with priorities, scope, timeline and price.', 'Create' => 'We build the website, pages, campaigns and tracking you approved.', 'Evolve' => 'Monthly reports show leads and rankings, and we improve what works.'] as $number => $copy): ?>
                 <article data-reveal>
                     <span><?= str_pad((string) (array_search($number, array_keys(['Discover' => '', 'Define' => '', 'Create' => '', 'Evolve' => ''])) + 1), 2, '0', STR_PAD_LEFT); ?></span>
                     <h3><?= e($number); ?></h3>

@@ -3364,3 +3364,14 @@ p {
         clip-path: inset(-5rem -100vmax 0);
     }
 }
+
+.agency-summary-list {
+    margin: 0 0 1.4rem;
+    padding-left: 1.1rem;
+    color: #34443d;
+    line-height: 1.6;
+}
+
+.agency-summary-list li + li {
+    margin-top: .45rem;
+}
