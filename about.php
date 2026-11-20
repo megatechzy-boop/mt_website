@@ -5,9 +5,12 @@ $aboutFaqs = [
     ['q' => 'When was Mega Techzy established?', 'a' => 'Mega Techzy was established in 2019.'],
     ['q' => 'What does Mega Techzy help businesses with?', 'a' => 'We help with website development, SEO, paid ads, content marketing, automation, analytics and lead generation.'],
     ['q' => 'Where does Mega Techzy work?', 'a' => 'We support suitable projects across Maharashtra and India, including Mumbai, Pune, Pimpri-Chinchwad, Nagpur, Nashik and Solapur.'],
+    ['q' => 'Is Mega Techzy an agency or a freelancer?', 'a' => 'Mega Techzy is a founder-led digital marketing and web development company. You work directly with the people planning and doing the work, without the layers of a large agency.'],
+    ['q' => 'What size of business does Mega Techzy work with?', 'a' => 'Mostly small and growing businesses: local service providers, clinics, manufacturers, builders, coaching institutes and retailers. The scope is matched to the size of the business and its budget.'],
+    ['q' => 'How do I start working with Mega Techzy?', 'a' => 'Share your website and goals through the contact form or WhatsApp. We review your current online presence and send a written proposal with scope, timeline and price, usually within 24 hours.'],
 ];
 $pageMeta = [
-    'title' => 'About Mega Techzy | Digital Growth Company',
+    'title' => 'About Mega Techzy | Digital Marketing & Web Development Company',
     'description' => 'Learn about Mega Techzy, established in 2019, with 100+ clients served and 50+ website, SEO, advertising and automation projects delivered.',
     'path' => 'about',
     'schema_type' => 'AboutPage',
@@ -25,8 +28,8 @@ include __DIR__ . '/includes/navbar.php';
         <div class="container page-hero-grid">
             <div>
                 <p class="eyebrow">About Mega Techzy</p>
-                <h1>Digital marketing and website development built for practical business growth</h1>
-                <p>Established in 2019, Mega Techzy helps businesses build a stronger digital presence through website development, SEO, paid ads, content, automation and analytics.</p>
+                <h1>About Mega Techzy: a digital marketing and web development company</h1>
+                <p><strong>In short:</strong> Mega Techzy is a founder-led digital marketing and web development company in Maharashtra, established in 2019. We help small and growing businesses get more qualified enquiries through websites, SEO, Google and Meta Ads, social media and WhatsApp automation, and we have served 100+ clients across 50+ projects.</p>
             </div>
             <aside class="proof-panel">
                 <span class="card-icon"><?= icon_svg('shield'); ?></span>
@@ -39,7 +42,8 @@ include __DIR__ . '/includes/navbar.php';
         <div class="container two-column">
             <div>
                 <p class="eyebrow">Mission</p>
-                <h2>Help businesses become easier to find, trust and contact</h2>
+                <h2>What is Mega Techzy?</h2>
+                <p>Mega Techzy is a company that plans and builds the online side of a business: the website customers visit, how the business appears on Google, the ads that bring new enquiries and the follow-up that turns those enquiries into customers. Our mission is to help businesses become easier to find, trust and contact.</p>
                 <p>Mega Techzy started in 2019 with a simple belief: digital marketing works better when the website, search visibility, advertising, content and follow-up are planned together. We work with businesses that need a useful digital system, not a collection of disconnected activities.</p>
                 <p>Our work is grounded in clear user experience, local SEO, website speed, secure enquiry paths and conversion-focused content. These foundations help customers understand the offer, make it easier for search engines to interpret the website and give teams a more reliable way to measure enquiries.</p>
             </div>
@@ -77,6 +81,46 @@ include __DIR__ . '/includes/navbar.php';
         </div>
     </section>
     <section class="section">
+        <div class="container narrow">
+            <p class="eyebrow">Who we work with</p>
+            <h2>Who does Mega Techzy work with?</h2>
+            <p>We work best with owners and teams who want measurable enquiries, not just more likes or traffic. Typical clients include:</p>
+            <ul>
+                <li><strong>Clinics and healthcare providers</strong> that need patient enquiries and a trustworthy online presence.</li>
+                <li><strong>Manufacturers and B2B suppliers</strong> that need capability pages and buyer enquiries.</li>
+                <li><strong>Builders and real estate developers</strong> that need project pages and site-visit leads.</li>
+                <li><strong>Coaching institutes and schools</strong> that need admission enquiries.</li>
+                <li><strong>Retailers and local service businesses</strong> that need visibility on Google Maps and social media.</li>
+            </ul>
+            <p>We serve businesses in <a href="/locations/pune">Pune</a>, <a href="/locations/pcmc">Pimpri-Chinchwad</a>, <a href="/locations/solapur">Solapur</a>, <a href="/locations/nashik">Nashik</a> and <a href="/locations/">other Maharashtra cities</a>, plus remote clients across India.</p>
+
+            <h2>How is Mega Techzy different from a large agency or a freelancer?</h2>
+            <p>Each option suits a different business. This comparison shows where Mega Techzy fits.</p>
+            <div class="article-table-wrap" role="region" aria-label="Mega Techzy compared with a large agency and a freelancer" tabindex="0">
+                <table class="article-table">
+                    <thead>
+                        <tr><th scope="col"></th><th scope="col">Mega Techzy</th><th scope="col">Large agency</th><th scope="col">Freelancer</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><th scope="row">Who you talk to</th><td>The founder-led team doing the work</td><td>An account manager</td><td>One person</td></tr>
+                        <tr><th scope="row">Services</th><td>Website, SEO, ads, social media and automation connected in one plan</td><td>Broad, often split across teams</td><td>Usually one or two skills</td></tr>
+                        <tr><th scope="row">Budget fit</th><td>Scoped to small and growing businesses</td><td>Often suited to larger budgets</td><td>Lowest cost, limited capacity</td></tr>
+                        <tr><th scope="row">Best for</th><td>Businesses that want measurable enquiries with a single accountable partner</td><td>Large brands with complex campaigns</td><td>Small one-off tasks</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>How does Mega Techzy work?</h2>
+            <ol>
+                <li><strong>Understand:</strong> we review your website, Google visibility, competitors and current lead sources.</li>
+                <li><strong>Plan:</strong> you receive a written proposal with priorities, scope, timeline and price.</li>
+                <li><strong>Build:</strong> we create the website, pages, campaigns and tracking you approve.</li>
+                <li><strong>Improve:</strong> monthly reporting shows leads and rankings, and we refine what works.</li>
+            </ol>
+            <p>Explore our <a href="/services/">digital marketing services</a> or read practical guides on the <a href="/blog/">Mega Techzy blog</a>.</p>
+        </div>
+    </section>
+    <section class="section soft-section">
         <div class="container two-column">
             <div>
                 <p class="eyebrow">What we do</p>
@@ -93,7 +137,7 @@ include __DIR__ . '/includes/navbar.php';
             </div>
         </div>
     </section>
-    <section class="section soft-section faq-section">
+    <section class="section faq-section">
         <div class="container narrow">
             <p class="eyebrow">About Mega Techzy FAQs</p>
             <h2>Questions businesses ask before working with us</h2>
